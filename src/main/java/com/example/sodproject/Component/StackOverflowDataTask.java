@@ -6,7 +6,7 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 @Component
 public class StackOverflowDataTask {
-    private static final long FETCH_INTERVAL_MS = 86400000; // 一天的毫秒数
+    private static final long FETCH_INTERVAL_MS = 86400000;
 
     @Autowired
     private StackOverflowDataService stackOverflowDataService;

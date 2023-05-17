@@ -20,7 +20,6 @@ public class StackOverflowDataService {
         RestTemplate restTemplate = new RestTemplate();
         String apiUrl = STACK_OVERFLOW_API_BASE_URL + "/questions?order=desc&sort=activity&tagged=java&site=stackoverflow";
         StackOverflowResponse response = restTemplate.getForObject(apiUrl, StackOverflowResponse.class);
-
         if (response != null && response.getItems() != null) {
             for (StackOverflowQuestion question : response.getItems()) {
                 Question newQuestion = new Question();
