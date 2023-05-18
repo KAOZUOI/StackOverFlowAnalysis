@@ -1,6 +1,7 @@
 package com.example.sodproject.Controller;
 
 import com.example.sodproject.Service.StackOverflowDataService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +14,7 @@ public class StackOverflowDataController {
     private StackOverflowDataService stackOverflowService;
 
     @GetMapping("/update")
-    public String updateData() {
+    public String updateData() throws JsonProcessingException {
         stackOverflowService.fetchAndStoreQuestions();
         return "Data updated successfully!";
     }

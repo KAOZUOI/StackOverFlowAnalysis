@@ -1,6 +1,7 @@
 package com.example.sodproject.Component;
 
 import com.example.sodproject.Service.StackOverflowDataService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -12,7 +13,7 @@ public class StackOverflowDataTask {
     private StackOverflowDataService stackOverflowDataService;
 
     @Scheduled(fixedDelay = FETCH_INTERVAL_MS)
-    public void fetchQuestionsTask() {
+    public void fetchQuestionsTask() throws JsonProcessingException {
         stackOverflowDataService.fetchAndStoreQuestions();
 
     }
