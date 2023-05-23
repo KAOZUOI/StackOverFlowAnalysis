@@ -1,48 +1,25 @@
 package com.example.sodproject.Model;
-import jakarta.persistence.*;
+
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import java.sql.Timestamp;
 
 @Entity
 @Table
 public class Question {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private String title;
-    private String body;
 
-    // Getters and setters
-    public Long getId() {
-        return id;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public Question(Long id, String title, String body) {
-        this.id = id;
-        this.title = title;
-        this.body = body;
-    }
-
-    public Question() {
-    }
-
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long question_id;
+  private Long user_id;
+  private Long answer_count;
+  private Long accepted_answer_id;
+  private Timestamp creation_date;
+  private Long up_vote_count;
+  private Long view_count;
 
 }
