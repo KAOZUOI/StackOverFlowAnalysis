@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Timestamp;
 
 import com.example.sodproject.Repository.QuestionRepository;
 
@@ -49,18 +50,49 @@ public class StackOverflowDataService {
         fileWriter.write("");
         fileWriter.write(jsonAsString);
         fileWriter.close();
-
+//        private Long question_id;
+//        private Long user_id;
+//        private Long answer_count;
+//        private Long accepted_answer_id;
+//        private Timestamp creation_date;
+//        private Long up_vote_count;
+//        private Long view_count;
         JsonNode jsonNode = new ObjectMapper().readTree(jsonResponse);
         for (JsonNode item : jsonNode.get("items")) {
-          System.out.println(item.get("question_id").asLong());
+          JsonNode questionIdNode = item.get("question_id");
+          long questionId = (questionIdNode != null && !questionIdNode.isNull()) ? questionIdNode.asLong() : 0L;
+
+          JsonNode ownerIdNode = item.get("owner").get("user_id");
+          long ownerId = (ownerIdNode != null && !ownerIdNode.isNull()) ? ownerIdNode.asLong() : 0L;
+
+          JsonNode answerCountNode = item.get("answer_count");
+          long answerCount = (answerCountNode != null && !answerCountNode.isNull()) ? answerCountNode.asLong() : 0L;
+
+          JsonNode acceptedAnswerIdNode = item.get("accepted_answer_id");
+          long acceptedAnswerId = (acceptedAnswerIdNode != null && !acceptedAnswerIdNode.isNull()) ? acceptedAnswerIdNode.asLong() : 0L;
+
+          Timestamp creationDate = new Timestamp(0L);
+          JsonNode creationDateNode = item.get("creation_date");
+          if (creationDate != null && !creationDateNode.isNull()) {
+            creationDate = new Timestamp(creationDateNode.asLong());
+          }
+
+          JsonNode upVoteCountNode = item.get("up_vote_count");
+          long upVoteCount = (upVoteCountNode != null && !upVoteCountNode.isNull()) ? upVoteCountNode.asLong() : 0L;
+
+          JsonNode viewCountNode = item.get("view_count");
+          long viewCount = (viewCountNode != null && !viewCountNode.isNull()) ? viewCountNode.asLong() : 0L;
+
           questionRepository.save(new Question(
-              item.get("question_id").asLong(),
-              item.get("owner").get("user_id").asLong()));
-//              item.get("answer_count").asLong(),
-//              item.get("accepted_answer_id").asLong(),
-//              new java.sql.Timestamp(item.get("creation_date").asLong()),
-//              item.get("up_vote_count").asLong(),
-//              item.get("view_count").asLong()));
+              questionId,
+              ownerId,
+              answerCount,
+              acceptedAnswerId,
+              creationDate,
+              upVoteCount,
+              viewCount
+          ));
+          System.out.println(item.get("question_id").asLong());
         }
       } catch (IOException | ParseException e) {
         throw new RuntimeException(e);
