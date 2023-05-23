@@ -8,23 +8,23 @@ import jakarta.persistence.Table;
 
 @Entity
 @Table
-public class User {
+public class Account {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue
   private Long user_id;
   private Long question_count;
   private Long answer_count;
   private Long comment_count;
 
-  public User(Long user_id, Long question_count, Long answer_count, Long comment_count) {
+  public Account(Long user_id, Long question_count, Long answer_count, Long comment_count) {
     this.user_id = user_id;
     this.question_count = question_count;
     this.answer_count = answer_count;
     this.comment_count = comment_count;
   }
 
-  public User() {
+  public Account() {
 
   }
 

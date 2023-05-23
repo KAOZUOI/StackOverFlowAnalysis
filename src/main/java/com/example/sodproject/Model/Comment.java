@@ -11,7 +11,7 @@ import jakarta.persistence.Table;
 public class Comment {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue
   private Long comment_id;
   private Long post_id;
   private Long user_id;

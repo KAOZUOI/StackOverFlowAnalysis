@@ -13,7 +13,6 @@ import java.sql.Timestamp;
 public class Question {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long question_id;
   private Long user_id;
   private Long answer_count;
@@ -36,6 +35,12 @@ public class Question {
   public Question() {
 
   }
+
+  public Question(long questionId, long user_id) {
+    this.question_id = questionId;
+    this.user_id = user_id;
+  }
+
 
   public Long getQuestion_id() {
     return question_id;

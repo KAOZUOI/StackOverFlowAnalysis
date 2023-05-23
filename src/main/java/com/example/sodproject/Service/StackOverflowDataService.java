@@ -1,6 +1,10 @@
 package com.example.sodproject.Service;
 
 
+import com.example.sodproject.Model.Question;
+import com.example.sodproject.Model.Tag;
+import com.example.sodproject.Repository.TagRepository;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -28,10 +32,11 @@ public class StackOverflowDataService {
 
   @Autowired
   private QuestionRepository questionRepository;
+  private TagRepository tagRepository;
 
   public void fetchAndStoreQuestions() throws IOException {
     String apiUrl = STACK_OVERFLOW_API_BASE_URL
-        + "/questions?order=desc&sort=activity&tagged=java&site=stackoverflow";
+        + "/questions?order=desc&sort=activity&tagged=java&site=stackoverflow&filter=!nOedRLWnyS";
     HttpGet httpGet = new HttpGet(apiUrl);
     try (CloseableHttpClient httpclient = HttpClients.createDefault()) {
       try (CloseableHttpResponse response = httpclient.execute(httpGet)) {
@@ -41,9 +46,22 @@ public class StackOverflowDataService {
         String jsonAsString = objectMapper.writeValueAsString(jsonResponse);
 
         FileWriter fileWriter = new FileWriter("questions.json");
+        fileWriter.write("");
         fileWriter.write(jsonAsString);
         fileWriter.close();
 
+        JsonNode jsonNode = new ObjectMapper().readTree(jsonResponse);
+        for (JsonNode item : jsonNode.get("items")) {
+          System.out.println(item.get("question_id").asLong());
+          questionRepository.save(new Question(
+              item.get("question_id").asLong(),
+              item.get("owner").get("user_id").asLong()));
+//              item.get("answer_count").asLong(),
+//              item.get("accepted_answer_id").asLong(),
+//              new java.sql.Timestamp(item.get("creation_date").asLong()),
+//              item.get("up_vote_count").asLong(),
+//              item.get("view_count").asLong()));
+        }
       } catch (IOException | ParseException e) {
         throw new RuntimeException(e);
       }

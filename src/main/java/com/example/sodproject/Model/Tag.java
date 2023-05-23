@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 public class Tag {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long question_id;
   private String tag;
 
