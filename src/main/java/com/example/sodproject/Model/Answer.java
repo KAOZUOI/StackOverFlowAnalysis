@@ -20,15 +20,17 @@ public class Answer {
   private Timestamp creation_date;
   private Long up_vote_count;
   private boolean is_accepted;
+  private Long comment_count;
 
   public Answer(Long answer_id, Long user_id, Long question_id, Timestamp creation_date,
-      Long up_vote_count, boolean is_accepted) {
+      Long up_vote_count, boolean is_accepted, Long comment_count) {
     this.answer_id = answer_id;
     this.user_id = user_id;
     this.question_id = question_id;
     this.creation_date = creation_date;
     this.up_vote_count = up_vote_count;
     this.is_accepted = is_accepted;
+    this.comment_count = comment_count;
   }
 
   public Answer() {

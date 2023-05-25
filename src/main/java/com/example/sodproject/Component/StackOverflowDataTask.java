@@ -3,6 +3,7 @@ package com.example.sodproject.Component;
 import com.example.sodproject.Service.StackOverflowDataService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import java.io.IOException;
+import org.apache.hc.core5.http.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class StackOverflowDataTask {
     private StackOverflowDataService stackOverflowDataService;
 
     @Scheduled(fixedDelay = FETCH_INTERVAL_MS)
-    public void fetchQuestionsTask() throws IOException {
+    public void fetchQuestionsTask() throws IOException, ParseException, InterruptedException {
         stackOverflowDataService.fetchAndStoreQuestions();
 
     }

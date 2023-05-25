@@ -20,9 +20,10 @@ public class Question {
   private Timestamp creation_date;
   private Long up_vote_count;
   private Long view_count;
+  private Long comment_count;
 
   public Question(Long question_id, Long user_id, Long answer_count, Long accepted_answer_id,
-      Timestamp creation_date, Long up_vote_count, Long view_count) {
+      Timestamp creation_date, Long up_vote_count, Long view_count, Long comment_count) {
     this.question_id = question_id;
     this.user_id = user_id;
     this.answer_count = answer_count;
@@ -30,6 +31,7 @@ public class Question {
     this.creation_date = creation_date;
     this.up_vote_count = up_vote_count;
     this.view_count = view_count;
+    this.comment_count = comment_count;
   }
 
   public Question() {
