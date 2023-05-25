@@ -141,165 +141,30 @@ public class StackOverflowDataService {
                 viewCount,
                 commentCountLong
             ));
-            long answerCountAll = 0L;
-            for (Long value : postIdsAnswerCount.values()) {
-              answerCountAll += value;
-            }
-
-            if (answerCountAll >= 100 || postIdsAnswerCount.size() >= 100) {
-              StringBuilder questionIds = new StringBuilder();
-              long sum = 0;
-              long count = 0;
-              Iterator<Map.Entry<Long, Long>> iterator = postIdsAnswerCount.entrySet().iterator();
-              while (iterator.hasNext()) {
-                if (sum > 100 || count == 100) {
-                  break;
-                }
-                Map.Entry<Long, Long> entry = iterator.next();
-                questionIds.append(entry.getKey()).append(";");
-                iterator.remove();
-                count++;
-                sum += entry.getValue();
-              }
-              questionIds.deleteCharAt(questionIds.length() - 1);
-
-              Thread.sleep(1000);
-
-              String answerUrl = STACK_OVERFLOW_API_BASE_URL
-                  + "/questions/" + questionIds
-                  + "/answers?pagesize=100&order=desc&sort=activity&site=stackoverflow&filter=!6WPIomoVB5-xc";
-
-              HttpGet answerHttpGet = new HttpGet(answerUrl);
-              CloseableHttpClient httpclientAnswer = HttpClients.createDefault();
-              CloseableHttpResponse responseAnswer = httpclientAnswer.execute(answerHttpGet);
-              HttpEntity entityAnswer = responseAnswer.getEntity();
-              String jsonResponseAnswer = EntityUtils.toString(entityAnswer);
-              JsonNode jsonNodeAnswer = new ObjectMapper().readTree(jsonResponseAnswer);
-              for (JsonNode itemAnswer : jsonNodeAnswer.get("items")) {
-                JsonNode answerIdNode = itemAnswer.get("answer_id");
-                long answerId =
-                    (answerIdNode != null && !answerIdNode.isNull()) ? answerIdNode.asLong() : 0L;
-
-                JsonNode ownerIdAnswerNode = itemAnswer.get("owner").get("user_id");
-                long ownerIdAnswer = (ownerIdAnswerNode != null && !ownerIdAnswerNode.isNull())
-                    ? ownerIdAnswerNode.asLong() : 0L;
-
-                JsonNode questionIdAnswerNode = itemAnswer.get("question_id");
-                long questionIdAnswer =
-                    (questionIdAnswerNode != null && !questionIdAnswerNode.isNull())
-                        ? questionIdAnswerNode.asLong() : 0L;
-
-                JsonNode creationDateAnswerNode = itemAnswer.get("creation_date");
-                Timestamp creationDateAnswer = new Timestamp(0L);
-                if (creationDateAnswerNode != null && !creationDateAnswerNode.isNull()) {
-                  long creationDateAnswerLong = creationDateAnswerNode.asLong() * 1000;
-                  creationDateAnswer = new Timestamp(creationDateAnswerLong);
-                }
-
-                JsonNode upVoteCountAnswerNode = itemAnswer.get("up_vote_count");
-                long upVoteCountAnswer =
-                    (upVoteCountAnswerNode != null && !upVoteCountAnswerNode.isNull())
-                        ? upVoteCountAnswerNode.asLong() : 0L;
-
-                JsonNode isAcceptedAnswerNode = itemAnswer.get("is_accepted");
-                boolean isAcceptedAnswer =
-                    (isAcceptedAnswerNode != null && !isAcceptedAnswerNode.isNull())
-                        ? isAcceptedAnswerNode.asBoolean() : false;
-
-                JsonNode commentCountAnswerNode = itemAnswer.get("comment_count");
-                long commentCountAnswer =
-                    (commentCountAnswerNode != null && !commentCountAnswerNode.isNull())
-                        ? commentCountAnswerNode.asLong() : 0L;
-                postIdsCommentCount.put(answerId, commentCountAnswer);
-
-                answerRepository.save(new Answer(
-                    answerId,
-                    ownerIdAnswer,
-                    questionIdAnswer,
-                    creationDateAnswer,
-                    upVoteCountAnswer,
-                    isAcceptedAnswer,
-                    commentCountAnswer
-                ));
-              }
-
-            }
-          }
-
-          long commentCountAll = 0L;
-          for (Long value : postIdsCommentCount.values()) {
-            commentCountAll += value;
-          }
-
-          if (commentCountAll >= 100 || postIdsCommentCount.size() >= 100) {
-            StringBuilder postIds = new StringBuilder();
-            long sum = 0;
-            long count = 0;
-            Iterator<Map.Entry<Long, Long>> iterator = postIdsCommentCount.entrySet().iterator();
-            while (iterator.hasNext()) {
-              if (sum > 100 || count == 100) {
-                break;
-              }
-              Map.Entry<Long, Long> entry = iterator.next();
-              postIds.append(entry.getKey()).append(";");
-              iterator.remove();
-              count++;
-              sum += entry.getValue();
-            }
-            postIds.deleteCharAt(postIds.length() - 1);
-
-            Thread.sleep(1000);
-
-            String commentUrl = STACK_OVERFLOW_API_BASE_URL
-                + "/posts/" + postIds
-                + "/comments?pagesize=100&order=desc&sort=creation&site=stackoverflow";
-            HttpGet commentHttpGet = new HttpGet(commentUrl);
-            CloseableHttpClient httpclientComment = HttpClients.createDefault();
-            CloseableHttpResponse responseComment = httpclientComment.execute(commentHttpGet);
-            HttpEntity entityComment = responseComment.getEntity();
-            String jsonResponseComment = EntityUtils.toString(entityComment);
-            JsonNode jsonNodeComment = new ObjectMapper().readTree(jsonResponseComment);
-            for (JsonNode itemComment : jsonNodeComment.get("items")) {
-              JsonNode commentIdNode = itemComment.get("comment_id");
-              long commentId =
-                  (commentIdNode != null && !commentIdNode.isNull()) ? commentIdNode.asLong()
-                      : 0L;
-
-              JsonNode ownerIdCommentNode = itemComment.get("owner").get("user_id");
-              long ownerIdComment = (ownerIdCommentNode != null && !ownerIdCommentNode.isNull())
-                  ? ownerIdCommentNode.asLong() : 0L;
-
-              JsonNode postIdCommentNode = itemComment.get("post_id");
-              long postIdComment =
-                  (postIdCommentNode != null && !postIdCommentNode.isNull())
-                      ? postIdCommentNode.asLong() : 0L;
-
-              commentRepository.save(new Comment(
-                  commentId,
-                  postIdComment,
-                  ownerIdComment
-              ));
-            }
 
           }
-        } catch (ParseException | InterruptedException e) {
-          throw new RuntimeException(e);
         }
-
       }
     }
 
-    if (postIdsAnswerCount.size() != 0) {
+    while (postIdsAnswerCount.size() != 0) {
       StringBuilder questionIds = new StringBuilder();
+      long sum = 0L;
+      long count = 0L;
       Iterator<Map.Entry<Long, Long>> iterator = postIdsAnswerCount.entrySet().iterator();
       while (iterator.hasNext()) {
+        if (sum > 100 || count == 100) {
+          break;
+        }
         Map.Entry<Long, Long> entry = iterator.next();
         questionIds.append(entry.getKey()).append(";");
         iterator.remove();
+        count++;
+        sum += entry.getValue();
       }
       questionIds.deleteCharAt(questionIds.length() - 1);
 
-      Thread.sleep(1000);
+      Thread.sleep(100);
 
       String answerUrl = STACK_OVERFLOW_API_BASE_URL
           + "/questions/" + questionIds
@@ -362,18 +227,22 @@ public class StackOverflowDataService {
 
     while (postIdsCommentCount.size() != 0) {
       StringBuilder postIds = new StringBuilder();
-      Iterator<Map.Entry<Long, Long>> iterator = postIdsCommentCount.entrySet().iterator();
+      long sum = 0L;
       long count = 0L;
+      Iterator<Map.Entry<Long, Long>> iterator = postIdsCommentCount.entrySet().iterator();
       while (iterator.hasNext()) {
-        if(count == 100) break;
+        if (sum > 100 || count == 100) {
+          break;
+        }
         Map.Entry<Long, Long> entry = iterator.next();
         postIds.append(entry.getKey()).append(";");
         iterator.remove();
         count++;
+        sum += entry.getValue();
       }
       postIds.deleteCharAt(postIds.length() - 1);
 
-      Thread.sleep(1000);
+      Thread.sleep(100);
 
       String commentUrl = STACK_OVERFLOW_API_BASE_URL
           + "/posts/" + postIds
