@@ -20,4 +20,8 @@ public class StackOverflowDataController {
         stackOverflowService.fetchAndStoreQuestions();
         return "Data updated successfully!";
     }
+    @GetMapping("/noAnswerPercentage")
+    public double getQuestions() throws JsonProcessingException {
+        return stackOverflowService.noAnswerPercentage();
+    }
 }

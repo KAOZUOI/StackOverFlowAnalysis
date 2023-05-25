@@ -16,12 +16,12 @@ import java.sql.Timestamp;
 
 import com.example.sodproject.Repository.QuestionRepository;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-
-import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
+import java.util.stream.Collectors;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -277,4 +277,48 @@ public class StackOverflowDataService {
     }
 
   }
+
+  public double noAnswerPercentage(){
+    return questionRepository.countByAnswerCount(0L) * 100.0 / questionRepository.count();
+  }
+
+  public long averageAnswerCount(){
+    List<Question> questions = questionRepository.findAll();
+    long sum = 0L;
+    for (Question question : questions) {
+      sum += question.getAnswerCount();
+    }
+    return sum / questions.size();
+  }
+
+  public long maxAnswerCount(){
+    List<Question> questions = questionRepository.findAll();
+    long max = 0L;
+    for (Question question : questions) {
+      if (question.getAnswerCount() > max) {
+        max = question.getAnswerCount();
+      }
+    }
+    return max;
+  }
+
+  public TreeMap<Long, Long> answerCountDistribution(){
+    TreeMap<Long, Long> answerCountDistribution = new TreeMap<>();
+    List<Question> questions = questionRepository.findAll();
+    for (Long answerCount : questions.stream().map(Question::getAnswerCount).toList()) {
+      if (answerCountDistribution.containsKey(answerCount)) {
+        answerCountDistribution.put(answerCount, answerCountDistribution.get(answerCount) + 1);
+      } else {
+        answerCountDistribution.put(answerCount, 1L);
+      }
+    }
+    return answerCountDistribution;
+  }
+
+  //question have accepted answer percentage
+  public double questionHaveAcceptedAnswerPercentage(){
+    return questionRepository.countByAnswerCountGreaterThan(0L) * 100.0 / questionRepository.count();
+  }
+
+
 }

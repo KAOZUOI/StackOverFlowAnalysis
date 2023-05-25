@@ -1,6 +1,7 @@
 package com.example.sodproject.Model;
 
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -13,90 +14,101 @@ import java.sql.Timestamp;
 public class Question {
 
   @Id
-  private Long question_id;
-  private Long user_id;
-  private Long answer_count;
-  private Long accepted_answer_id;
-  private Timestamp creation_date;
-  private Long up_vote_count;
-  private Long view_count;
-  private Long comment_count;
+  @Column(name = "question_id")
+  private Long questionId;
+  @Column(name = "user_id")
+  private Long userId;
+  @Column(name = "answer_count")
+  private Long answerCount;
+  @Column(name = "accepted_answer_id")
+  private Long acceptedAnswerId;
+  @Column(name = "creation_date")
+  private Timestamp creationDate;
+  @Column(name = "up_vote_count")
+  private Long upVoteCount;
+  @Column(name = "view_count")
+  private Long viewCount;
+  @Column(name = "comment_count")
+  private Long commentCount;
 
-  public Question(Long question_id, Long user_id, Long answer_count, Long accepted_answer_id,
-      Timestamp creation_date, Long up_vote_count, Long view_count, Long comment_count) {
-    this.question_id = question_id;
-    this.user_id = user_id;
-    this.answer_count = answer_count;
-    this.accepted_answer_id = accepted_answer_id;
-    this.creation_date = creation_date;
-    this.up_vote_count = up_vote_count;
-    this.view_count = view_count;
-    this.comment_count = comment_count;
+  public Question(Long questionId, Long userId, Long answerCount, Long acceptedAnswerId,
+      Timestamp creationDate, Long upVoteCount, Long viewCount, Long commentCount) {
+    this.questionId = questionId;
+    this.userId = userId;
+    this.answerCount = answerCount;
+    this.acceptedAnswerId = acceptedAnswerId;
+    this.creationDate = creationDate;
+    this.upVoteCount = upVoteCount;
+    this.viewCount = viewCount;
+    this.commentCount = commentCount;
   }
+
 
   public Question() {
 
   }
 
-  public Question(long questionId, long user_id) {
-    this.question_id = questionId;
-    this.user_id = user_id;
+  public Long getQuestionId() {
+    return questionId;
   }
 
-
-  public Long getQuestion_id() {
-    return question_id;
+  public void setQuestionId(Long questionId) {
+    this.questionId = questionId;
   }
 
-  public void setQuestion_id(Long question_id) {
-    this.question_id = question_id;
+  public Long getUserId() {
+    return userId;
   }
 
-  public Long getUser_id() {
-    return user_id;
+  public void setUserId(Long userId) {
+    this.userId = userId;
   }
 
-  public void setUser_id(Long user_id) {
-    this.user_id = user_id;
+  public Long getAnswerCount() {
+    return answerCount;
   }
 
-  public Long getAnswer_count() {
-    return answer_count;
+  public void setAnswerCount(Long answerCount) {
+    this.answerCount = answerCount;
   }
 
-  public void setAnswer_count(Long answer_count) {
-    this.answer_count = answer_count;
+  public Long getAcceptedAnswerId() {
+    return acceptedAnswerId;
   }
 
-  public Long getAccepted_answer_id() {
-    return accepted_answer_id;
+  public void setAcceptedAnswerId(Long acceptedAnswerId) {
+    this.acceptedAnswerId = acceptedAnswerId;
   }
 
-  public void setAccepted_answer_id(Long accepted_answer_id) {
-    this.accepted_answer_id = accepted_answer_id;
+  public Timestamp getCreationDate() {
+    return creationDate;
   }
 
-  public Timestamp getCreation_date() {
-    return creation_date;
+  public void setCreationDate(Timestamp creationDate) {
+    this.creationDate = creationDate;
   }
 
-  public void setCreation_date(Timestamp creation_date) {
-    this.creation_date = creation_date;
+  public Long getUpVoteCount() {
+    return upVoteCount;
   }
 
-  public Long getUp_vote_count() {
-    return up_vote_count;
+  public void setUpVoteCount(Long upVoteCount) {
+    this.upVoteCount = upVoteCount;
   }
 
-  public void setUp_vote_count(Long up_vote_count) {
-    this.up_vote_count = up_vote_count;
+  public Long getViewCount() {
+    return viewCount;
   }
 
-  public Long getView_count() {
-    return view_count;
+  public void setViewCount(Long viewCount) {
+    this.viewCount = viewCount;
   }
 
-  public void setView_count(Long view_count) {
-    this.view_count = view_count;
+  public Long getCommentCount() {
+    return commentCount;
+  }
+
+  public void setCommentCount(Long commentCount) {
+    this.commentCount = commentCount;
   }
 }

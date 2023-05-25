@@ -1,5 +1,6 @@
 package com.example.sodproject.Model;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -14,74 +15,35 @@ public class Answer {
   @Id
   @GeneratedValue
   private Long id;
-  private Long answer_id;
-  private Long user_id;
-  private Long question_id;
-  private Timestamp creation_date;
-  private Long up_vote_count;
-  private boolean is_accepted;
-  private Long comment_count;
+  @Column(name = "answer_id")
+  private Long answerId;
+  @Column(name = "user_id")
+  private Long userId;
+  @Column(name = "question_id")
+  private Long questionId;
+  @Column(name = "creation_date")
+  private Timestamp creationDate;
+  @Column(name = "up_vote_count")
+  private Long upVoteCount;
+  @Column(name = "is_accepted")
+  private boolean isAccepted;
+  @Column(name = "comment_count")
+  private Long commentCount;
 
-  public Answer(Long answer_id, Long user_id, Long question_id, Timestamp creation_date,
-      Long up_vote_count, boolean is_accepted, Long comment_count) {
-    this.answer_id = answer_id;
-    this.user_id = user_id;
-    this.question_id = question_id;
-    this.creation_date = creation_date;
-    this.up_vote_count = up_vote_count;
-    this.is_accepted = is_accepted;
-    this.comment_count = comment_count;
+  public Answer(Long answerId, Long userId, Long questionId, Timestamp creationDate,
+      Long upVoteCount, boolean isAccepted, Long commentCount) {
+    this.answerId = answerId;
+    this.userId = userId;
+    this.questionId = questionId;
+    this.creationDate = creationDate;
+    this.upVoteCount = upVoteCount;
+    this.isAccepted = isAccepted;
+    this.commentCount = commentCount;
   }
 
   public Answer() {
 
   }
 
-  public Long getAnswer_id() {
-    return answer_id;
-  }
 
-  public void setAnswer_id(Long answer_id) {
-    this.answer_id = answer_id;
-  }
-
-  public Long getUser_id() {
-    return user_id;
-  }
-
-  public void setUser_id(Long user_id) {
-    this.user_id = user_id;
-  }
-
-  public Long getQuestion_id() {
-    return question_id;
-  }
-
-  public void setQuestion_id(Long question_id) {
-    this.question_id = question_id;
-  }
-
-  public Timestamp getCreation_date() {
-    return creation_date;
-  }
-
-  public void setCreation_date(Timestamp creation_date) {
-    this.creation_date = creation_date;
-  }
-
-  public Long getUp_vote_count() {
-    return up_vote_count;
-  }
-
-  public void setUp_vote_count(Long up_vote_count) {
-    this.up_vote_count = up_vote_count;
-  }
-
-  public boolean isIs_accepted() {
-    return is_accepted;
-  }
-
-  public void setIs_accepted(boolean is_accepted) {
-    this.is_accepted = is_accepted;
-  }
 }
