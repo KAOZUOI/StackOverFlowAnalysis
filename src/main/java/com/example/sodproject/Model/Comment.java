@@ -9,9 +9,9 @@ import jakarta.persistence.Table;
 @Entity
 @Table
 public class Comment {
-
   @Id
   @GeneratedValue
+  private Long id;
   private Long comment_id;
   private Long post_id;
   private Long user_id;

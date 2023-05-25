@@ -11,6 +11,8 @@ import jakarta.persistence.Table;
 public class Tag {
 
   @Id
+  @GeneratedValue
+  private Long id;
   private Long question_id;
   private String tag;
 
@@ -39,4 +41,11 @@ public class Tag {
     this.tag = tag;
   }
 
+  public Long getId() {
+    return id;
+  }
+
+  public void setId(Long id) {
+    this.id = id;
+  }
 }

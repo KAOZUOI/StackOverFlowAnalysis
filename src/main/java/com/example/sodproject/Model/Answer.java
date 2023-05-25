@@ -12,20 +12,23 @@ import java.sql.Timestamp;
 public class Answer {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  @GeneratedValue
+  private Long id;
   private Long answer_id;
   private Long user_id;
   private Long question_id;
   private Timestamp creation_date;
   private Long up_vote_count;
+  private boolean is_accepted;
 
   public Answer(Long answer_id, Long user_id, Long question_id, Timestamp creation_date,
-      Long up_vote_count) {
+      Long up_vote_count, boolean is_accepted) {
     this.answer_id = answer_id;
     this.user_id = user_id;
     this.question_id = question_id;
     this.creation_date = creation_date;
     this.up_vote_count = up_vote_count;
+    this.is_accepted = is_accepted;
   }
 
   public Answer() {
@@ -70,5 +73,13 @@ public class Answer {
 
   public void setUp_vote_count(Long up_vote_count) {
     this.up_vote_count = up_vote_count;
+  }
+
+  public boolean isIs_accepted() {
+    return is_accepted;
+  }
+
+  public void setIs_accepted(boolean is_accepted) {
+    this.is_accepted = is_accepted;
   }
 }

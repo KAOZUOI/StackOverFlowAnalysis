@@ -11,7 +11,6 @@ import jakarta.persistence.Table;
 public class Account {
 
   @Id
-  @GeneratedValue
   private Long user_id;
   private Long question_count;
   private Long answer_count;
