@@ -16,11 +16,15 @@ import java.sql.Timestamp;
 
 import com.example.sodproject.Repository.QuestionRepository;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.TreeMap;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -278,20 +282,20 @@ public class StackOverflowDataService {
 
   }
 
-  public double noAnswerPercentage(){
+  public double noAnswerPercentage() {
     return questionRepository.countByAnswerCount(0L) * 100.0 / questionRepository.count();
   }
 
-  public long averageAnswerCount(){
+  public double averageAnswerCount() {
     List<Question> questions = questionRepository.findAll();
     long sum = 0L;
     for (Question question : questions) {
       sum += question.getAnswerCount();
     }
-    return sum / questions.size();
+    return (double) sum / questions.size();
   }
 
-  public long maxAnswerCount(){
+  public long maxAnswerCount() {
     List<Question> questions = questionRepository.findAll();
     long max = 0L;
     for (Question question : questions) {
@@ -302,7 +306,7 @@ public class StackOverflowDataService {
     return max;
   }
 
-  public TreeMap<Long, Long> answerCountDistribution(){
+  public List<Map.Entry<Long, Long>> answerCountDistribution() {
     TreeMap<Long, Long> answerCountDistribution = new TreeMap<>();
     List<Question> questions = questionRepository.findAll();
     for (Long answerCount : questions.stream().map(Question::getAnswerCount).toList()) {
@@ -312,13 +316,211 @@ public class StackOverflowDataService {
         answerCountDistribution.put(answerCount, 1L);
       }
     }
-    return answerCountDistribution;
+    List<Map.Entry<Long, Long>> list = new ArrayList<>(answerCountDistribution.entrySet());
+    list.sort(Map.Entry.comparingByKey());
+    Collections.reverse(list);
+    return list;
   }
 
   //question have accepted answer percentage
-  public double questionHaveAcceptedAnswerPercentage(){
-    return questionRepository.countByAnswerCountGreaterThan(0L) * 100.0 / questionRepository.count();
+  public double questionHaveAcceptedAnswerPercentage() {
+
+    return 100.0 - (questionRepository.countByAcceptedAnswerId(0L) * 100.0
+        / questionRepository.count());
   }
 
+  public List<Map.Entry<Long, Long>> acceptedAnswerTimeDistribution() {
+    TreeMap<Long, Long> acceptedAnswerTimeDistribution = new TreeMap<>();
+    List<Question> questions = questionRepository.findByAcceptedAnswerIdNot(0L);
+    for (Question question : questions) {
+
+      long questionTime = question.getCreationDate().getTime();
+      long day = TimeUnit.DAYS.convert(questionTime, TimeUnit.MILLISECONDS);
+      List<Answer> answers = answerRepository.findByAnswerId(question.getAcceptedAnswerId());
+      for (Answer answer : answers) {
+        long answerTime = answer.getCreationDate().getTime();
+        long day2 = TimeUnit.DAYS.convert(answerTime, TimeUnit.MILLISECONDS);
+        long diff = day2 - day;
+        if (acceptedAnswerTimeDistribution.containsKey(diff)) {
+          acceptedAnswerTimeDistribution.put(diff, acceptedAnswerTimeDistribution.get(diff) + 1);
+        } else {
+          acceptedAnswerTimeDistribution.put(diff, 1L);
+        }
+      }
+    }
+    List<Map.Entry<Long, Long>> list = new ArrayList<>(acceptedAnswerTimeDistribution.entrySet());
+    list.sort(Map.Entry.comparingByKey());
+    Collections.reverse(list);
+    return list;
+  }
+
+
+  public double nonAcceptedAnswerUpvotePercentage() {
+    long count = 0L;
+    List<Question> questions = questionRepository.findByAcceptedAnswerIdNot(0L);
+    for (Question question : questions) {
+      List<Answer> answers = answerRepository.findByQuestionId(question.getQuestionId());
+      long acceptedAnswerId = question.getAcceptedAnswerId();
+      long acceptedAnswerUpvoteCount = 0L;
+      for (Answer answer : answers) {
+        if (answer.getAnswerId() == acceptedAnswerId) {
+          acceptedAnswerUpvoteCount = answer.getUpVoteCount();
+          break;
+        }
+      }
+      for (Answer answer : answers) {
+        if (answer.getAnswerId() != acceptedAnswerId
+            && answer.getUpVoteCount() > acceptedAnswerUpvoteCount) {
+          count++;
+          break;
+        }
+      }
+    }
+    return count * 100.0 / questions.size();
+  }
+
+//  Which tags frequently appear together with the java tag?
+
+  public List<Map.Entry<String, Long>> frequentlyAppearTogetherWithJavaTag() {
+    TreeMap<String, Long> tagCount = new TreeMap<>();
+    List<Tag> tagList = tagRepository.findAll();
+    for (Tag tag : tagList) {
+      if (tagCount.containsKey(tag.getTag())) {
+        tagCount.put(tag.getTag(), tagCount.get(tag.getTag()) + 1);
+      } else {
+        tagCount.put(tag.getTag(), 1L);
+      }
+    }
+    //sort
+    List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
+
+//  Which tags or tag combinations receive the most upvotes?
+
+  public List<Map.Entry<String, Long>> mostUpvoteTags() {
+    TreeMap<String, Long> tagCount = new TreeMap<>();
+    List<Tag> tagList = tagRepository.findAll();
+    for (Tag tag : tagList) {
+      if(!tagCount.containsKey(tag.getTag())){
+        tagCount.put(tag.getTag(), 0L);
+      }
+      List<Question> questions = questionRepository.findByQuestionId(tag.getQuestionId());
+      for (Question question : questions) {
+        tagCount.put(tag.getTag(), tagCount.get(tag.getTag()) + question.getUpVoteCount());
+      }
+    }
+    List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
+
+  public List<Map.Entry<String, Long>> mostViewTags() {
+    TreeMap<String, Long> tagCount = new TreeMap<>();
+    List<Tag> tagList = tagRepository.findAll();
+    for (Tag tag : tagList) {
+      if(!tagCount.containsKey(tag.getTag())){
+        tagCount.put(tag.getTag(), 0L);
+      }
+      List<Question> questions = questionRepository.findByQuestionId(tag.getQuestionId());
+      for (Question question : questions) {
+        tagCount.put(tag.getTag(), tagCount.get(tag.getTag()) + question.getViewCount());
+      }
+    }
+    List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
+
+
+  public List<Map.Entry<Long, Long>> userAnswerDistribution() {
+    TreeMap<Long, Long> userAnswerDistribution = new TreeMap<>();
+    List<Question> questions = questionRepository.findAll();
+    for (Question question : questions) {
+      userAnswerDistribution.put(question.getQuestionId(), question.getAnswerCount());
+    }
+    List<Map.Entry<Long, Long>> list = new ArrayList<>(userAnswerDistribution.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
+
+  public List<Map.Entry<Long, Long>> userCommentDistribution() {
+    TreeMap<Long, Long> userCommentDistribution = new TreeMap<>();
+    List<Question> questions = questionRepository.findAll();
+    for (Question question : questions) {
+      userCommentDistribution.put(question.getQuestionId(), question.getCommentCount());
+      for(Answer answer : answerRepository.findByQuestionId(question.getQuestionId())){
+        userCommentDistribution.put(question.getQuestionId(), userCommentDistribution.get(question.getQuestionId()) + answer.getCommentCount());
+      }
+    }
+    List<Map.Entry<Long, Long>> list = new ArrayList<>(userCommentDistribution.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
+
+  public List<Map.Entry<Long, Long>> userParticipateDistribution(){
+    TreeMap<Long, Long> userParticipateDistribution = new TreeMap<>();
+    List<Question> questions = questionRepository.findAll();
+    for(Question question : questions){
+      userParticipateDistribution.put(question.getQuestionId(), question.getCommentCount() + question.getAnswerCount());
+      for(Answer answer : answerRepository.findByQuestionId(question.getQuestionId())){
+        userParticipateDistribution.put(question.getQuestionId(), userParticipateDistribution.get(question.getQuestionId()) + answer.getCommentCount());
+      }
+    }
+    List<Map.Entry<Long, Long>> list = new ArrayList<>(userParticipateDistribution.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
+
+
+
+
+  public List<Map.Entry<Long, Long>> mostActiveUsers() {
+    TreeMap<Long, Long> userParticipateDistribution = new TreeMap<>();
+    List<Question> questions = questionRepository.findAll();
+    for (Question question : questions) {
+      long questionUserId = question.getUserId();
+      if (userParticipateDistribution.containsKey(questionUserId)) {
+        userParticipateDistribution.put(questionUserId,
+            userParticipateDistribution.get(questionUserId) + 1);
+      } else {
+        userParticipateDistribution.put(questionUserId, 1L);
+      }
+    }
+
+    List<Answer> answers = answerRepository.findAll();
+    for (Answer answer : answers) {
+      long answerUserId = answer.getUserId();
+      if (userParticipateDistribution.containsKey(answerUserId)) {
+        userParticipateDistribution.put(answerUserId,
+            userParticipateDistribution.get(answerUserId) + 1);
+      } else {
+        userParticipateDistribution.put(answerUserId, 1L);
+      }
+    }
+
+    List<Comment> comments = commentRepository.findAll();
+    for (Comment comment : comments) {
+      long commentUserId = comment.getUserId();
+      if (userParticipateDistribution.containsKey(commentUserId)) {
+        userParticipateDistribution.put(commentUserId,
+            userParticipateDistribution.get(commentUserId) + 1);
+      } else {
+        userParticipateDistribution.put(commentUserId, 1L);
+      }
+    }
+
+    List<Map.Entry<Long, Long>> list = new ArrayList<>(userParticipateDistribution.entrySet());
+    list.sort(Map.Entry.comparingByValue());
+    Collections.reverse(list);
+    return list;
+  }
 
 }

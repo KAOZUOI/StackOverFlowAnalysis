@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface QuestionRepository extends JpaRepository<Question, Long> {
   Long countByAnswerCount(Long answer_count);
-  Long countByAnswerCountGreaterThan(Long answer_count);
+  long countByAcceptedAnswerId(Long accepted_answer_id);
 
+  List<Question> findByAcceptedAnswerIdNot(long l);
+
+  List<Question> findByQuestionId(Long questionId);
 }
