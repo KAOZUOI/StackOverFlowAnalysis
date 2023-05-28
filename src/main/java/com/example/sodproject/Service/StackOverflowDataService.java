@@ -388,12 +388,16 @@ public class StackOverflowDataService {
       if (tagCount.containsKey(tag.getTag())) {
         tagCount.put(tag.getTag(), tagCount.get(tag.getTag()) + 1);
       } else {
+        if (tag.getTag().equals("java")) {
+          continue;
+        }
         tagCount.put(tag.getTag(), 1L);
       }
     }
-    //sort
     List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
+
     list.sort(Map.Entry.comparingByValue());
+
     Collections.reverse(list);
     return list;
   }
@@ -405,6 +409,9 @@ public class StackOverflowDataService {
     List<Tag> tagList = tagRepository.findAll();
     for (Tag tag : tagList) {
       if(!tagCount.containsKey(tag.getTag())){
+        if(tag.getTag().equals("java") ){
+          continue;
+        }
         tagCount.put(tag.getTag(), 0L);
       }
       List<Question> questions = questionRepository.findByQuestionId(tag.getQuestionId());
@@ -423,6 +430,9 @@ public class StackOverflowDataService {
     List<Tag> tagList = tagRepository.findAll();
     for (Tag tag : tagList) {
       if(!tagCount.containsKey(tag.getTag())){
+        if(tag.getTag().equals("java") ){
+          continue;
+        }
         tagCount.put(tag.getTag(), 0L);
       }
       List<Question> questions = questionRepository.findByQuestionId(tag.getQuestionId());
