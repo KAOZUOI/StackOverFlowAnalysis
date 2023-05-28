@@ -499,9 +499,9 @@ public class StackOverflowDataService {
       long questionUserId = question.getUserId();
       if (userParticipateDistribution.containsKey(questionUserId)) {
         userParticipateDistribution.put(questionUserId,
-            userParticipateDistribution.get(questionUserId) + 1);
+            userParticipateDistribution.get(questionUserId) + 3);
       } else {
-        userParticipateDistribution.put(questionUserId, 1L);
+        userParticipateDistribution.put(questionUserId, 3L);
       }
     }
 
@@ -510,9 +510,9 @@ public class StackOverflowDataService {
       long answerUserId = answer.getUserId();
       if (userParticipateDistribution.containsKey(answerUserId)) {
         userParticipateDistribution.put(answerUserId,
-            userParticipateDistribution.get(answerUserId) + 1);
+            userParticipateDistribution.get(answerUserId) + 2);
       } else {
-        userParticipateDistribution.put(answerUserId, 1L);
+        userParticipateDistribution.put(answerUserId, 2L);
       }
     }
 
