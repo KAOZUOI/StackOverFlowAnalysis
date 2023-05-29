@@ -1,0 +1,1 @@
+ composeOptions {        kotlinCompilerExtensionVersion = &quot;1.4.3&quot;    }Hope it helps someone else 

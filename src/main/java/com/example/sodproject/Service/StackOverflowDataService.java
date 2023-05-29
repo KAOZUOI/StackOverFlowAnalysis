@@ -47,8 +47,11 @@ import spoon.Launcher;
 import spoon.reflect.CtModel;
 import spoon.reflect.code.CtInvocation;
 import spoon.reflect.declaration.CtMethod;
+import spoon.reflect.declaration.CtModule;
+import spoon.reflect.declaration.CtPackage;
 import spoon.reflect.declaration.CtType;
 import spoon.reflect.visitor.filter.TypeFilter;
+import spoon.reflect.factory.Factory;
 
 @Service
 public class StackOverflowDataService {
@@ -318,7 +321,7 @@ public class StackOverflowDataService {
     int count = 0;
 
     for (String url : urls) {
-      if(count > 200){
+      if(count > 500){
         break;
       }
       URL stackOverflowUrl = new URL(url);
@@ -350,7 +353,7 @@ public class StackOverflowDataService {
     Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
     Matcher matcher = pattern.matcher(html);
 
-    String path = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
+    String path = "D:\\IDEAproject\\SODproject\\codeFiles\\";
     int count = 0;
     while (matcher.find()) {
       String code = matcher.group(1);
@@ -368,13 +371,16 @@ public class StackOverflowDataService {
   public List<Map.Entry<String, Integer>> getAPIs() {
     int count = 0;
     Map<String, Integer> map = new HashMap<>();
-    String myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
+    String myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
     for (File file : new File(myPath).listFiles()) {
-      myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
+      myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
       myPath = myPath + count + ".java";
       if (file.isFile()) {
         Set<String> codes =  extractAPIs(myPath);
         for (String code : codes) {
+          if (code.equals("unnamed package") || code.equals("unnamed module")){
+            continue;
+          }
           if (map.containsKey(code)) {
             map.put(code, map.get(code) + 1);
           } else {
@@ -400,6 +406,7 @@ public class StackOverflowDataService {
     // 解析源码
     launcher.buildModel();
 
+    Factory factory = launcher.getFactory();
     // 获取解析后的模型
     CtModel model = launcher.getModel();
 
@@ -424,7 +431,54 @@ public class StackOverflowDataService {
         apis.add(apiName);
       }
     }
+    for (CtType<?> ctType : model.getAllTypes()){
+      String fieldName = ctType.getSimpleName();
+      apis.add(fieldName);
+    }
 
+    for(CtPackage ctType : model.getAllPackages()){
+      String packageName = ctType.getSimpleName();
+      apis.add(packageName);
+    }
+
+    for(CtModule ctType : model.getAllModules()){
+      String typeName = ctType.getSimpleName();
+      apis.add(typeName);
+    }
+    // 获取所有的 CtInterface 元素
+    for (CtType<?> ctInterface : factory.Interface().getAll()) {
+      apis.add(ctInterface.getSimpleName());
+      for (CtMethod<?> ctMethod : ctInterface.getMethods()) {
+        // 将方法的名称添加到API集合中
+        apis.add(ctMethod.getSimpleName());
+      }
+    }
+
+    // 获取所有的 CtClass 元素
+    for (CtType<?> ctClass : factory.Class().getAll()) {
+      apis.add(ctClass.getSimpleName());
+      for (CtMethod<?> ctMethod : ctClass.getMethods()) {
+        // 将方法的名称添加到API集合中
+        apis.add(ctMethod.getSimpleName());
+      }
+    }
+
+    // 获取所有的 CtEnum 元素
+    for (CtType<?> ctEnum : factory.Enum().getAll()) {
+      apis.add(ctEnum.getSimpleName());
+      for (CtMethod<?> ctMethod : ctEnum.getMethods()) {
+        // 将方法的名称添加到API集合中
+        apis.add(ctMethod.getSimpleName());
+      }
+    }
+
+    for (CtModule ctModule : factory.Module().getAllModules()) {
+      apis.add(ctModule.getSimpleName());
+    }
+
+    for (CtPackage ctPackage : factory.Package().getAll()) {
+      apis.add(ctPackage.getSimpleName());
+    }
     return apis;
   }
 

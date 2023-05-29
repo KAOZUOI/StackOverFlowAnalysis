@@ -1,1 +1,1 @@
-    spring:  datasource:    url: jdbc:mysql://localhost:3306/restaurantoptimize    username: root    password: root    driver-class-name: com.mysql.cj.jdbc.Driver  jpa:    hibernate:      ddl-auto: update    show-sql: true    properties:      hibernate:        format_sql: true    database: mysql    database-platform:  org.hibernate.dialect.MySQL8Dialect
+<?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>

@@ -1,1 +1,1 @@
-http.headers().frameOptions().disable();
+#Tue Oct 25 07:38:32 BST 2022distributionBase=GRADLE_USER_HOMEdistributionPath=wrapper/distsdistributionUrl=https\://services.gradle.org/distributions/gradle-8.0-rc-1-bin.zipzipStoreBase=GRADLE_USER_HOMEzipStorePath=wrapper/dists
