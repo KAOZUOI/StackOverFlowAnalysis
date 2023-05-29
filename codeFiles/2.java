@@ -1,0 +1,1 @@
+buildscript {    repositories {        google()        mavenCentral()    }    dependencies {        /* When bumping, also update ndkVersion above. */        classpath 'com.android.tools.build:gradle:4.1.0'    }}android {    compileOptions {        sourceCompatibility JavaVersion.VERSION_1_8        targetCompatibility JavaVersion.VERSION_1_8    }}

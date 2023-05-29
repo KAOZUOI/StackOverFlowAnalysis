@@ -1,0 +1,1 @@
+.requestMatchers(new AntPathRequestMatcher(&quot;/h2-console/**&quot;)).permitAll()

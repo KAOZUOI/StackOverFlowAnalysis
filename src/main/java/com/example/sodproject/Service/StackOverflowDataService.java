@@ -10,29 +10,15 @@ import com.example.sodproject.Repository.CommentRepository;
 import com.example.sodproject.Repository.TagRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
+
+import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.Timestamp;
 
 import com.example.sodproject.Repository.QuestionRepository;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -57,6 +43,11 @@ import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import spoon.Launcher;
+import spoon.reflect.CtModel;
+import spoon.reflect.declaration.CtMethod;
+import spoon.reflect.declaration.CtType;
+import spoon.reflect.visitor.filter.TypeFilter;
 
 @Service
 public class StackOverflowDataService {
@@ -323,9 +314,10 @@ public class StackOverflowDataService {
     }
     readerUrls.close();
 
-    long count = 0;
+    int count = 0;
+
     for (String url : urls) {
-      if(count > 10) {
+      if(count > 50){
         break;
       }
       URL stackOverflowUrl = new URL(url);
@@ -345,65 +337,84 @@ public class StackOverflowDataService {
       FileWriter fileWriter = new FileWriter("html.txt");
       fileWriter.write(html);
       fileWriter.close();
-      String code = extractCode(html);
-      if (code != null) {
-        FileWriter fileWriter2 = new FileWriter("codes.java", true);
-        fileWriter2.write(code + "\n");
-        fileWriter2.close();
-      } else {
-        System.out.println("No code found in " + url);
-      }
+      extractCode(html);
+
 
       count++;
       Thread.sleep(1000);
     }
   }
 
-  private static String extractCode(String html) {
+  private static void extractCode(String html) throws IOException {
     Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
     Matcher matcher = pattern.matcher(html);
 
-    StringBuilder codeBuilder = new StringBuilder();
+    String path = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+    int count = 0;
     while (matcher.find()) {
       String code = matcher.group(1);
-      // 将转义字符转换回原始字符
       code = code.replace("&lt;", "<")
           .replace("&gt;", ">")
           .replace("&amp;", "&");
-      codeBuilder.append(code).append("\n");
+      String mypath = path + count + ".java";
+      FileWriter fileWriter = new FileWriter(mypath);
+        fileWriter.write(code);
+        fileWriter.close();
+        count++;
     }
 
-    if (codeBuilder.length() > 0) {
-      // 删除最后一个换行符
-      codeBuilder.deleteCharAt(codeBuilder.length() - 1);
-      return codeBuilder.toString();
-    }
 
-    return null;
   }
 
-  public Set<String> getAPIs() {
-    return extractAPIs("/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codes.java");
-  }
-
-  public static Set<String> extractAPIs(String filePath) {
-    Set<String> apis = new HashSet<>();
-
-    try {
-      FileInputStream fileInputStream = new FileInputStream(filePath);
-
-      ParseResult<CompilationUnit> parseResult = new JavaParser().parse(fileInputStream);
-
-      if (parseResult.isSuccessful()) {
-        CompilationUnit compilationUnit = parseResult.getResult().orElse(null);
-
-        if (compilationUnit != null) {
-          ApiVisitor apiVisitor = new ApiVisitor(apis);
-          apiVisitor.visit(compilationUnit, null);
+  public List<Map.Entry<String, Integer>> getAPIs() {
+    int count = 0;
+    Map<String, Integer> map = new HashMap<>();
+    String myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+    for (File file : new File(myPath).listFiles()) {
+      myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+      myPath = myPath + count + ".java";
+      if (file.isFile()) {
+        Set<String> codes =  extractAPIs(myPath);
+        for (String code : codes) {
+          if (map.containsKey(code)) {
+            map.put(code, map.get(code) + 1);
+          } else {
+            map.put(code, 1);
+          }
         }
       }
-    } catch (FileNotFoundException e) {
-      e.printStackTrace();
+      count++;
+    }
+    List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+    list.sort(Map.Entry.comparingByKey());
+    Collections.reverse(list);
+    return list;
+  }
+
+  public static Set<String> extractAPIs(String path) {
+    Set<String> apis = new HashSet<>();
+    Launcher launcher = new Launcher();
+
+    // 设置输入源码路径
+    launcher.addInputResource(path);
+
+    // 解析源码
+    launcher.buildModel();
+
+    // 获取解析后的模型
+    CtModel model = launcher.getModel();
+
+    // 遍历模型，提取代码片段
+    for (CtType<?> ctType : model.getElements(new TypeFilter<>(CtType.class))) {
+      // 获取类名
+      String className = ctType.getSimpleName();
+      apis.add(className);
+
+      // 获取方法名
+      for (CtMethod<?> ctMethod : ctType.getMethods()) {
+        String methodName = ctMethod.getSimpleName();
+        apis.add(methodName);
+      }
     }
 
     return apis;
