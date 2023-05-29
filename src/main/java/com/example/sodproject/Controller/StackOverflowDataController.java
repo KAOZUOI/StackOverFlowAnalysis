@@ -50,6 +50,11 @@ public class StackOverflowDataController {
     return "Fetch and store codes successfully!";
   }
 
+  @GetMapping("/getAPIs")
+  public String getAPIs() throws IOException, ParseException, InterruptedException {
+    return stackOverflowService.getAPIs().toString();
+  }
+
 
   @GetMapping("/option")
   public String index() {

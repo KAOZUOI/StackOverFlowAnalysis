@@ -11,6 +11,9 @@ import com.example.sodproject.Repository.TagRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -23,10 +26,12 @@ import com.example.sodproject.Repository.QuestionRepository;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.Set;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
@@ -39,6 +44,15 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
+
+
+import com.github.javaparser.JavaParser;
+import com.github.javaparser.ParseResult;
+import com.github.javaparser.ast.CompilationUnit;
+import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
+import com.github.javaparser.ast.body.FieldDeclaration;
+import com.github.javaparser.ast.body.MethodDeclaration;
+import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,10 +72,9 @@ public class StackOverflowDataService {
   @Autowired
   private CommentRepository commentRepository;
 
-  List<String> urls = new ArrayList<>();
-
   public void fetchAndStoreQuestions() throws IOException, InterruptedException, ParseException {
 
+    List<String> urls = new ArrayList<>();
     TreeMap<Long, Long> postIdsAnswerCount = new TreeMap<>();
     TreeMap<Long, Long> postIdsCommentCount = new TreeMap<>();
 
@@ -292,12 +305,29 @@ public class StackOverflowDataService {
       }
     }
 
+    FileWriter fileWriter = new FileWriter("urls.txt");
+    for (String aUrl : urls) {
+      fileWriter.write(aUrl + "\n");
+    }
+    fileWriter.close();
+
   }
 
-  public void fetchAndStoreCodes() throws IOException, ParseException {
-    urls.add(
-        "https://stackoverflow.com/questions/76348592/how-can-i-fix-a-classcastexception-in-hibernate-when-executing-an-hql-query");
+  public void fetchAndStoreCodes() throws IOException, InterruptedException {
+    //从文件中读取urls
+    List<String> urls = new ArrayList<>();
+    BufferedReader readerUrls = new BufferedReader(new FileReader("urls.txt"));
+    String lineUrl;
+    while ((lineUrl = readerUrls.readLine()) != null) {
+      urls.add(lineUrl);
+    }
+    readerUrls.close();
+
+    long count = 0;
     for (String url : urls) {
+      if(count > 10) {
+        break;
+      }
       URL stackOverflowUrl = new URL(url);
       URLConnection connection = stackOverflowUrl.openConnection();
 
@@ -317,12 +347,15 @@ public class StackOverflowDataService {
       fileWriter.close();
       String code = extractCode(html);
       if (code != null) {
-        FileWriter fileWriter2 = new FileWriter("codes.txt", true);
+        FileWriter fileWriter2 = new FileWriter("codes.java", true);
         fileWriter2.write(code + "\n");
         fileWriter2.close();
       } else {
         System.out.println("No code found in " + url);
       }
+
+      count++;
+      Thread.sleep(1000);
     }
   }
 
@@ -330,17 +363,84 @@ public class StackOverflowDataService {
     Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
     Matcher matcher = pattern.matcher(html);
 
-    if (matcher.find()) {
+    StringBuilder codeBuilder = new StringBuilder();
+    while (matcher.find()) {
       String code = matcher.group(1);
       // 将转义字符转换回原始字符
       code = code.replace("&lt;", "<")
           .replace("&gt;", ">")
           .replace("&amp;", "&");
-      return code;
+      codeBuilder.append(code).append("\n");
+    }
+
+    if (codeBuilder.length() > 0) {
+      // 删除最后一个换行符
+      codeBuilder.deleteCharAt(codeBuilder.length() - 1);
+      return codeBuilder.toString();
     }
 
     return null;
   }
+
+  public Set<String> getAPIs() {
+    return extractAPIs("/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codes.java");
+  }
+
+  public static Set<String> extractAPIs(String filePath) {
+    Set<String> apis = new HashSet<>();
+
+    try {
+      FileInputStream fileInputStream = new FileInputStream(filePath);
+
+      ParseResult<CompilationUnit> parseResult = new JavaParser().parse(fileInputStream);
+
+      if (parseResult.isSuccessful()) {
+        CompilationUnit compilationUnit = parseResult.getResult().orElse(null);
+
+        if (compilationUnit != null) {
+          ApiVisitor apiVisitor = new ApiVisitor(apis);
+          apiVisitor.visit(compilationUnit, null);
+        }
+      }
+    } catch (FileNotFoundException e) {
+      e.printStackTrace();
+    }
+
+    return apis;
+  }
+
+  private static class ApiVisitor extends VoidVisitorAdapter<Void> {
+    private Set<String> apis;
+
+    public ApiVisitor(Set<String> apis) {
+      this.apis = apis;
+    }
+
+    @Override
+    public void visit(MethodDeclaration methodDeclaration, Void arg) {
+      super.visit(methodDeclaration, arg);
+
+      // 将方法的名称添加到API集合中
+      apis.add(methodDeclaration.getNameAsString());
+    }
+
+    @Override
+    public void visit(ClassOrInterfaceDeclaration classOrInterfaceDeclaration, Void arg) {
+      super.visit(classOrInterfaceDeclaration, arg);
+
+      // 将类的名称添加到API集合中
+      apis.add(classOrInterfaceDeclaration.getNameAsString());
+    }
+
+    @Override
+    public void visit(FieldDeclaration fieldDeclaration, Void arg) {
+      super.visit(fieldDeclaration, arg);
+
+      // 将字段的名称添加到API集合中
+      fieldDeclaration.getVariables().forEach(variable -> apis.add(variable.getNameAsString()));
+    }
+  }
+
 
   public double noAnswerPercentage() {
     return questionRepository.countByAnswerCount(0L) * 100.0 / questionRepository.count();

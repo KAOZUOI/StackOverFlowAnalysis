@@ -1,5 +1,3 @@
-javascript
 java
-android
-react-native
-npm
+eclipse
+jfreechart
