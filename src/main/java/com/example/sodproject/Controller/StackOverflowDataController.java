@@ -44,6 +44,13 @@ public class StackOverflowDataController {
     return "Data updated successfully!";
   }
 
+  @GetMapping("/fetchAndStoreCodes")
+  public String fetchAndStoreCodes() throws IOException, ParseException, InterruptedException {
+    stackOverflowService.fetchAndStoreCodes();
+    return "Fetch and store codes successfully!";
+  }
+
+
   @GetMapping("/option")
   public String index() {
     Pie pie = new Pie()

@@ -10,8 +10,12 @@ import com.example.sodproject.Repository.CommentRepository;
 import com.example.sodproject.Repository.TagRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import java.io.BufferedReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URL;
+import java.net.URLConnection;
 import java.sql.Timestamp;
 
 import com.example.sodproject.Repository.QuestionRepository;
@@ -25,6 +29,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -51,6 +57,8 @@ public class StackOverflowDataService {
   private AnswerRepository answerRepository;
   @Autowired
   private CommentRepository commentRepository;
+
+  List<String> urls = new ArrayList<>();
 
   public void fetchAndStoreQuestions() throws IOException, InterruptedException, ParseException {
 
@@ -134,6 +142,10 @@ public class StackOverflowDataService {
             long commentCountLong =
                 (commentCount != null && !commentCount.isNull()) ? commentCount.asLong() : 0L;
             postIdsCommentCount.put(questionId, commentCountLong);
+
+            JsonNode linkNode = item.get("link");
+            String link = (linkNode != null && !linkNode.isNull()) ? linkNode.asText() : "";
+            urls.add(link);
 
             questionRepository.save(new Question(
                 questionId,
@@ -280,6 +292,54 @@ public class StackOverflowDataService {
       }
     }
 
+  }
+
+  public void fetchAndStoreCodes() throws IOException, ParseException {
+    urls.add(
+        "https://stackoverflow.com/questions/76348592/how-can-i-fix-a-classcastexception-in-hibernate-when-executing-an-hql-query");
+    for (String url : urls) {
+      URL stackOverflowUrl = new URL(url);
+      URLConnection connection = stackOverflowUrl.openConnection();
+
+      // 读取网页内容
+      BufferedReader reader = new BufferedReader(
+          new InputStreamReader(connection.getInputStream()));
+      StringBuilder content = new StringBuilder();
+      String line;
+      while ((line = reader.readLine()) != null) {
+        content.append(line);
+      }
+      reader.close();
+
+      String html = content.toString();
+      FileWriter fileWriter = new FileWriter("html.txt");
+      fileWriter.write(html);
+      fileWriter.close();
+      String code = extractCode(html);
+      if (code != null) {
+        FileWriter fileWriter2 = new FileWriter("codes.txt", true);
+        fileWriter2.write(code + "\n");
+        fileWriter2.close();
+      } else {
+        System.out.println("No code found in " + url);
+      }
+    }
+  }
+
+  private static String extractCode(String html) {
+    Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
+    Matcher matcher = pattern.matcher(html);
+
+    if (matcher.find()) {
+      String code = matcher.group(1);
+      // 将转义字符转换回原始字符
+      code = code.replace("&lt;", "<")
+          .replace("&gt;", ">")
+          .replace("&amp;", "&");
+      return code;
+    }
+
+    return null;
   }
 
   public double noAnswerPercentage() {
