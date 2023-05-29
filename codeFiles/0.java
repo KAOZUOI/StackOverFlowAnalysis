@@ -1,1 +1,1 @@
-no usagepublic class Main {no usage    public static void main(String... args){        System.out.println(&quot;Hello world!&quot;);    }[enter image description here](https://i.stack.imgur.com/yizz1.png)}
+Mono.fromCallable(() -> {     return blockingOperation();}).subscribeOn(Schedulers.boundedElastic());

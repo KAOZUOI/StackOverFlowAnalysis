@@ -1,1 +1,1 @@
-compileOptions {        sourceCompatibility JavaVersion.VERSION_1_8        targetCompatibility JavaVersion.VERSION_1_8    }
+    spring:  datasource:    url: jdbc:mysql://localhost:3306/restaurantoptimize    username: root    password: root    driver-class-name: com.mysql.cj.jdbc.Driver  jpa:    hibernate:      ddl-auto: update    show-sql: true    properties:      hibernate:        format_sql: true    database: mysql    database-platform:  org.hibernate.dialect.MySQL8Dialect

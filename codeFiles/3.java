@@ -1,1 +1,1 @@
-dependencies {        classpath 'com.android.tools.build:gradle:7.1.3'        classpath &quot;org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version&quot;    }
+jar:file:/C:/Users/kacpe/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final.jar!/org/hibernate/annotations/common/reflection/ReflectionManager.class

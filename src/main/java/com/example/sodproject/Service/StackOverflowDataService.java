@@ -45,6 +45,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import spoon.Launcher;
 import spoon.reflect.CtModel;
+import spoon.reflect.code.CtInvocation;
 import spoon.reflect.declaration.CtMethod;
 import spoon.reflect.declaration.CtType;
 import spoon.reflect.visitor.filter.TypeFilter;
@@ -317,7 +318,7 @@ public class StackOverflowDataService {
     int count = 0;
 
     for (String url : urls) {
-      if(count > 50){
+      if(count > 200){
         break;
       }
       URL stackOverflowUrl = new URL(url);
@@ -349,7 +350,7 @@ public class StackOverflowDataService {
     Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
     Matcher matcher = pattern.matcher(html);
 
-    String path = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+    String path = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
     int count = 0;
     while (matcher.find()) {
       String code = matcher.group(1);
@@ -362,16 +363,14 @@ public class StackOverflowDataService {
         fileWriter.close();
         count++;
     }
-
-
   }
 
   public List<Map.Entry<String, Integer>> getAPIs() {
     int count = 0;
     Map<String, Integer> map = new HashMap<>();
-    String myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+    String myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
     for (File file : new File(myPath).listFiles()) {
-      myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+      myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
       myPath = myPath + count + ".java";
       if (file.isFile()) {
         Set<String> codes =  extractAPIs(myPath);
@@ -414,6 +413,15 @@ public class StackOverflowDataService {
       for (CtMethod<?> ctMethod : ctType.getMethods()) {
         String methodName = ctMethod.getSimpleName();
         apis.add(methodName);
+      }
+    }
+
+    for (CtType<?> ctType : model.getElements(new TypeFilter<>(CtType.class))) {
+      // 获取方法调用表达式
+      for (CtInvocation<?> invocation : ctType.getElements(new TypeFilter<>(CtInvocation.class))) {
+        // 获取调用的API名称
+        String apiName = invocation.getExecutable().getSignature();
+        apis.add(apiName);
       }
     }
 
