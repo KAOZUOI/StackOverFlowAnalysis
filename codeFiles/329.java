@@ -1,0 +1,1 @@
+private static void bringToFocus() {    for (DesktopWindow desktopWindow : WindowUtils.getAllWindows(true)) {        if (desktopWindow.getTitle().contains(&quot;notepad&quot;)) {            HWND hwnd = User32.INSTANCE.FindWindow(null, desktopWindow.getTitle());            User32.INSTANCE.SetForegroundWindow(hwnd);            break;        }    }}

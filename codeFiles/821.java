@@ -1,0 +1,1 @@
+<a href=&quot;#&quot; onclick=&quot;AndroidButton('Backbutton pressed')&quot;><img src=&quot;bla.jpg&quot;></a><script type=&quot;text/javascript&quot;>    function AndroidButton(message1) {        android.mybackbutton(message1);    }</script>

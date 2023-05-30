@@ -1,0 +1,1 @@
+ph@po:~/IdeaProjects/se$ java --versionopenjdk 17.0.4 2022-07-19OpenJDK Runtime Environment (build 17.0.4+8-Ubuntu-120.04)OpenJDK 64-Bit Server VM (build 17.0.4+8-Ubuntu-120.04, mixed mode, sharing)

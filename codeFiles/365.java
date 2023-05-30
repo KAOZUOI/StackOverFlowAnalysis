@@ -1,0 +1,1 @@
+int indexSecondOccurence = line.indexOf(&quot;,&quot;, line.indexOf(&quot;,&quot;) + 1);System.out.println(line.substring(0, indexSecondOccurence + 1));

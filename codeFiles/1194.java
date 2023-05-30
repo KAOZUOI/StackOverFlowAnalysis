@@ -1,0 +1,1 @@
+private final AtomicLong currentId = new AtomicLong();

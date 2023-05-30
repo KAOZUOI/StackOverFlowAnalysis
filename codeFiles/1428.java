@@ -1,0 +1,1 @@
+var file = java.io.File(&quot;C:\\filename.txt&quot;);var writer = new java.io.FileWriter(file,true);var var1 = context.variableManager.getValue(&quot;extVar&quot;);writer.write(var1 + &quot;\n&quot;);writer.close();

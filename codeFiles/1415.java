@@ -1,0 +1,1 @@
+data class ExampleState(        val custom: Set<CustomDriverClass>        override val participants: List<AbstractParty> = listOf()) : ContractState

@@ -1,0 +1,1 @@
+import com.nimbusds.jose.jwk.source.ImmutableSecret;import javax.crypto.spec.SecretKeySpec;@Beanpublic JWKSource<SecurityContext> jwkSource() {    return new ImmutableSecret<>(new SecretKeySpec(settings.getJwt().getSecret().getBytes(StandardCharsets.UTF_8), &quot;MHmacSHA256&quot;));}

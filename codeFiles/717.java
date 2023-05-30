@@ -1,0 +1,1 @@
+@Builder@Datapublic class AvailableResponse{ private List<String> availableDiversions;}

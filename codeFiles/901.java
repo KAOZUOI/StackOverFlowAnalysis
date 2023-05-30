@@ -1,0 +1,1 @@
+<dependency>    <groupId>io.mongock</groupId>    <artifactId>mongock-springboot-v3</artifactId></dependency>

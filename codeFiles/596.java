@@ -1,0 +1,1 @@
+var request = ArrRequest.newBuilder()                        .setN(numberOfArrayElements)                        .addAllArray(arr)                        .build();int length = request.getSerializedSize();ByteBuffer bb = ByteBuffer.allocate(4);bb.putInt(length);bb.flip();OutputStream os = socket.getOutputStream();os.write(bb.array());request.writeDelimitedTo(os);

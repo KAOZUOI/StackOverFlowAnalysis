@@ -1,0 +1,1 @@
+@SpringBootTestpublic class ExampleTest {    @Autowired    private MongoTemplate mongoTemplate;    @Test    public void test() {        mongoTemplate.save(MyEntity.builder()                .name(&quot;test&quot;)                .email(&quot;test@mail.com&quot;)                .build());    }}

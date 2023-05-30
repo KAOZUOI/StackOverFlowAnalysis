@@ -1,0 +1,1 @@
+@Query(value = &quot;#{#query}&quot;, nativeQuery = true)List<User> findByQuery(@Param(&quot;query&quot;) String query);

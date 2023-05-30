@@ -1,0 +1,1 @@
+    implementation &quot;io.confluent.ksql:ksqldb-udf:5.5.1&quot;

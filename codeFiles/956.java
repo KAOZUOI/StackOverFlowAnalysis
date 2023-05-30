@@ -1,0 +1,1 @@
+Input - &quot;1 2 3\n4 5 6\n10 20 30&quot;output - 1 2 3         4 5 6         10 20 30

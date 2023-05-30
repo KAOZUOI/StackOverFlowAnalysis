@@ -1,0 +1,1 @@
+@interface ClassInfo{   // Note use of array   String[] myList();}@ClassInfo( myList = {&quot;Larry&quot;, &quot;Moe&quot;, &quot;Curly&quot;} )public class MyClass {}

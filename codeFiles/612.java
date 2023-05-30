@@ -1,0 +1,1 @@
+FATAL ERROR in native method: processing of -javaagent failedjava.lang.UnsupportedClassVersionError: org/eclipse/jdt/launching/internal/javaagent/Premain : Unsupported major.minor version 51.0

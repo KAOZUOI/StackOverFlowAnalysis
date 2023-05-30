@@ -1,0 +1,1 @@
+((CanRecordScreen) driver).stopRecordingScreen();

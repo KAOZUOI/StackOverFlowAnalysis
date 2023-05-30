@@ -1,0 +1,1 @@
+    org.alfresco.error.AlfrescoRuntimeException: 00250002 Keystores are invalid    at ...Caused by: org.alfresco.error.AlfrescoRuntimeException: 00250001 Failed to create key: metadata in key store:    Location: classpath:alfresco/keystore/keystore   Provider: null   Type:     pkcs12

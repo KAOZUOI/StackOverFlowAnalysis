@@ -1,0 +1,1 @@
+@Getter@Setterpublic class User {    @Tag(1)    private long uid;    @Tag(2)    private String name;    @Tag(3)    private Map<Long, Integer> map = new HashMap<>(); // Map type field}

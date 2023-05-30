@@ -1,0 +1,1 @@
+FooController (1) ➝ FooService (2) ➝ RabbitMQ (3)

@@ -1,0 +1,1 @@
+  public Supplier<String> getJwtToken() {         return () -> {             OAuth2AuthorizedClient authorizedClient = authorizedClientService.loadAuthorizedClient(&quot;keycloak&quot;, &quot;we_havePout_realm_there_from_the_properties&quot;);             return     authorizedClient.getAccessToken().getTokenValue();         };     }

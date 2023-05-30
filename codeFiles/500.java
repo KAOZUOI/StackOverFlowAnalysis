@@ -1,0 +1,1 @@
+public class IValueAccumulator {    public Float value;}

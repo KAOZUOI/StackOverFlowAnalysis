@@ -1,0 +1,1 @@
+List<WebElement> allToggle = driver.findElements(By.xpath(&quot;//body//******-******-****authoring//div//table//td//label&quot;));for (WebElement Toggle : allToggle) {    if (!Toggle.isSelected())     {        Toggle.click();    }}

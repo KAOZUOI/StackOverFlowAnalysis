@@ -1,0 +1,1 @@
+@Data@AllArgsConstructor@NoArgsConstructor@Builder @Table(&quot;blog_user&quot;) public class User {         @Id    @Column(&quot;user_id&quot;)    private Long id;        @Column    private String username;     @Column    @JsonIgnore    private String password;         @Column    private String fullname;        @Column    private Integer role;}

@@ -1,0 +1,1 @@
+public void addScore(View v) {    String resourceName = getResources().getResourceName(v.getId());    String[] parts = resourceName.split(&quot;/&quot;);    String result = parts[parts.length - 1];        if (result.contains(&quot;team1&quot;)) {        //..    }}

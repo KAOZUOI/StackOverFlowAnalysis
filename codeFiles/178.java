@@ -1,0 +1,1 @@
+@Getter@Setterpublic class TaskDTO {    public UUID uuid = UUID.randomUUID();    public String title;    public String body;    public LocalDateTime created_at = LocalDateTime.now();}

@@ -1,0 +1,1 @@
+public String testNl() {  String str1 = &quot;1st Line&quot;;  String str2 = &quot;text 2nd&quot;;         String linebreak = str1 + &quot;\n&quot; + str2;         return linebreak;}

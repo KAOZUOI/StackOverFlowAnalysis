@@ -1,0 +1,1 @@
+<dependency>    <groupId>org.springframework.boot</groupId>    <artifactId>spring-boot-dependencies</artifactId>    <version>2.7.4</version></dependency><dependency>    <groupId>org.hibernate</groupId>    <artifactId>hibernate-jcache</artifactId>    <version>5.6.0.Final</version></dependency>

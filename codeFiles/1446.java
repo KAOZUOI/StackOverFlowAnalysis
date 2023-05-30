@@ -1,0 +1,1 @@
+PayloadDTO{@ValidCountry(language = <language from pathvariable>)private String country;}

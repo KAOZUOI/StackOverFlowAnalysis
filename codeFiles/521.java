@@ -1,0 +1,1 @@
+java Main - <&quot;input.txt&quot; > &quot;output.txt&quot;

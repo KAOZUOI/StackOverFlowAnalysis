@@ -1,0 +1,1 @@
+> Task :core:compileKotlin FAILEDw: Java source root points to a non-existent location: C:\Users\pchol\IdeaProjects\space-empires\core\src\main\generated\com\pcholt\se\OrdersBaseListener.javaw: Java source root points to a non-existent location: C:\Users\pchol\IdeaProjects\space-empires\core\src\main\generated\com\pcholt\se\OrdersLexer.java

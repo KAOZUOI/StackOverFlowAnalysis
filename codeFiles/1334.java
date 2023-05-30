@@ -1,0 +1,1 @@
+Compilation failure: org.company.projectA.bar.xyz does not exist

@@ -1,0 +1,1 @@
+services:  db:    image: postgres:14.6-alpine    environment:      POSTGRES_DB: employee_db      POSTGRES_USER: postgres      POSTGRES_PASSWORD: ENC(fpEVpMwMbl4hbcoCKuhrpi...)

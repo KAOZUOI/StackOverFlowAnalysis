@@ -1,0 +1,1 @@
+Property or field 'year' cannot be found on object of type '...WeekRefResponse' - maybe not public or not valid?

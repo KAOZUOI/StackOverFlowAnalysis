@@ -1,0 +1,1 @@
+import org.junit.Assert; import org.junit.Test;public class ProgNodeTest {    @Test    public void progNodeShouldBeInitialized() {        ProgNode pn = new ProgNode();    }}

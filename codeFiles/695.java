@@ -1,0 +1,1 @@
+Person p = new Person();for (int i = 0; i <= myArray.Length; i++){    if (i==0) p.Id = myArray[i];    if (i==1) p.Name = myArray[i];    if (i==2) p.Age = myArray[i];    if (i%3==0) AddNewRecord(p);}

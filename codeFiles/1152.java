@@ -1,0 +1,1 @@
+FooController (1) ➝ FooService (2) ➝ Spring Integration (3) ➝ RabbitMQ (4)

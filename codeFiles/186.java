@@ -1,0 +1,1 @@
+testImplementation 'com.tngtech.archunit:archunit-junit5-engine:0.11.0'

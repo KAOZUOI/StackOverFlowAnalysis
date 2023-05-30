@@ -1,0 +1,1 @@
+2023-03-23T08:26:56.826+08:00  INFO 36604 --- [           main] ctiveUserDetailsServiceAutoConfiguration :Using generated security password: 89113256-0a54-4fec-84bb-872d48506f4e

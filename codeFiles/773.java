@@ -1,0 +1,1 @@
+@PostMapping(value=&quot;/test&quot;)public ResponseData<String> test(        @RequestParam(&quot;id&quot;) String id,        @RequestParam(&quot;value&quot;) String value) {    ResponseData<String> result = new ResponseData<>();    result.setData(id + value);    result.setCode(Constants.CODE_SUCCESS);    return result;}

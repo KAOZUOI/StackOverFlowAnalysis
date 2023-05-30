@@ -1,0 +1,1 @@
+dependencies {implementation &quot;io.confluent.ksql:ksqldb-udf:7.3.0&quot;implementation &quot;org.apache.kafka:kafka_2.13:2.5.0&quot;implementation &quot;org.apache.kafka:connect-api:3.3.1&quot;}

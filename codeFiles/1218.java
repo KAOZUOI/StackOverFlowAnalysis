@@ -1,0 +1,1 @@
+    @Test    public void AddExistingUser(){        //Mocking        mockedManager = mock(UserManager.class);        //Stubbing        when(mockedManager.checkUsername(&quot;test&quot;)).thenReturn(true);                assertThrows(IllegalArgumentException.class, () -> {            mockedManager.addUser(&quot;test&quot;, &quot;test&quot;);        });    }

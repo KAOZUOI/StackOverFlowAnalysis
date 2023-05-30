@@ -1,0 +1,1 @@
+ @UdafFactory(description = &quot;describtonOfFunction&quot;,                   paramSchema = PARAM_SCHEMA_DESCRIPTOR,                   aggregateSchema = AGGREGATE_SCHEMA_DESCRIPTOR,                   returnSchema = RETURN_SCHEMA_DESCRIPTOR)`

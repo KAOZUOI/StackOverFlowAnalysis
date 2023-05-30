@@ -1,0 +1,1 @@
+@Autowired    private MeterRegistry meterRegistry;    @Bean    public CacheMetricsRegistrar cacheMetricsRegistrar() {        return new CacheMetricsRegistrar(meterRegistry, Lists.newArrayList(new CaffeineCacheMeterBinderProvider()));    } 

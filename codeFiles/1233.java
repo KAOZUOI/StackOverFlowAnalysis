@@ -1,0 +1,1 @@
+amazon.aws.accessKey=ACCESS_KEYamazon.aws.secretKey=SECRET_KEYamazon.aws.region=ca-central-1

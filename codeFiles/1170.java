@@ -1,0 +1,1 @@
+@SpringBootTest //load complete Spring context@AutoConfigureMockMvc //configure MockMvc to download the OpenAPI documentation@MockBean({DeviceUpdateService.class,        ...,                SomeConfiguration.class})class GenerateApiDocTest extends PostgresBaseTest {

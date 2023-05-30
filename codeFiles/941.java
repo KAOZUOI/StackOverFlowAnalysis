@@ -1,0 +1,1 @@
+userId = &quot;dmsask121&quot;String v3_USER_DETAILS = &quot;http://example.com/users/{userId}/details&quot;;Request request = new RequestBuilder(HttpConstants.Methods.GET)        .setUrl(v3_USER_DETAILS)        // some way to set userId in the URL??        .build();return execute(request)

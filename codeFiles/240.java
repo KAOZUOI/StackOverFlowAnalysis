@@ -1,0 +1,1 @@
+ Gson gson = new Gson(); String json = gson.toJson(anything); // serializes target to Json YourClass your class = gson.fromJson(json, YourClass.class); // 

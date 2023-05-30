@@ -1,0 +1,1 @@
+class first {    public static void main(String... args) {        long start = System.currentTimeMillis();        for (int i = 0; i < 100000; i++) {            System.out.println(&quot;Hello World&quot;);        }        long end = System.currentTimeMillis();        long dur = end - start;        System.out.println(dur / 1000);    }}

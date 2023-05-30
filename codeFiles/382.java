@@ -1,0 +1,1 @@
+public class HelloWorld {    public static void main(String[] args) {        String line=&quot;Th@#is i*s a Ex()ample St!@ing!@&quot;;        System.out.println(line.replaceAll(&quot;[^a-zA-Z ]&quot;, &quot;&quot;));    }}

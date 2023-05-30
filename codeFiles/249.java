@@ -1,0 +1,1 @@
+private static BufferedImage blur(BufferedImage img) {    float[] matrix3 = {            1f/9, 1f/9, 1f/9,            1f/9, 1f/9, 1f/9,            1f/9, 1f/9, 1f/9,        };    Kernel kernel = new Kernel(3, 3, matrix3);    BufferedImageOp op = new ConvolveOp(kernel);    return op.filter(img, null);}

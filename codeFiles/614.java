@@ -1,0 +1,1 @@
+'java.lang.reflect.Type org.hibernate.annotations.common.reflection.ReflectionManager.toType(org.hibernate.annotations.common.reflection.XClass)'

@@ -1,0 +1,1 @@
+Query query = entityManager.createQuery(&quot;SELECT e FROM Employee e WHERE e.salary > :salary&quot;);query.setParameter(&quot;salary&quot;, 50000);

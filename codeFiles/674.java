@@ -1,0 +1,1 @@
+<dependency>      <groupId>com.teradata.jdbc</groupId>      <artifactId>terajdbc4</artifactId>      <version>17.20.00.12</version>    </dependency>

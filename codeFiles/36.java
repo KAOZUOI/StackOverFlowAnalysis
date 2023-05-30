@@ -1,0 +1,1 @@
+new AntPathRequestMatcher(h2ConsoleProperties.get().getPath() + &quot;/**&quot;);

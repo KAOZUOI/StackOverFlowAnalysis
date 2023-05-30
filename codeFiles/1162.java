@@ -1,0 +1,1 @@
+    @GetMapping(path = &quot;/&quot;)    public String homePage(Model model) {        model.addAttribute(&quot;surveys&quot;, surveyRepository.findAll(PageRequest.of(0,10)));        return &quot;index&quot;;    }

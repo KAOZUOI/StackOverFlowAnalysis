@@ -1,0 +1,1 @@
+@Beanpublic RestTemplate restTemplate() {    RestTemplate restTemplate = new RestTemplate();    restTemplate.setRequestFactory(new HttpComponentsClientHttpRequestFactory()); // HttpComponents added for debug logging purposes, originally it was stock rest template    return restTemplate;}

@@ -1,0 +1,1 @@
+- Variant <insert variant here> capability com.android.tools.build:gradle:7.4.1 declares            a library, packaged as a jar, and its dependencies declared externally:

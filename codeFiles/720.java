@@ -1,0 +1,1 @@
+void goLeft(int number, int index, int increment, int to) {  int localMax = 0;  int i = index;  while (i > to) {    i += increment; // passed increment is negative    // common body  }}void goRight(int number, int index, int increment, int to) {  int localMax = 0;  int i = index;  while (i < to) {    i += increment; // passed increment is positive    // common body  }}

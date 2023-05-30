@@ -1,0 +1,1 @@
+@SpringBootApplication@OpenAPIDefinitionclass MyApplication

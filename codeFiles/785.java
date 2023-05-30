@@ -1,0 +1,1 @@
+RxDataStore<Preferences> dataStoreRX; //Top PartdataStoreRX = new RxPreferenceDataStoreBuilder(this,&quot;your_datastorename&quot;).build(); //onCreate

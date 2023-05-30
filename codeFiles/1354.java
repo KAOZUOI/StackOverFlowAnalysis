@@ -1,0 +1,1 @@
+spring.main.allow-circular-references=truespring.main.allow-bean-definition-overriding=truespring.main.lazy-initialization=true

@@ -1,0 +1,1 @@
+<java.version>11</java.version><maven.compiler.source>${java.version}</maven.compiler.source><maven.compiler.target>${java.version}</maven.compiler.target>

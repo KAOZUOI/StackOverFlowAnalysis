@@ -1,0 +1,1 @@
+void hmset(String key, String field, String value, String... fieldvalues);

@@ -1,0 +1,1 @@
+        System.setProperty(&quot;javax.xml.accessExternalSchema&quot;, &quot;all&quot;);        System.setProperty(&quot;javax.xml.accessExternalDTD&quot;, &quot;all&quot;);

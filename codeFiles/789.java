@@ -1,0 +1,1 @@
+create procedure callProcedure(@newTable varchar(100),@tableField varchar(8000),@table varchar(100))asbeginDELETE FROM @newTable;SET IDENTITY_INSERT @newTable ON;INSERT INTO @newTable(@tableField) SELECT @tableField FROM @tableSET IDENTITY_INSERT @newTable OFF;end

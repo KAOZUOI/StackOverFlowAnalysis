@@ -1,0 +1,1 @@
+override fun onReceive(context: Context, intent: Intent) {        if (intent.action == Telephony.Sms.Intents.SMS_RECEIVED_ACTION) {            val messages = Telephony.Sms.Intents.getMessagesFromIntent(intent)            for (message in messages) {               val sender = message.originatingAddress               val body = message.messageBody            }        }}

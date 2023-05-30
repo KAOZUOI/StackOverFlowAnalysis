@@ -1,0 +1,1 @@
+stubFor(post(urlPathEqualTo(getUploadEndpoint())).willReturn(().withStatus(HttpStatus.OK.value())));

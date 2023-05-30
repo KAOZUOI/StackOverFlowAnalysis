@@ -1,0 +1,1 @@
+@Beanfun objectMapper(builder: Jackson2ObjectMapperBuilder): ObjectMapper {    return builder.build()}

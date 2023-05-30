@@ -1,0 +1,1 @@
+var createIndexRequest = new CreateIndexRequest.Builder()            .index(index)            .build();var createIndexResponse = client.indices().create(createIndexRequest);

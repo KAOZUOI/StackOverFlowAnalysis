@@ -1,0 +1,1 @@
+@Repositorypublic interface EmployeeRepository extends JpaRepository<Employee, Long> {}

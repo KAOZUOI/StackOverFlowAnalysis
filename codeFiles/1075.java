@@ -1,0 +1,1 @@
+String htmlTable = &quot;<table border=&apos;1&apos; width=&apos;300&apos;><tr><td>&quot; + contenidoProcesado[1] + &quot;</td></tr></table>&quot;;String description = &quot;<![CDATA[<div>&quot; + htmlTable + &quot;</div>]]>&quot;;placemark.setDescription(description);

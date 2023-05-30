@@ -1,0 +1,1 @@
+PdfReader reader = new PdfReader(src);PdfDocument pdf = new PdfDocument(reader, new PdfWriter(dest));PdfAcroForm form = PdfAcroForm.getAcroForm(pdf, true);Map<String, PdfFormField> fields = form.getAllFormFields();

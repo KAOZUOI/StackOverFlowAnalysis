@@ -1,0 +1,1 @@
+@Servicepublic class SystemService {    @GrpcClient(&quot;handyman-client&quot;)    StatusServiceGrpc.StatusServiceBlockingStub handymanClient;    public VersionResponse getHandymanVersion() {        return handymanClient.getVersion(Empty.newBuilder().build());    }}

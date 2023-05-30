@@ -1,0 +1,1 @@
+otel.traces.exporter=otlp,loggingotel.metrics.exporter=otlpotel.logs.exporter=noneotel.service.name=service1otel.exporter.otlp.endpoint=http://0.0.0.0:5555otel.exporter.otlp.protocol=grpcotel.traces.sampler=always_onotel.metric.export.interval=1000

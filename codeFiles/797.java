@@ -1,0 +1,1 @@
+System.out.println(&quot;Hello! Please enter some text&quot;);String x = System.console().readLine();System.out.println(&quot;You wrote &quot; + x);

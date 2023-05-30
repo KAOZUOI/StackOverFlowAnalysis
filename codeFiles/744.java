@@ -1,0 +1,1 @@
+Oracle JDK 11Kafka 2.13Spring boot 3.9

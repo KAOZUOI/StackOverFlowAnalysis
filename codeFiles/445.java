@@ -1,0 +1,1 @@
+Converting `org.hibernate.query.QueryTypeMismatchException` to JPA `PersistenceException` : Specified result type [java.lang.String] did not match Query selection type [java.lang.Object] - multiple selections: use Tuple or array

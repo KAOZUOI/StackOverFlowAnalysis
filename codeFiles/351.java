@@ -1,0 +1,1 @@
+implementation(&quot;org.postgresql:r2dbc-postgresql:1.0.0.RELEASE&quot;)

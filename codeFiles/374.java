@@ -1,0 +1,1 @@
+people.sort((p1, p2) -> Integer.compare(p1.score, p2.score));    String result = people.stream().map(Person::toString).collect(Collectors.joining(&quot;,&quot;));

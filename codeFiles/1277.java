@@ -1,0 +1,1 @@
+String st = &quot;[(0, 'test.zip'), (1, 'test.zip-segment-1'), (2, 'test-segment-2'), (3, 'test.zip-segment-3')]&quot;;int idx = a.indexOf(&quot;[&quot;);String fix = st.substring(idx+1, st.lastIndexOf(&quot;]&quot;));fix = fix.replaceAll(&quot;'&quot;, &quot;&quot;);System.out.println(fix);

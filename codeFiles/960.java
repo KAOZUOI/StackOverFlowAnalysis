@@ -1,0 +1,1 @@
+SELECT DISTINCT t1.id_used_for_deletion FROM table1 t1 JOIN table2 t2   ON LEFT(t1.filename, LENGTH(t1.filename)-11)=LEFT(t2.filename, LENGTH(t2.filename)-11)  WHERE RIGHT(t1.filename, 11) < RIGHT(t2.filename, 11)

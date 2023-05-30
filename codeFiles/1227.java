@@ -1,0 +1,1 @@
+<variable name=&quot;JAVA&quot; value=&quot;${JAVA_HOME}&quot; />

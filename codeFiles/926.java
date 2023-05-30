@@ -1,0 +1,1 @@
+File -> Project Structure -> Modules -> Dependencies

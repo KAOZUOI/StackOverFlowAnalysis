@@ -1,0 +1,1 @@
+#Mon Feb 27 20:08:12 IST 2023distributionBase=GRADLE_USER_HOMEdistributionUrl=https\://services.gradle.org/distributions/gradle-7.5-bin.zipdistributionPath=wrapper/distszipStorePath=wrapper/distszipStoreBase=GRADLE_USER_HOME

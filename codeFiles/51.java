@@ -1,0 +1,1 @@
+import com.reactnativepipandroid.PipAndroidModule;import android.content.res.Configuration;@Overridepublic void onPictureInPictureModeChanged (boolean isInPictureInPictureMode, Configuration newConfig) {    PipAndroidModule.pipModeChanged(isInPictureInPictureMode);}

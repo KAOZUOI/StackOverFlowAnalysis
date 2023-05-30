@@ -1,0 +1,1 @@
+if(somethingIsTrue()) {  String message = "Everything is fine";} else {  String message = "We have an error";}System.out.println(message);

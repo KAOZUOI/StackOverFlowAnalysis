@@ -1,0 +1,1 @@
+TokenStore OAuth2AuthenticationDetailsOAuth2AccessTokenDefaultTokenServicesJwtAccessTokenConverterJwtTokenStore

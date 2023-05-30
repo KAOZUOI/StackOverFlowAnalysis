@@ -1,0 +1,1 @@
+ <exec failonerror=&quot;true&quot; vmlauncher=&quot;false&quot; executable=&quot;/usr/bin/echo&quot;>      <arg value=&quot;testing&quot; />  </exec>

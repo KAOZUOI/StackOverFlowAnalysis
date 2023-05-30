@@ -1,0 +1,1 @@
+package br.com.uburu.spring.utils;public final class Indices {    public static final String KEYWORD = &quot;keyword&quot;;    public static final String PATH = &quot;path&quot;;    public static final String FILTER = &quot;filter&quot;;    }

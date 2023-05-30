@@ -1,0 +1,1 @@
+public abstract fun updateSettings(block: com.mapbox.maps.plugin.locationcomponent.generated.LocationComponentSettings.() -> kotlin.Unit): kotlin.Unit

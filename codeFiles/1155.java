@@ -1,0 +1,1 @@
+        System.setProperty(&quot;otel.traces.exporter&quot;, &quot;jaeger&quot;);        System.setProperty(&quot;otel.exporter.jaeger.endpoint&quot;, &quot;http://localhost:14250&quot;);        System.setProperty(&quot;JAEGER_SERVICE_NAME&quot;, &quot;client&quot;);        System.setProperty(&quot;otel.resource.attributes&quot;, &quot;service.name=selenium-java-try&quot;);

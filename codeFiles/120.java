@@ -1,0 +1,1 @@
+@Beanpublic SecretClient secretClient() {  return new SecretClientBuilder()          .vaultUrl(&quot;https://mycompany.com&quot;)          .pipeline(new HttpPipelineBuilder().httpClient() {      @Override      public Mono<HttpResponse> send(HttpRequest request) {          return null;      }  }).build()).buildClient();}

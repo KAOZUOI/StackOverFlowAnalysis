@@ -1,0 +1,1 @@
+implementation &quot;org.mozilla.geckoview:geckoview-${geckoviewChannel}:${geckoviewVersion}&quot;

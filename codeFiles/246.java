@@ -1,0 +1,1 @@
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy::class)-- or @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)

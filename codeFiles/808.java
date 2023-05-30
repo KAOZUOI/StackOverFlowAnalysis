@@ -1,0 +1,1 @@
+fAuth = FirebaseAuth.getInstance();fUser = fAuth.getCurrentUser();

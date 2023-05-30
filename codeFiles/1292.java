@@ -1,0 +1,1 @@
+public class Test {    public static void main(String[] args) throws InvalidProtocolBufferException {        DefaultIdStrategy strategy = (DefaultIdStrategy) RuntimeEnv.ID_STRATEGY;        strategy.registerDelegate(MAP_INT_LONG_DELEGATE);        ...    }}

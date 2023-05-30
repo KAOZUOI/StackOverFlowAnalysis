@@ -1,0 +1,1 @@
+# Testsde.flapdoodle.mongodb.embedded.version=5.0.5

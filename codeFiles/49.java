@@ -1,0 +1,1 @@
+ObjectMapper om = new ObjectMapper();       var node = om.readTree(&quot;{\&quot;type\&quot;: \&quot;point\&quot;,\&quot;coordinates\&quot;:[&quot;+ lon +&quot;,&quot;+ lat + &quot;]}&quot;);JsonData shape = JsonData.of(node);Query geoShape = GeoShapeQuery.of(f->f.field(ConvertUtils.FULL_GEO)   .shape(s->s.relation(GeoShapeRelation.Contains).shape(shape)))._toQuery();

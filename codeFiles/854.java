@@ -1,0 +1,1 @@
+from(&quot;netty:tcp://localhost:6665&quot;).log(&quot;log:Sending message from -->${body}&quot;).to(&quot;activemq:Test&quot;);        from(&quot;activemq:Test?exchangePattern=InOnly&quot;).log(&quot;log:Sending message from -->${body}&quot;).to(&quot;netty:tcp://localhost:6666?textline=true&sync=false&clientMode=true&quot;);

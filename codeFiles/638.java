@@ -1,0 +1,1 @@
+@Overrideprotected void paintComponent(Graphics g) {    super.paintComponent(g);    Graphics2D g2 = (Graphics2D)g.create();        int w = this.getWidth();    int h = this.getHeight();    AffineTransform at = new AffineTransform();    at.translate(w/2, h/2);    at.scale(scale, scale);    at.translate(-w/2, -h/2);    g2.drawRenderedImage(image, at);    g2.dispose();}

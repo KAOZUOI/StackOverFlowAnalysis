@@ -1,0 +1,1 @@
+String itemID[] = line.split(&quot;,&quot;, 5);       System.out.println(itemID[0]);

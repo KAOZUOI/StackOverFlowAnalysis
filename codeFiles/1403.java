@@ -1,0 +1,1 @@
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, property = &quot;version&quot;)@JsonSubTypes({    @JsonSubTypes.Type(value = UserCreatedV1.class, name = &quot;v1&quot;),    @JsonSubTypes.Type(value = UserCreatedV2.class, name = &quot;v2&quot;)})public abstract class UserCreated {    private String email;    private String fullName;    // getters/setters}

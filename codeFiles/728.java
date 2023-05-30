@@ -1,0 +1,1 @@
+implementation 'com.mapbox.maps:android:10.10.1'implementation 'com.mapbox.plugin:maps-locationcomponent:10.11.0-rc.1'

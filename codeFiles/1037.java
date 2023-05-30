@@ -1,0 +1,1 @@
+@GetMapping(&quot;index&quot;)fun showDashboardIndex(model: Model): String {    model.addAttribute(&quot;week&quot;, weekRef)    return &quot;ui/index&quot;}

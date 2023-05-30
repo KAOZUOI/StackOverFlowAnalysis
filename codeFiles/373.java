@@ -1,0 +1,1 @@
+...String[] parts = s.split(&quot; &quot;);    List<Person> people = new ArrayList<>();for (int i = 0; i < parts.length; i += 2) {    String id = parts[i];    int score = Integer.parseInt(parts[i+1]);    people.add(new Person(id, score));}

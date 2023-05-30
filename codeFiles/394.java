@@ -1,0 +1,1 @@
+plugins {    id 'org.jetbrains.kotlin.android' version '1.8.10'}android {    composeOptions {        kotlinCompilerExtensionVersion = &quot;1.4.3&quot;    }}

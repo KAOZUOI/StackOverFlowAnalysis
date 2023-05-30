@@ -1,0 +1,1 @@
+@QueryMapping(name = &quot;getValue&quot;)    public ApiResponse getValue(){        try {            String value = ValueService.getValue();            return ApiResponse.forStatus(StatusCode.S0000)                    .withMessage(StatusCode.S0000.getMessage())                    .withPayload(value);}

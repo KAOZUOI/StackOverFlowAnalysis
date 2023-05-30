@@ -1,0 +1,1 @@
+class MyWrapper<K, V> {  final Map<K, V> map;  public MyWrapper(Map<K, V> map) {    this.map = map;  }  public Map<K, V> getMap() {    return map;  }}

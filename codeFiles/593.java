@@ -1,0 +1,1 @@
+message ArrRequest {  int32 n = 1;  repeated int32 array = 2;}message ArrResponse {  int32 n = 1;  repeated int32 array = 2;}

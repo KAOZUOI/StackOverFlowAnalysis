@@ -1,0 +1,1 @@
+ @JsonDeserialize(using = HouseNoDeserializer.class) private int houseNumber;

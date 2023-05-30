@@ -1,0 +1,1 @@
+implementation('<dependency>') {    exclude group: '<group>', module: '<module>'}

@@ -1,0 +1,1 @@
+import static //org.springframework.boot.autoconfigure.security.servlet.PathRequest.toH2Console; // !...  .requestMatchers(toH2Console()).permitAll()  ...  .csrf().ignoringRequestMatchers(toH2Console())

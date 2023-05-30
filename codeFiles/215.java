@@ -1,0 +1,1 @@
+@Bean    public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {        httpSecurity.csrf().disable().authorizeHttpRequests(auth -> {            auth.requestMatchers(&quot;/v3/**&quot;, &quot;/swagger-ui/**&quot;).permitAll();            auth.anyRequest().authenticated();        });return httpSecurity.build();

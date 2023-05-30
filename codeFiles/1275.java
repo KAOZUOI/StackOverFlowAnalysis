@@ -1,0 +1,1 @@
+VALID --> &aHi. (2 characters)VALID --> Hi. (2 characters)INVALID --> Hi! (3 characters)

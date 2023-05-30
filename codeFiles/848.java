@@ -1,0 +1,1 @@
+package com.jreid.spring.basics.movierecommendersystem;import org.junit.jupiter.api.Test;import org.springframework.boot.test.context.SpringBootTest;@SpringBootTestclass MovieRecommenderSystemApplicationTests {    @Test    void contextLoads() {    }}

@@ -1,0 +1,1 @@
+<dependency>        <groupId>com.sun.xml.ws</groupId>        <artifactId>jaxws-rt</artifactId>        <version>2.3.3</version>    </dependency>

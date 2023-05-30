@@ -1,0 +1,1 @@
+@PersistenceContext(type = PersistenceContextType.TRANSACTION)private final EntityManager entityManager;

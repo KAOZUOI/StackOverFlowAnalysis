@@ -1,0 +1,1 @@
+// set of users who follow the category    @ManyToMany(mappedBy = &quot;categories&quot;,cascade={CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REFRESH})    Set<User> users = new HashSet<>();

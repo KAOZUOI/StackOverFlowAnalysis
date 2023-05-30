@@ -1,0 +1,1 @@
+searchView.setupWithSearchBar(searchBar)

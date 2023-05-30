@@ -1,0 +1,1 @@
+spring.datasource.url=jdbc:h2:mem:defaultspring.datasource.username=saspring.datasource.password=spring.datasource.DriverClassName=org.h2.Driverspring.h2.console.enabled=falsespring.h2.console.path=/myh2console

@@ -1,0 +1,1 @@
+secDomain = (String) properties.get(&quot;security-domain&quot;);

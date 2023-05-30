@@ -1,0 +1,1 @@
+@JsonInclude(JsonInclude.Include.NON_NULL)public class Address implements Serializable {    private static final long serialVersionUID = -7134571546367230214L;    private String street;    private int houseNumber;    private String district;    private String city;    private String state;    private String zipCode;}

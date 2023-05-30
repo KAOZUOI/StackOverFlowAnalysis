@@ -1,0 +1,1 @@
+ @Bean public OAuth2AuthorizedClientService     oAuth2AuthorizedClientService(ClientRegistrationRepository     clientRegistrationRepository) {         return  new     InMemoryOAuth2AuthorizedClientService(clientRegistrationRepository);    }

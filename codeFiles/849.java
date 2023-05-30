@@ -1,0 +1,1 @@
+java: package org.junit.jupiter.api does not existjava: package org.springframework.boot.test.context does not existjava: cannot find symbol  symbol: class SpringBootTestjava: cannot find symbol  symbol:   class Test  location: class com.jreid.spring.basics.movierecommendersystem.MovieRecommenderSystemApplicationTests

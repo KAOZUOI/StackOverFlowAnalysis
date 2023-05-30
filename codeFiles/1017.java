@@ -1,0 +1,1 @@
+@SpringBootApplication    @EnableCaching   public class SampleApplication {    }

@@ -1,0 +1,1 @@
+@ConfigurationProperties(prefix=&quot;foo.bar&quot;, ignoreUnknownFields = true)class myBean{  private String propertyA;  private String propertyB;  ...} 

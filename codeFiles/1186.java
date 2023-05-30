@@ -1,0 +1,1 @@
+static void superDemo(Object o) { }

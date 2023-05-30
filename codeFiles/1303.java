@@ -1,0 +1,1 @@
+rootProject.name = 'parent'include(':common')include(':sql')include(':api')

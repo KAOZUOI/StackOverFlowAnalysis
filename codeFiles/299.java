@@ -1,0 +1,1 @@
+%%init_sparklauncher.master = &quot;local[*]&quot;launcher.packages = [&quot;io.delta:delta-core_2.12:1.0.1&quot;]

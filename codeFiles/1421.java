@@ -1,0 +1,1 @@
+tail -55 file_intersted_in > relevant_lines

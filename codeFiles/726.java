@@ -1,0 +1,1 @@
+<com.google.android.gms.maps.MapView android:id=&quot;@+id/mapView&quot; android:layout_width=&quot;match_parent&quot; android:layout_height=&quot;match_parent&quot; android:speakable=&quot;true&quot; />

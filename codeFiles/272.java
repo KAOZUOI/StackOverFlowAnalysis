@@ -1,0 +1,1 @@
+            <groupId>org.openapitools</groupId>            <artifactId>openapi-generator-maven-plugin</artifactId>            <version>6.0.1</version>

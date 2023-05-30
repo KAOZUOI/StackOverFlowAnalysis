@@ -1,0 +1,1 @@
+spring.datasource.hikari.maximum-pool-size=200spring.datasource.hikari.minimum-idle=10spring.datasource.hikari.idle-timeout=30000spring.datasource.hikari.pool-name=MyHikariCP

@@ -1,0 +1,1 @@
+custom('this', {    // Force use of 'this.' keyword    it.replaceAll('^\\s*(?!public|private|protected)(?!class|interface|enum|@interface)\\b(?!return)\\w+\\b', 'this.$0')})

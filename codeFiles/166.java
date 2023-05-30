@@ -1,0 +1,1 @@
+<dependency>  <groupId>org.springframework.security</groupId>  <artifactId>spring-security-oauth2-resource-server</artifactId>  <version>6.0.2</version></dependency>

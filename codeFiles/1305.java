@@ -1,0 +1,1 @@
+dependencies {  implementation project(':sql')  implementation project(':common')  //...}

@@ -1,0 +1,1 @@
+implementation group: 'net.sourceforge.htmlunit', name: 'htmlunit-android', version: '2.67.0'

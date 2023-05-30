@@ -1,0 +1,1 @@
+@ExceptionHandler(EntityNotFoundException.class)protected ResponseEntity<ProblemDetail> handleEntityNotFoundException(        EntityNotFoundException ex,         HttpServletRequest request) {    ProblemDetail problemDetail = forStatusAndDetail(NOT_FOUND, ex.getMessage());    problemDetail.setTitle(&quot;entity.not.found&quot;);    return ResponseEntity.ok(problemDetail);}

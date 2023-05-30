@@ -1,0 +1,1 @@
+<bean id=&quot;project.contact.list.report&quot;    class=&quot;web.view.excel.reports.project.ProjectContactListReportExcelView&quot;>    <property name=&quot;url&quot; value=&quot;/WEB-INF/view/excel/reports/project/project_contact_list_report&quot;/></bean>

@@ -1,0 +1,1 @@
+<dependency>    <groupId>org.seleniumhq.selenium</groupId>    <artifactId>selenium-java</artifactId>    <version>4.9.0</version></dependency>

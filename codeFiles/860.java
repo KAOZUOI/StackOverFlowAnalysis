@@ -1,0 +1,1 @@
+java.sql.SQLIntegrityConstraintViolationException: Cannot delete or update a parent row: a foreign key constraint fails (`blog_application_database`.`user_category`, CONSTRAINT `FK4x6ipr43cfvhqc3aqda6j8c2l` FOREIGN KEY (`category_id`) REFERENCES `categories` (`category_id`))

@@ -1,0 +1,1 @@
+spring.datasource.driver-class-name=com.teradata.jdbc.TeraDriverspring.jpa.hibernate.ddl-auto=nonespring.jpa.open-in-view=falsespring.jpa.properties.hibernate.dialect=org.hibernate.dialect.TeradataDialectspring.datasource.username=spring.datasource.url=jdbc:teradata://TD1/TMODE=ANSI,CHARSET=UTF8spring.datasource.password=

@@ -1,0 +1,1 @@
+@Overridepublic String encode(CharSequence rawPassword) {    if (rawPassword == null) {        throw new IllegalArgumentException(&quot;rawPassword cannot be null&quot;);    }    String salt = getSalt();    return BCrypt.hashpw(rawPassword.toString(), salt);}

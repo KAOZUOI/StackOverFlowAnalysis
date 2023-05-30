@@ -1,0 +1,1 @@
+when(mockedManager.addUser(&quot;test&quot;, &quot;test&quot;)).thenCallRealMethod();doCallRealMethod().when(mockedManager).addUser(&quot;test&quot;, &quot;test&quot;);

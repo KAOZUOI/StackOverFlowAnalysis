@@ -1,0 +1,1 @@
+java -jar -Djdk.tls.client.protocols=TLSv1.2 -Dhttps.protocols=TLSv1.2 app.jar

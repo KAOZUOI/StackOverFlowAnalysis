@@ -1,0 +1,1 @@
+if(innerEntry.getName().toUpperCase().endsWith(&quot;PDF&quot;)) {    Path newFile = Paths.get(destDir + '-'+innerEntry.getName().replace(&quot;/&quot;, &quot;-&quot;));    System.out.println(&quot;Files.copy to &quot; + newFile);    Files.copy(innerZip, newFile);}

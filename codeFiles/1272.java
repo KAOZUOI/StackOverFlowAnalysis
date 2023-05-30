@@ -1,0 +1,1 @@
+String A = &quot;&aHi&quot;; // true, 2 characters in totalString B = &quot;Hi&quot;; // true, 2 characters in totalString C = &quot;Hi!&quot;; // false, 3 characters in total

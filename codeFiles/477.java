@@ -1,0 +1,1 @@
+@RestController@RequestMapping(value = &quot;auth&quot;, consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)public class AuthController {    @GetMapping    public Object test() {        Map<String, String> test = new HashMap<>();        test.put(&quot;key&quot;, &quot;val&quot;);        return test;    }}

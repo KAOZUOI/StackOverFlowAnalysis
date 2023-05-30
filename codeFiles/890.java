@@ -1,0 +1,1 @@
+@Data@RequiredArgsConstructor@Table(name = &quot;to_do&quot;)public class ToDo {    @Id    private Long id;    @Version    private Long version;    @NotNull    @NotBlank    private String description;    @CreatedDate    private Timestamp created;    @LastModifiedDate    private Timestamp modified;    private boolean completed;}

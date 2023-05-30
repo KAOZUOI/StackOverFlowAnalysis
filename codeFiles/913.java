@@ -1,0 +1,1 @@
+@MessageMapping(&quot;/application&quot;)@SendTo(&quot;/all/messages&quot;)public Message send(final Message message)throws Exception{    System.out.println(&quot;BROADCASTER&quot;);    System.out.println(message);    return message;}

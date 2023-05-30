@@ -1,0 +1,1 @@
+for (Employee employee : employees) {    // process each employee object}

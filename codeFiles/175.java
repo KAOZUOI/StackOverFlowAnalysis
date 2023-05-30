@@ -1,0 +1,1 @@
+{    &quot;timestamp&quot;: &quot;2022-12-09T15:11:02.659+00:00&quot;,    &quot;status&quot;: 415,    &quot;error&quot;: &quot;Unsupported Media Type&quot;,    &quot;path&quot;: &quot;/tasks&quot;}

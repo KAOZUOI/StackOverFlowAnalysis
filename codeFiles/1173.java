@@ -1,0 +1,1 @@
+@Value(&quot;${usps.addressValidation.url}&quot;)private String url;private ResponseEntity<String> callUsps() {Map<String, String> uriVariables = new HashMap<>();    uriVariables.put(&quot;userId&quot;, apiKey);    ... more variables ...    ResponseEntity<String> response = restTemplate.postForEntity(url, null, String.class, uriVariables);}

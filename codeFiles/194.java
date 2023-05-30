@@ -1,0 +1,1 @@
+@PostMapping(&quot;/signup&quot;)    public String signup(@RequestBody(&quot;signupForm&quot;) @Validated SignupForm signupForm, BindingResult result , Model model, HttpServletRequest request) {        YOUR CUSTOM LOGIC}

@@ -1,0 +1,1 @@
+Unsupported Java. Your build is currently configured to use Java 19.0.2 and Gradle 7.5.Possible solution: - Open Gradle wrapper settings, change `distributionUrl` property to use compatible Gradle version and reload the project

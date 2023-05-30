@@ -1,0 +1,1 @@
+System.setProperty(&quot;software.amazon.awssdk.http.service.impl&quot;, &quot;software.amazon.awssdk.http.apache.ApacheSdkHttpService&quot;);

@@ -1,0 +1,1 @@
+<uses-permission android:name=&quot;android.permission.SYSTEM_ALERT_WINDOW&quot; android:maxSdkVersion=&quot;29&quot; />

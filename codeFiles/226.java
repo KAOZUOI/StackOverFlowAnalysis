@@ -1,0 +1,1 @@
+<dependency>    <groupId>de.flapdoodle.embed</groupId>    <artifactId>de.flapdoodle.embed.mongo</artifactId>    <version>3.5.3</version>    <scope>test</scope></dependency>

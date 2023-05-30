@@ -1,0 +1,1 @@
+@Slf4j@Componentpublic class AuditInterceptor implements HandlerInterceptor {  @Override  public void afterCompletion      (HttpServletRequest request, HttpServletResponse response, Object          handler, Exception exception) throws Exception {    Thread.sleep(3000);    log.info((LocalDateTime.now())+&quot; : Audit event stored&quot;);  }

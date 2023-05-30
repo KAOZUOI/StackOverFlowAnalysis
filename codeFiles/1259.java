@@ -1,0 +1,1 @@
+ for(short i=0;i<list.size();i++) {         if(!StringUtils.isAlphanumeric(list.get(i))) {                 list.remove(i);         } }

@@ -1,0 +1,1 @@
+@Beanpublic WebSecurityCustomizer webSecurityCustomizer() {    return (web) -> web.ignoring().requestMatchers(new AntPathRequestMatcher(H2_CONSOLE_PATH));}

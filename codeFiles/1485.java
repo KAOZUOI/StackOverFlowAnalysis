@@ -1,0 +1,1 @@
+ERROR: JDWP unable to get necessary JVMTI capabilities.

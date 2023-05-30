@@ -1,0 +1,1 @@
+&quot;x-ebay-signature-key&quot;: ************* (JWE from Key Management API)&quot;@method&quot;: POST&quot;@path&quot;: /post-order/v2/cancellation&quot;@authority&quot;: apiz.ebay.com&quot;@signature-params&quot;: (&quot;x-ebay-signature-key&quot; &quot;@method&quot; &quot;@path&quot; &quot;@authority&quot;);created=1673328807

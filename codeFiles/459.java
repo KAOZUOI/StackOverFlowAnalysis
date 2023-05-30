@@ -1,0 +1,1 @@
+ @Test void testTheymeleaf() {    TestExecutor executor = new TestExecutor();    executor.execute(&quot;classpath:mail/testResults.thtest&quot;);    Assertions.assertTrue(executor.isAllOK()); }

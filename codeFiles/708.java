@@ -1,0 +1,1 @@
+DayOfWeek dayOfWeek = DayOfWeek.valueOf(day.toUpperCase());

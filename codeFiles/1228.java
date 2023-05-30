@@ -1,0 +1,1 @@
+<source>MY APP ${JAVA}</source>

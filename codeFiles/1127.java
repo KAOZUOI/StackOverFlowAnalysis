@@ -1,0 +1,1 @@
+paths(scalars) as $p | &quot;\($p|join(&quot;_&quot;)|gsub(&quot;[^\\w_.-]&quot;;&quot;&quot;))=\(getpath($p)|@sh)&quot;

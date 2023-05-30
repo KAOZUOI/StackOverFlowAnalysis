@@ -1,0 +1,1 @@
+list.removeIf(s -> s.matches(&quot;[^a-zA-Z0-9]*&quot;));

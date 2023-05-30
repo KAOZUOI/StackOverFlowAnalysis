@@ -1,0 +1,1 @@
+public final class Constants {    // ...    public static final String VERSION        = &quot;3.19.0-SNAPSHOT&quot;;}

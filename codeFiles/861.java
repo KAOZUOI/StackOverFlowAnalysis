@@ -1,0 +1,1 @@
+ @PreRemove    public void removeUsers() {        System.out.println(&quot;Removing users for &quot; + this.categoryName + &quot; before deleting&quot;);        this.users=null;        this.users=new HashSet<>();    }

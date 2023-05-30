@@ -1,0 +1,1 @@
+import org.testng.annotations.BeforeClass;import org.testng.annotations.Test;public class UserInput {    BasicPrograms basicObj;    @BeforeClass    public void createObj() {        basicObj = new BasicPrograms();    }    @Test    public void verifyUserInput() {        basicObj.takeInpFrmUser();    }}

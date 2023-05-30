@@ -1,0 +1,1 @@
+Java.sql.SQLException: Statement.executeQuery() cannot issue statements that do not produce result sets

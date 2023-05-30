@@ -1,0 +1,1 @@
+    public boolean checkUsername(String username) {        return usersData.containsKey(username);    }

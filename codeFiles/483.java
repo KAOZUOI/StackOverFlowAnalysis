@@ -1,0 +1,1 @@
+public record Account(Integer id, String login, Boolean blocked) {}

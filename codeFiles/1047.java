@@ -1,0 +1,1 @@
+Interpolated data is escaped: {{value}}

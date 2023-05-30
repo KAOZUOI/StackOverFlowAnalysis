@@ -1,0 +1,1 @@
+java version:  openjdk 11.0.13 2021-10-19  OpenJDK Runtime Environment (build 11.0.13+0-b1751.21-8125866)  OpenJDK 64-Bit Server VM (build 11.0.13+0-b1751.21-8125866, mixed mode)  

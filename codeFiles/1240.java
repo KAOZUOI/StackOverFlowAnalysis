@@ -1,0 +1,1 @@
+java.lang.StringIndexOutOfBoundsException: begin 6, end -1, length 355    at java.base/java.lang.String.checkBoundsBeginEnd(String.java:4601)    at java.base/java.lang.String.substring(String.java:2704)    at SeerWebCrawler.buildGUIFile(SeerWebCrawler.java:133)    at SeerWebCrawler.main(SeerWebCrawler.java:58)

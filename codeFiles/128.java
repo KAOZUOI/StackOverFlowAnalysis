@@ -1,0 +1,1 @@
+ext {    geckoviewChannel = &quot;nightly&quot;    geckoviewVersion = &quot;108.0.20221215175817&quot;}

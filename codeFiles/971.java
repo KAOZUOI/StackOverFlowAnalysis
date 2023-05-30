@@ -1,0 +1,1 @@
+cts:document-query(cts:uri-match(&quot;/directory/*/folder/*.xml&quot;))

@@ -1,0 +1,1 @@
+public void addScore(View v) {   String resourceName = getResources().getResourceName(v.getId());   if (resourceName.contains(&quot;team1&quot;)) {       //..   }}

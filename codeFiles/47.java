@@ -1,0 +1,1 @@
+GeoShapeQueryBuilder geoShape = QueryBuilders.geoShapeQuery(ConvertUtils.FULL_GEO,new Point(lon, lat));geoShape.relation(ShapeRelation.CONTAINS);QueryBuilder bool = new BoolQueryBuilder().filter(geoShape).should(rankFeature);

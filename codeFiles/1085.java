@@ -1,0 +1,1 @@
+C:\IT\Projects\CheckingGradle\src\main\java\org\example\Main.java:2: error: package org.junit.jupiter.api does not existimport org.junit.jupiter.api.Test;failed:compileJavaMain.javapackage org.junit.jupiter.api does not existpackage com.codeborne.selenide does not existand so on

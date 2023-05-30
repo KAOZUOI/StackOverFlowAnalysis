@@ -1,0 +1,1 @@
+<dependency>    <groupId>org.seleniumhq.selenium</groupId>    <artifactId>selenium-http-jdk-client</artifactId>    <version>4.5.0</version></dependency>

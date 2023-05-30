@@ -1,0 +1,1 @@
+<cts:document-query xmlns:cts=&quot;http://www.w3.org/2000/xmlns/&quot;>  <cts:uri>/directory/2019/folder/1.xml</cts:uri>  <cts:uri>/directory/2020/folder/2.xml</cts:uri>  <cts:uri>/directory/2021/folder/3.xml</cts:uri></cts:document-query>

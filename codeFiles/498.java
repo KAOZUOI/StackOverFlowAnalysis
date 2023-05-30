@@ -1,0 +1,1 @@
+<dependency>    <groupId>jakarta.platform</groupId>    <artifactId>jakarta.jakartaee-api</artifactId>    <version>10.0.0</version>    <scope>provided</scope></dependency>

@@ -1,0 +1,1 @@
+options.addArguments(&quot;--remote-allow-origins=*&quot;);

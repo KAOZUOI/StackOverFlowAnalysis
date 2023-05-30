@@ -1,0 +1,1 @@
+Root<Foo> from = criteriaQuery.from(Foo.class);//... predicatesCriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class)        .select(criteriaBuilder.countDistinct(from))        .where(predicates.toArray(new Predicate[predicates.size()]));Long numberResults = entityManager.createQuery(countQuery).getSingleResult();

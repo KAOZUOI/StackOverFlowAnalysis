@@ -1,0 +1,1 @@
+  @Transactional  public GeneralEntity getGeneralEntityWithId3() {    return entityManager.find(GeneralEntity.class, 2);  }

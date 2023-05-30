@@ -1,0 +1,1 @@
+stubFor(post(urlPathEqualTo(getUploadEndpoint())).willReturn(aResponse().withStatus(HttpStatus.OK.value()))).withId(java.util.UUID.fromString(UUID)));

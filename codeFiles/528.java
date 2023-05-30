@@ -1,0 +1,1 @@
+kapt {    javacOptions {        option(&quot;--target&quot;, 17)    }}

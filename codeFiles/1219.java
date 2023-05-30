@@ -1,0 +1,1 @@
+    public void addUser(String username, String password) {        //Check if the user already exists.        if (checkUsername(username)) {            throw new IllegalArgumentException(&quot;User already exists.&quot;);        }        usersData.put(username, hashPassword(password));        file.writeString(json.toJson(usersData), false);    }

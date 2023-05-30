@@ -1,0 +1,1 @@
+@Query(&quot;select event.id from EventLogDb event where event.metaProperties IN :messageUUID and event.metaProperties in :message&quot;)

@@ -1,0 +1,1 @@
+@Repositorypublic interface TournamentRepository extends CrudRepository<Tournament, Long> {    List<Tournament> findTournamentsByPlayersId(Long playerId);}

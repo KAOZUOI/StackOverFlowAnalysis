@@ -1,0 +1,1 @@
+public interface AbcRepository extends JpaRepository<InfraResource, Long> {    @PostFilter(&quot;hasPermission(filterObject, 'read')&quot;)    List<InfraResource> findAll();}

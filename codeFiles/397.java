@@ -1,0 +1,1 @@
+implementation &quot;org.jetbrains.kotlin:kotlin-stdlib-jdk7:1.6.10&quot;

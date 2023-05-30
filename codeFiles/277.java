@@ -1,0 +1,1 @@
+{{#authMethods}}@PreAuthorize(&quot;hasAnyAuthority('{{#scopes}}SCOPE_{{scope}}{{^-last}}, {{/-last}}{{/scopes}}')&quot;){{/authMethods}}

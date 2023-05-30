@@ -1,0 +1,1 @@
+openjdk 20 2023-03-21OpenJDK Runtime Environment (build 20+36-2344)OpenJDK 64-Bit Server VM (build 20+36-2344, mixed mode, sharing)

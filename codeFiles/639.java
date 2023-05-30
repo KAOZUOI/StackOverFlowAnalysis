@@ -1,0 +1,1 @@
+int w = (int)(this.getWidth()*this.scale);int h = (int)(this.getHeight()*this.scale);

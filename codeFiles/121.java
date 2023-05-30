@@ -1,0 +1,1 @@
+PhoneAuthProvider.verifyPhoneNumber(options);

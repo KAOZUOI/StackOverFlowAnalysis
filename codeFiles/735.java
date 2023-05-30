@@ -1,0 +1,1 @@
+public boolean isEmpty() {    if (topStack == -1)        return true;    return false;}

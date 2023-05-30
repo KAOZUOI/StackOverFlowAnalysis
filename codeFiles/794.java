@@ -1,0 +1,1 @@
+grpc:  client:    handyman-client:      address: static://localhost:8080      negotiationType: plaintext

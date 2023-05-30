@@ -1,0 +1,1 @@
+HttpClient.create()  .proxy(spec -> spec.type(ProxyProvider.Proxy.HTTP)    .host(&quot;proxy&quot;)    .port(8080)    .connectTimeoutMillis(60000));

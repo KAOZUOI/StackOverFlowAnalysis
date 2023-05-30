@@ -1,0 +1,1 @@
+@Configurationpublic class AppConfig {[...]    @Bean(name = &quot;mvcHandlerMappingIntrospector&quot;)    public HandlerMappingIntrospector mvcHandlerMappingIntrospector() {        return new HandlerMappingIntrospector();    }}

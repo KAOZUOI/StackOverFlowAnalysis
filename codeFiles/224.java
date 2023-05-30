@@ -1,0 +1,1 @@
+spring.data.mongodb.database=testspring.data.mongodb.port=27017spring.mongodb.embedded.version=4.0.2

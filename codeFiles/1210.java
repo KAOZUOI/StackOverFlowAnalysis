@@ -1,0 +1,1 @@
+/tmp/SrUvRBAjDt/HelloWorld.java:12: error: unmappable character (0xC2) for encoding US-ASCII        list.set(0,&quot;Forever Garcinia Plus??&quot;);                                         ^/tmp/SrUvRBAjDt/HelloWorld.java:12: error: unmappable character (0xAE) for encoding US-ASCII        list.set(0,&quot;Forever Garcinia Plus??&quot;);                                      ^

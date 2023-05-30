@@ -1,0 +1,1 @@
+Year: <span th:text=&quot;${week.year}&quot; />

@@ -1,0 +1,1 @@
+BoolQuery.Builder builder = new BoolQueryBuilder();List<String> names = [&quot;john&quot;,&quot;jose&quot;];TermsQueryField field = new TermsQueryBuilder().value(names).build();builder.mustNot(TermsQuery.of(t -> t.field(&quot;names&quot;).terms(field))._toQuery());

@@ -1,0 +1,1 @@
+    public ReportServiceGeneratedClient(String url) throws MalformedURLException {        SubmissionWSService service = new SubmissionWSService(new URL(url), new QName(&quot;http://wsdl.report.changed.for.privacy/&quot;, &quot;SubmissionWSService&quot;));        reportService = service.getSubmissionWSPort(); //kaboom here    }

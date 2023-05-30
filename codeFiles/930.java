@@ -1,0 +1,1 @@
+switch (value)  { case 1 -> {}}

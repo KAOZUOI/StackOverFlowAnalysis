@@ -1,0 +1,1 @@
+apply plugin: 'kotlin-android'apply plugin: 'com.android.application'

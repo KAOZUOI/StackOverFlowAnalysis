@@ -1,0 +1,1 @@
+ref.child(fAuth.getUid()).child(&quot;Orders&quot;).child(orderId).orderByChild(&quot;orderStatus&quot;)            .addValueEventListener(new ValueEventListener() {.....}

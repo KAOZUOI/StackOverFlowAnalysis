@@ -1,0 +1,1 @@
+` final CatalogLock entity = lockRepository.save(lock);        return entity.getId();public interface CatalogLockRepository extends CouchbaseRepository<CatalogLock, String>`

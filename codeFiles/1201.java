@@ -1,0 +1,1 @@
+server:  port: 8080spring:  application:    name: registration-service  profiles:    active: default  config:    import: optional:configserver:http://localhost:8071/  kafka:    bootstrap-servers: localhost:9092

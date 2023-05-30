@@ -1,0 +1,1 @@
+Set<String> exploredSet = new HashSet<>();...if (exploredSet.contains(px + &quot; &quot; + py)) {...exploredSet.add(px + &quot; &quot; + py);...exploredSet.stream()        .sorted(Comparator.comparing(x -> {            String[] s = x.split(&quot; &quot;);            return s[1] + &quot; &quot; + s[0]; }))        .forEach(System.out::println);

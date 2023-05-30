@@ -1,0 +1,1 @@
+print extract pointprint ignore point - point.label: gamma

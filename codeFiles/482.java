@@ -1,0 +1,1 @@
+    public static boolean areLoged(String player) {        try {            return playersLoged.contains(player);        }catch (NullPointerException e){            System.out.println(&quot;Player == NULL&quot;);            return false;        }    }

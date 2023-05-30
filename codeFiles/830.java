@@ -1,0 +1,1 @@
+@MessagingGatewaypublic interface MimeMessageSender{    @Gateway(requestChannel = EMailConfig.OUTBOUND_MAIL_CHANNEL_NAME)    void send(MimeMessage mimeMessage) throws MailException;}

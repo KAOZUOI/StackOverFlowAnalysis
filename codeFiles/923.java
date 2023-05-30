@@ -1,0 +1,1 @@
+File -> Settings -> Build, Execution, Deployment -> Compiler -> Java Compiler

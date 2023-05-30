@@ -1,0 +1,1 @@
+Maven home: /opt/homebrew/Cellar/maven/3.9.0/libexecJava version: 18, vendor: Oracle Corporation, runtime: /Users/<username>/Library/Java/JavaVirtualMachines/openjdk-18/Contents/HomeDefault locale: en_RS, platform encoding: UTF-8OS name: &quot;mac os x&quot;, version: &quot;12.6.2&quot;, arch: &quot;aarch64&quot;, family: &quot;mac&quot;

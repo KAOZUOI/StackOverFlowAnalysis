@@ -1,0 +1,1 @@
+ var existsIndexRequest = new ExistsRequest.Builder()            .index(index)            .build(); var response = client.indices().exists(existsIndexRequest);

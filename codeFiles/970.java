@@ -1,0 +1,1 @@
+@Configurationpublic class RestTemplateConfiguration {    @Bean    public RestTemplate sslRestTemplate(RestTemplateBuilder builder, SslBundles sslBundles) {        SslBundle sslBundle = sslBundles.getBundle(&quot;rest&quot;);        return builder.rootUri(&quot;https://server.com&quot;).setSslBundle(sslBundle).build();    }}

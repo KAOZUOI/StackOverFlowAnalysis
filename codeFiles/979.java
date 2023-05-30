@@ -1,0 +1,1 @@
+IOUtils.copy(sevenZFile.getInputStream(entry), outputStream);

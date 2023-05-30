@@ -1,0 +1,1 @@
+System variables:  ANDROID_SWT : C:\Users\UserName\AppData\Local\Android\Sdk\tools\lib\x86_64\  JAVA_HOME: C:\Program Files\Android\Android Studio\jre\  

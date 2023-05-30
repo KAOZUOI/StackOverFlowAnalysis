@@ -1,0 +1,1 @@
+@Getter@Setter@ToString@Document(collection = &quot;myCollection&quot;)public class ODSMongo {        @Field(&quot;_id&quot;)    @Id    private String _id;    private String Key;    private String projectKey;    private Long highestIndex;    private Long type;    private Long exists;}

@@ -1,0 +1,1 @@
+CD /D &quot;C:/Users/user/Desktop/Scan/DoneUnzipping&quot; && for  %f in (..\Data\*.zip) do  tar -xf &quot;%f&quot; &quot;*.zip&quot; && for  %f in (*.zip) do  tar -xf &quot;%f&quot; &quot;*.pdf&quot; && del &quot;*.zip&quot;

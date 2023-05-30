@@ -1,0 +1,1 @@
+@RestControllerpublic class MyController {    @PostMapping(value = &quot;/path&quot;)    public ResponseEntity<Void> action(@RequestBody Object body) {        return ResponseEntity.noContent().build();    }}

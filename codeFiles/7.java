@@ -1,0 +1,1 @@
+<dependency>   <groupId>org.hibernate</groupId>   <artifactId>hibernate-ehcache</artifactId>   <version>5.6.5.Final</version></dependency>

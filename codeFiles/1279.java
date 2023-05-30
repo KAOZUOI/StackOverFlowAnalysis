@@ -1,0 +1,1 @@
+spring:  datasource:    url: jdbc:oracle:thin:@localhost:1521:orcl    username: C##ORC_READ_ONLY    password: --password goes here--    driver-class-name: oracle.jdbc.OracleDriver  jpa:    database: oracle    show-sql: true    hibernate:      ddl-auto: none

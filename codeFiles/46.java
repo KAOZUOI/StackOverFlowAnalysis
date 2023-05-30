@@ -1,0 +1,1 @@
+MyBean otherBean = (MyBean) WhatEverClass.createBeanFromProperties(MyBean.class, Properties myPropertiesFromSomeOtherFile);

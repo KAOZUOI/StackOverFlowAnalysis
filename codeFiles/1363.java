@@ -1,0 +1,1 @@
+    <rollingPolicy      class=&quot;ch.qos.logback.core.rolling.TimeBasedRollingPolicy&quot;>      <fileNamePattern>log-%d{yyyy-ww}.log.gz</fileNamePattern>      <maxHistory>26</maxHistory>    </rollingPolicy>

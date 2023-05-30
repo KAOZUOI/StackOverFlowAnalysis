@@ -1,0 +1,1 @@
+configurations.all {    exclude(&quot;org.slf4j&quot;, &quot;slf4j-api&quot;)}

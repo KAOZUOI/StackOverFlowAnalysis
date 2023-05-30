@@ -1,0 +1,1 @@
+    <dependency>        <groupId>com.microsoft.azure</groupId>        <artifactId>applicationinsights-runtime-attach</artifactId>        <version>3.4.11</version>    </dependency>

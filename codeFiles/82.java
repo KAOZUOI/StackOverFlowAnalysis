@@ -1,0 +1,1 @@
+if(romeo.isEmpty()){  romeo=null;

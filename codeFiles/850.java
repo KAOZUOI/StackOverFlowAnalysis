@@ -1,0 +1,1 @@
+<dependency>  <groupId>org.datanucleus</groupId>  <artifactId>jakarta.persistence</artifactId>  <version>3.1.0</version></dependency><dependency>  <groupId>org.eclipse.persistence</groupId>  <artifactId>eclipselink</artifactId>  <version>4.0.1</version></dependency>

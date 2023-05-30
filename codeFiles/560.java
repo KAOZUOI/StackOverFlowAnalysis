@@ -1,0 +1,1 @@
+spring:  profiles:    active:      - EN      - catcustom:  username: user  password: pass

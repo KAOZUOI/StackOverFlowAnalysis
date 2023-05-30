@@ -1,0 +1,1 @@
+boolean prePostEnabled() default true;boolean jsr250Enabled() default false;boolean proxyTargetClass() default false;

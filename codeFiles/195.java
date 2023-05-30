@@ -1,0 +1,1 @@
+final Function<City, String> getPrice = c -> c.getName();

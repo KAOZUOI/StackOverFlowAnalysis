@@ -1,0 +1,1 @@
+@Data@ToString@Entity@Table(name =&quot;EMPLOYEE&quot;, schema=&quot;C##SCOTT&quot;)public class Employee {    @Id                       @Column(name = &quot;EMPNO&quot;)    private Long id;    private String ename;    private String job;    private Long mgr;    private Date hiredate;    private Long sal;    private Long comm;    private Long deptno;}

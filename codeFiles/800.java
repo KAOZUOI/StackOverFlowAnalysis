@@ -1,0 +1,1 @@
+&quot;Hello! Please enter some text. Exception java.lang.NullPointerException: Cannot invoke &quot;java.io.Console.readLine()&quot; because the return value of &quot;java.lang.System.console()&quot; is null at (#2:1)You wrotenull&quot;

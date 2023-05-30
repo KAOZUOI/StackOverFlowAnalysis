@@ -1,0 +1,1 @@
+spring.jpa.properties.hibernate.cache.use_second_level_cache=truespring.jpa.properties.hibernate.cache.use_query_cache=truespring.jpa.properties.javax.persistence.sharedCache.mode=ENABLE_SELECTIVE

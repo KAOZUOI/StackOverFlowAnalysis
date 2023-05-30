@@ -1,0 +1,1 @@
+@Document(&quot;CollectionTwo&quot;)public class ClassTwo{@Idprivate String id;private List<LocalDateTime> giorniLetti;

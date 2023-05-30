@@ -1,0 +1,1 @@
+@GetMapping(&quot;/customHeader&quot;)ResponseEntity<String> customHeader() {    return ResponseEntity.ok()        .header(&quot;Custom-Header&quot;, &quot;app-custom-header&quot;)        .body(&quot;Application custom body content&quot;);}

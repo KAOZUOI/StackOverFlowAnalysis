@@ -1,0 +1,1 @@
+<plugin>    <groupId>org.apache.felix</groupId>    <artifactId>maven-bundle-plugin</artifactId>    ...    <configuration>        <instructions>            ....            <Export-Package>org.company.projectA.foo.*</Export-Package>        </instructions>    </configuration></plugin>

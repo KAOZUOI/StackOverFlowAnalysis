@@ -1,0 +1,1 @@
+buildscript {    ext {         minSdkVersion = 24    }}

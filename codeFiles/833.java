@@ -1,0 +1,1 @@
+INFO  [main] org.springframework.core.log.LogAccessor: Adding {mail:outbound-channel-adapter:mailOutbound.mailOutboundAdapter} as a subscriber to the 'outboundMailChannel' channelINFO  [main] org.springframework.core.log.LogAccessor: Channel 'project-name.outboundMailChannel' has 1 subscriber(s).

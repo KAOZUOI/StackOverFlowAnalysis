@@ -1,0 +1,1 @@
+server.servlet.context-path=/sample-servicespringdoc.api-docs.path=/api-docsspringdoc.swagger-ui.path=/swagger-ui-custom.html

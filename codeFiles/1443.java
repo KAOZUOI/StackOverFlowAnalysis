@@ -1,0 +1,1 @@
+void performActions(String data) {    actions.stream()            .filter(a -> a.appliesFor(data))            .forEach(a -> a.apply(data));}

@@ -1,0 +1,1 @@
+SELECT * FROM registration WHERE APPROVED='pending' ORDER BY RSID DESC LIMIT 5

@@ -1,0 +1,1 @@
+while (increment < 0 ? i > to : i < to) {    i += increment;     // common body}

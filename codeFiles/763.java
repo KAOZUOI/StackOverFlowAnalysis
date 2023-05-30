@@ -1,0 +1,1 @@
+user@serverFoo/opt/axis2-1.8.2/bin$ ./axis2server.sh Using AXIS2_HOME: /opt/axis2-1.8.2 Using JAVA_HOME:  /usr/lib/jvm/java-1.8.0-openjdk-amd64/binError: Could not find or load main class org.apache.axis2.transport.SimpleAxis2Server

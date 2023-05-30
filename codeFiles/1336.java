@@ -1,0 +1,1 @@
+<Export-Package>org.company.projectA.foo.*,org.company.projectA.bar.*</Export-Package>

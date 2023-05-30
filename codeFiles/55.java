@@ -1,0 +1,1 @@
+<dependency>  <artifactId>spring-boot-starter-data-mongodb</artifactId>  <groupId>org.springframework.boot</groupId></dependency>

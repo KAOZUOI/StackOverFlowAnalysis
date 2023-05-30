@@ -1,0 +1,1 @@
+@ActiveProfiles(&quot;test&quot;)@SpringBootTest(classes = TestRedisConfiguration.class)public class RedisConfigTest {    @Autowired    private EventStreamRepository eventStreamRepository;    @Test    private void testRedisConfiguration(){        // TODO    }}

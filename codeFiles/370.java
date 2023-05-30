@@ -1,0 +1,1 @@
+    String[] words = {&quot;Ants&quot;, &quot;Bears&quot;, &quot;Cats&quot;, &quot;Dogs&quot;, &quot;Falcons&quot;};    System.out.println(&quot;Without plurals\tWith plurals&quot;);    for (String word : words) {        String withoutS = word.replaceAll(&quot;s$&quot;, &quot;&quot;);        System.out.println(withoutS + &quot;\t\t\t&quot; + word);    }

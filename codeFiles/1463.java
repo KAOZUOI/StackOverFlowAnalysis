@@ -1,0 +1,1 @@
+{&quot;academicGroup&quot;: {  &quot;students&quot;: [    {      &quot;name&quot;: &quot;Student1&quot;,      &quot;group&quot;: &quot;KN-221A&quot;    },    {      &quot;name&quot;: &quot;Student2&quot;,      &quot;group&quot;: &quot;KN-221A&quot;    },    {      &quot;name&quot;: &quot;Student3&quot;,      &quot;group&quot;: &quot;KN-221A&quot;    }  ]}}

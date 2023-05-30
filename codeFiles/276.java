@@ -1,0 +1,1 @@
+{{#authMethods}}import org.springframework.security.access.prepost.PreAuthorize;{{/authMethods}}

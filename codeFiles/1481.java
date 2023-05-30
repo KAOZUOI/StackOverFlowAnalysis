@@ -1,0 +1,1 @@
+UiAutomator2Options.setRemoteAdbHost(&quot;localhost&quot;) 

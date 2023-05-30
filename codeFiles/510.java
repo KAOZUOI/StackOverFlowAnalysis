@@ -1,0 +1,1 @@
+run.cmd -alfrescoversion community -keystorepass “password&quot; -truststorepass “password&quot;

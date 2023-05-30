@@ -1,0 +1,1 @@
+@Repositorypublic interface ToDoRepository extends R2dbcRepository<ToDo,Long> {}

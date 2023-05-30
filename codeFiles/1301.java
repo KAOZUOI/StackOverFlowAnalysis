@@ -1,0 +1,1 @@
+gradle.properties:implementation (&quot;com.boa.dart:funding-common:23.5.1.108&quot;)  --> Prod configurationimplementation files(&quot;libs/funding-common.23.5.1.108.jar&quot;) --> Local configuration

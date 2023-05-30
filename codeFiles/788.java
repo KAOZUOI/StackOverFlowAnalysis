@@ -1,0 +1,1 @@
+String getStringValue(String Key) {  Preferences.Key<String> PREF_KEY = PreferencesKeys.stringKey(Key);  Single<String> value = dataStoreRX.data().firstOrError().map(prefs -> prefs.get(PREF_KEY)).onErrorReturnItem(&quot;null&quot;);  return value.blockingGet();}

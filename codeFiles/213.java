@@ -1,0 +1,1 @@
+<plugin>    <groupId>org.openapitools</groupId>    <artifactId>openapi-generator-maven-plugin</artifactId>    <configuration>        <configOptions>            ...            **<useSpringBoot3>true</useSpringBoot3>**        </configOptions>    </configuration></plugin>

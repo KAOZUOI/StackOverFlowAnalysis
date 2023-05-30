@@ -1,0 +1,1 @@
+switch (o){    case null -> //handle null    case <other-value> ->    //etc...}

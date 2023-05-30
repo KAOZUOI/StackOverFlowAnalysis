@@ -1,0 +1,1 @@
+@Transactional(transactionManager = &quot;db1TransactionManager&quot;)public class Db1ServiceImpl implements Db1Service {

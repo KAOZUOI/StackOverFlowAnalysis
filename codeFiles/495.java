@@ -1,0 +1,1 @@
+List<FieldValue> fieldValues = names.stream().map(FieldValue::of).toList();

@@ -1,0 +1,1 @@
+jar:file:/C:/Users/kacpe/.m2/repository/org/hibernate/orm/hibernate-core/6.1.6.Final/hibernate-core-6.1.6.Final.jar!/org/hibernate/cfg/annotations/BasicValueBinder.class

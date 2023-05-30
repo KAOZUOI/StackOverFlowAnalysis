@@ -1,0 +1,1 @@
+<ScrollView    android:layout_width....    android:isScrollContainer=&quot;true&quot;    constraint-props....>    <LinearLayout        .....        android:orientation=&quot;vertical&quot;>        ... child        ... child        ... child    </LinearLayout></ScrollView>

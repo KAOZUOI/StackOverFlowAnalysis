@@ -1,0 +1,1 @@
+public void addScore(View v) {        if (v.getId().toString().contains(&quot;team1&quot;));    }

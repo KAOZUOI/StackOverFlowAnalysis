@@ -1,0 +1,1 @@
+return List.copyOf(originalList);

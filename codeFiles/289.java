@@ -1,0 +1,1 @@
+aws sns publish --topic-arn arn:aws:sns:eu-west-1:000000000000:MyTopic \    --message '{&quot;name&quot;: &quot;test&quot;}' --endpoint-url http://localhost:4566

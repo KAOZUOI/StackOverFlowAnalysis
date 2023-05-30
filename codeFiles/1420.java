@@ -1,0 +1,1 @@
+    String str = null;    int currentLine = 0;    while((str = br.readLine()) != null){        currentLine++;        if(totalLineCount - currentLine < 55){            // Lines you are interested in        }    }

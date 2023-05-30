@@ -1,0 +1,1 @@
+ final City city = currentCity supplier = () -> city.getName() // or supplier = city::getName

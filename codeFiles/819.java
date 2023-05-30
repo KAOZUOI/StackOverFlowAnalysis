@@ -1,0 +1,1 @@
+<a href=&quot;#&quot; onclick=&quot;history.back()&quot;><img class=&quot;bla&quot; src=&quot;images/bla.jpg&quot;></a><a href=&quot;#&quot; onclick=&quot;history.back();return false&quot;><img class=&quot;bla&quot; src=&quot;images/bla.jpg&quot;></a>    <a href=&quot;javascript: window.history.go(-1)&quot;><img class=&quot;bla&quot; src=&quot;images/bla.jpg&quot;></a>      

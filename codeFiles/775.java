@@ -1,0 +1,1 @@
+if (contentType.startsWith(&quot;multipart/form-data&quot;)) {    StandardServletMultipartResolver resolver = new StandardServletMultipartResolver();    StandardMultipartHttpServletRequest req = (StandardMultipartHttpServletRequest)resolver.resolveMultipart((HttpServletRequest) request);    System.out.println(req.getMultiFileMap());    System.out.println(req.getParameterMap());}

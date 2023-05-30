@@ -1,0 +1,1 @@
+ func = (city) -> city.getName() // or func = City::getName

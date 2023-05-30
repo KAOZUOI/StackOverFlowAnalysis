@@ -1,0 +1,1 @@
+<servlet>  <servlet-name>dispatcher</servlet-name>  <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>  <multipart-config /> <!-- Add for supporting multipart request --></servlet><servlet-mapping>  <servlet-name>dispatcher</servlet-name>  <url-pattern>/</url-pattern></servlet-mapping>

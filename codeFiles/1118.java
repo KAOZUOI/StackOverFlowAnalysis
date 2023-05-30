@@ -1,0 +1,1 @@
+SecurityContext securityContext = SecurityActions.getSecurityContext();if (securityContext != null){   secDomain = securityContext.getSecurityDomain();}else{   secDomain = (String) properties.get(&quot;security-domain&quot;);

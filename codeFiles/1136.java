@@ -1,0 +1,1 @@
+    <dependency>        <groupId>org.freemarker</groupId>        <artifactId>freemarker</artifactId>        <version>2.3.31</version>    </dependency>    <dependency>        <groupId>javax.mail</groupId>        <artifactId>mail</artifactId>        <version>1.5.0-b01</version>    </dependency>

@@ -1,0 +1,1 @@
+//DataStore instead of SharedPreferencesimplementation &quot;androidx.datastore:datastore-preferences:1.0.0&quot;//RxJava2 supportimplementation &quot;androidx.datastore:datastore-preferences-rxjava2:1.0.0&quot;

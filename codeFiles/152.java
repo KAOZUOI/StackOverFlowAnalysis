@@ -1,0 +1,1 @@
+&quot;java.configuration.runtimes&quot;: [  {    &quot;name&quot;: &quot;JavaSE-1.8&quot;,    &quot;path&quot;: &quot;/path/to/jdk-8&quot;,  },  {    &quot;name&quot;: &quot;JavaSE-11&quot;,    &quot;path&quot;: &quot;/path/to/jdk-11&quot;,  },  {    &quot;name&quot;: &quot;JavaSE-19&quot;,    &quot;path&quot;: &quot;/path/to/jdk-19&quot;,    &quot;default&quot;: true  },]

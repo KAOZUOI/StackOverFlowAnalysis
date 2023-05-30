@@ -1,0 +1,1 @@
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KaptGenerateStubs).configureEach {    kotlinJavaToolchain.jdk.use(            &quot;/usr/local/opt/openjdk@17/libexec/openjdk.jdk/Contents/Home&quot;,            JavaVersion.VERSION_17    )}

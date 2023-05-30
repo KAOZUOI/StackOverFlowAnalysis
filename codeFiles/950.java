@@ -1,0 +1,1 @@
+str = str.replaceAll(&quot;(.)\\1&quot;, &quot;$1z&quot;);

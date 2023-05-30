@@ -1,0 +1,1 @@
+List<ServeEvent> allServeEvents getAllServeEvents(ServeEventQuery.forStubMapping(java.util.UUID.fromString(UUID)));// this list should contain one stub onlyassertThat(allServeEvents).hasSize(1);ServeEvent request = allServeEvents.get(0);String body = request .getRequest().getBodyAsString();

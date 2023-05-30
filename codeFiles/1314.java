@@ -1,0 +1,1 @@
+    String strings[] = ...    if (strings.charAt(3)) { ... }    // maybe that should be 'strings[0].charAt(3)'

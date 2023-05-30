@@ -1,0 +1,1 @@
+@Entity@Data@Builder@AllArgsConstructor@NoArgsConstructorpublic class Account {    @Id    @GeneratedValue    @JsonIgnore    private Long id;    private String accountName;    private String supplierName;    private String customerName;    private Double amount;

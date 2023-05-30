@@ -1,0 +1,1 @@
+@Configuration@EnableWebSecuritypublic class SecurityConfig {    @Bean    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {        http.authorizeRequests().antMatchers(&quot;/login/**&quot;).hasRole(&quot;role-name&quot;).anyRequest().authenticated().and().oauth2ResourceServer().jwt();        return http.build();    }}

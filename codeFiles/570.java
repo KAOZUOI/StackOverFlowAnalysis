@@ -1,0 +1,1 @@
+@GetMapping(value = &quot;/dto&quot;, produces = MediaType.APPLICATION_JSON_VALUE)  public ResponseEntity<ReportDto> dto() {    MultiValueMap<String, String> headers = new HttpHeaders();    headers.add(&quot;Controller processed time&quot;,LocalDateTime.now().toString());    return new ResponseEntity<ReportDto>(new ReportDto(), headers, HttpStatus.OK);  }

@@ -1,0 +1,1 @@
+try (InputStream in = Files.newInputStream(in);    OutputStream fout = Files.newOutputStream(out);) {    GZipCompressorOutputStream out2 = new GZipCompressorOutputStream(     new BufferedOutputStream(fout));    // Read and write byte by byte    final byte[] buffer = new byte[buffersize];     int n = 0;    while (-1 != (n = in.read(buffer))) {     out2.write(buffer, 0, n);    }}

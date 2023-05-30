@@ -1,0 +1,1 @@
+if (s.charAt(0) != start && s.charAt(s.length() - 1) != end) {    return getmiddle(s.substring(1, s.length() - 2), start, end);} else if (s.charAt(0) != start) {    return getmiddle(s.substring(1), start, end);} else if (s.charAt(s.length() - 1) != end) {    return getmiddle(s.substring(0, s.length() - 2), start, end);} else {    return s.substring(1, s.length() - 1);}

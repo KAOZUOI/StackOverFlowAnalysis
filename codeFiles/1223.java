@@ -1,0 +1,1 @@
+doReturn(true).when(mockedManager).checkUsername(&quot;test&quot;);

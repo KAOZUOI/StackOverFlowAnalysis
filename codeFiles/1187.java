@@ -1,0 +1,1 @@
+static <T super Animal> T superDemo() { }

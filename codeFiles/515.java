@@ -1,0 +1,1 @@
+dependencies {  implementation 'org.opensearch.client:opensearch-rest-client: 2.6.0'  implementation 'org.opensearch.client:opensearch-java:2.4.0'}

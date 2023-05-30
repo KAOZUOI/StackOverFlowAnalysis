@@ -1,0 +1,1 @@
+#HIBERNATE SECOND LEVEL CACHEspring.jpa.properties.hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactoryspring.jpa.properties.javax.persistence.sharedCache.mode=ENABLE_SELECTIVEspring.jpa.properties.hibernate.cache.use_second_level_cache=truespring.jpa.properties.hibernate.cache.use_query_cache=true

@@ -1,0 +1,1 @@
+distributionBase=GRADLE_USER_HOMEdistributionPath=wrapper/distsdistributionUrl=https\://services.gradle.org/distributions/gradle-7.6-bin.zipzipStoreBase=GRADLE_USER_HOMEzipStorePath=wrapper/dists

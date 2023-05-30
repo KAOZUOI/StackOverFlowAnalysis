@@ -1,0 +1,1 @@
+@Configuration@EnableWebSecurity@AllArgsConstructor@EnableGlobalMethodSecurity(prePostEnabled = true)public class SecurityConfig {

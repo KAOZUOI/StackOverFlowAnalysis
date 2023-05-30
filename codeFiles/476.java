@@ -1,0 +1,1 @@
+public abstract java.util.List AbcRepository.findAll()    public default java.lang.Iterable AbcRepository.findAll()

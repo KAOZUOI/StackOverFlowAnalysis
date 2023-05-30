@@ -1,0 +1,1 @@
+Caused by: org.springframework.expression.spel.SpelEvaluationException: EL1004E: Method call: Method internalUser(java.lang.String) cannot be found on type org.springframework.security.access.expression.method.MethodSecurityExpressionRoot

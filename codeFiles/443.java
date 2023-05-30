@@ -1,0 +1,1 @@
+jarfile=&quot;C:\Program Files\Java\jdk-20\bin\javaw.exe&quot; -jar --module-path &quot;C:\Program Files\Java\javafx-sdk-20\lib&quot; --add-modules javafx.controls,javafx.fxml &quot;%1&quot; &quot;%*&quot;

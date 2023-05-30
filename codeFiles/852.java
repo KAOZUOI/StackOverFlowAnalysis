@@ -1,0 +1,1 @@
+plugins {    id 'java'}group 'org.simple.processor'version '1.0-SNAPSHOT'sourceCompatibility = JavaVersion.VERSION_17targetCompatibility = JavaVersion.VERSION_17repositories {    mavenCentral()    mavenLocal()}dependencies {    annotationProcessor 'org.simple.processor:simple-processor:1.0-SNAPSHOT'    implementation 'org.simple.processor:simple-processor:1.0-SNAPSHOT'}

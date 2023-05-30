@@ -1,0 +1,1 @@
+&quot;participantBindings&quot;: [ ...]

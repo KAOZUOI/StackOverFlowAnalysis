@@ -1,0 +1,1 @@
+javax.mail.MessagingException: Could not convert socket to TLS;  nested exception is:    javax.net.ssl.SSLHandshakeException: No appropriate protocol (protocol is disabled or cipher suites are inappropriate)    at com.sun.mail.smtp.SMTPTransport.startTLS(SMTPTransport.java:1907)    at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:666)

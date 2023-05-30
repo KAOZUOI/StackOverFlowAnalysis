@@ -1,0 +1,1 @@
+uses-permission android:name= android.permission.READ_MEDIA_IMAGESuses-permission android:name= android.permission.READ_MEDIA_VIDEOuses-permission android:name= android.permission.READ_MEDIA_AUDIO

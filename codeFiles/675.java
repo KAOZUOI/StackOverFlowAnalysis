@@ -1,0 +1,1 @@
+[INFO] Including com.teradata.jdbc:terajdbc4:jar:17.20.00.12 in the shaded jar.

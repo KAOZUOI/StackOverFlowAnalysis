@@ -1,0 +1,1 @@
+compileDebugJavaWithJavac' task (current target is 18) and 'kaptGenerateStubsDebugKotlin' task (current target is 19) jvm target compatibility should be set to the same Java version.

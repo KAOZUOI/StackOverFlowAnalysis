@@ -1,0 +1,1 @@
+requires jakarta.jakartaee.api;requires spring.beans;requires spring.boot;requires spring.boot.loader;requires spring.boot.autoconfigure;requires spring.context;requires spring.core;requires spring.security.config;requires spring.security.core;requires spring.security.web;requires spring.web;

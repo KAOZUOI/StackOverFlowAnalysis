@@ -1,0 +1,1 @@
+implementation &quot;org.mozilla.geckoview:geckoview:113.0.20230501151611&quot;

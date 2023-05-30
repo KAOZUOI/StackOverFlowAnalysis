@@ -1,0 +1,1 @@
+- Doesn't say anything about org.gradle.plugin.api-version (required '7.5')

@@ -1,0 +1,1 @@
+static void superDemo(List<? super Animal> list) {     // this is possible, because of the super bound    list.add(new Cat());}

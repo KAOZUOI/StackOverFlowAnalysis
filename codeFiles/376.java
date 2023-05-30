@@ -1,0 +1,1 @@
+List<Data> list = new ArrayList<>();String[] items = data.split(&quot;\\s+&quot;);for(int i = 0; i < items.length; i+=2) {    list.add(new Data(Integer.parseInt(items[i]), Integer.parseInt(items[i+1])));}list.sort(Comparator.comparingInt(Data::value));for (Data d : list) {    System.out.println(d);}

@@ -1,0 +1,1 @@
+@GetMapping(&quot;/signup&quot;)public String getSignUpPage(@RequestParam String name, Model model) {    

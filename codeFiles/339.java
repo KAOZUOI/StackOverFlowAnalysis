@@ -1,0 +1,1 @@
+private DateTimePicker start = new DateTimePicker();        private boolean isTimeNull(){            LocalDateTime dateTime = start.getValue();        }

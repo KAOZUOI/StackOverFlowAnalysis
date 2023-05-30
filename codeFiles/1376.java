@@ -1,0 +1,1 @@
+LocalTimestampMillis datetimeType = LogicalTypes.localTimestampMillis();field = new Schema.Field(attrDesc.getAttributeName(), Schema.createUnion(datetimeType.addToSchema(Schema.create(Schema.Type.LONG)), Schema.create(Schema.Type.NULL)), null, null);

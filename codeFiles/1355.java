@@ -1,0 +1,1 @@
+dependency ('redis.clients:jedis') (removed version 3.1.0 which was mentioned earlier)org.junit.vintage:junit-vintage-engine  (added for backward compatibility)

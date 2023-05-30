@@ -1,0 +1,1 @@
+public static long countUniqueWords(String str) {    var str2 = str.replaceAll(&quot;[^a-zA-Z0-9 ]&quot;, &quot;&quot;).replaceAll(&quot; +&quot;, &quot; &quot;);    return Arrays.stream(str2.split(&quot; &quot;))            .distinct()            .count();}

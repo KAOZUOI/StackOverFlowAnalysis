@@ -1,0 +1,1 @@
+int imageWidth = this.image.getWidth();int imageHeight = this.image.getHeight();double x = (w-imageWidth*this.scale);double y = (h-imageHeight*this.scale);

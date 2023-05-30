@@ -1,0 +1,1 @@
+private static void capture(int x, int y , int width , int height, String setName) {    Robot robot = new Robot();    Rectangle area = new Rectangle(x, y, width, height);    BufferedImage image = robot.createScreenCapture(area);    ImageIO.write(image, &quot;png&quot;, new File(System.getProperty(&quot;user.dir&quot;) + &quot;\\images\\&quot; + setName +&quot;.png&quot;));}

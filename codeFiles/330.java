@@ -1,0 +1,1 @@
+public static Image screenShot(Component c) {  BufferedImage im = new BufferedImage(c.getWidth(), c.getHeight(), BufferedImage.TYPE_INT_ARGB);  Graphics g = im.getGraphics();  c.paint(g); // Paint is the proper entry point to painting a (J)Component, rather than paintComponent  g.dispose(); // You should dispose of your graphics object after you've finished  return im;}

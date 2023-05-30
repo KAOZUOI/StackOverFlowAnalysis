@@ -1,0 +1,1 @@
+com.google.zxing.WriterException: Data too big for requested version    at com.google.zxing.qrcode.encoder.Encoder.encode(Encoder.java:123)    at com.google.zxing.qrcode.QRCodeWriter.encode(QRCodeWriter.java:78)

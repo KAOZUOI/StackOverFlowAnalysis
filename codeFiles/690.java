@@ -1,0 +1,1 @@
+String inputfield=&quot;1PRW12345&quot;;  Pattern pattern = Pattern.compile(&quot;[1-2]PR[K-Z]\\d{2}\\d{3}&quot;);    Matcher matcher = pattern.matcher(inputfield); //String inputfield is defined elsewhere in the program                boolean matchFound = matcher.find();

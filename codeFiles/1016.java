@@ -1,0 +1,1 @@
+@Cacheable(cacheNames = &quot;AccessTokenCache&quot;,key = &quot;#root.methodName&quot;)    Token getToken();

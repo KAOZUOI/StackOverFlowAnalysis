@@ -1,0 +1,1 @@
+record PossibleAction<T>(        Predicate<T> predicate,        Consumer<T> action) {    // if you use a custom structure you can define these methods    // and use .appliesFor(data) instead of using .getPredicate().test(data)    public boolean appliesFor(T data) {        return predicate.test(data);    }    public void apply(T data) {        action.accept(data);    }}

@@ -1,0 +1,1 @@
+@Document(&quot;CollectionOne&quot;)public class ClassOne{@Idprivate String id;private LocalDateTime dataChiamata;

@@ -1,0 +1,1 @@
+Ping Connection Pool failed for banksmart. Class name is wrong or classpath is not set for : com.mysql.cj.jdbc.MysqlXADataSource Please check the server.log for more details.

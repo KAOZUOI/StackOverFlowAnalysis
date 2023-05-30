@@ -1,0 +1,1 @@
+@Service@Componentpublic class ChallengeService {        private static final Logger LOGGER = LoggerFactory.getLogger(ChallengeService.class);    public ChallengeService() {    }    public String greeting(String name) {        return &quot;hello &quot; + name;    }}

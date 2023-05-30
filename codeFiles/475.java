@@ -1,0 +1,1 @@
+1. Iterable<T> findAll() coming from CrudRepository2. List<T> findAll() coming from SimpleJpaRepository 

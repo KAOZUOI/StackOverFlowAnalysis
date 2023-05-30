@@ -1,0 +1,1 @@
+   @Autowired    private ChallengeService challengeService;    public ChallengeController(ChallengeService challengeService) {        this.challengeService = challengeService;    }

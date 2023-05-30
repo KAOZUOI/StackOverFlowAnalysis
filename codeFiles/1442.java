@@ -1,0 +1,1 @@
+List<PossibleAction<String>> actions = List.of(    new PossibleAction<>(s -> s.contains(&quot;A&quot;), s -> System.out.println(&quot;1&quot;) ),    new PossibleAction<>(s -> s.contains(&quot;B&quot;), s -> System.out.println(&quot;2&quot;) ),    new PossibleAction<>(s -> s.contains(&quot;C&quot;), s -> System.out.println(&quot;3&quot;) ));

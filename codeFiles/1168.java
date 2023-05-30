@@ -1,0 +1,1 @@
+jdbc:postgresql://hostname:5432/dbname?sslmode=require&sslcert=D:\\work\\linux\\postgres-ssl\\postgresql.crt&sslkey=D:\\work\\linux\\postgres-ssl\\postgresql.pk8&sslrootcert=D:\\work\\linux\\postgres-ssl\\root.crt&sslpassword=password&quot;;`

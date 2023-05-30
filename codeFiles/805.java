@@ -1,0 +1,1 @@
+@Getter@Setter@NoArgsConstructor@AllArgsConstructor@SuperBuilderpublic class KA extends A {    private MyPackage pck;    private String field1;    private String field2;}

@@ -1,0 +1,1 @@
+ <dependency>      <groupId>org.springdoc</groupId>      <artifactId>springdoc-openapi-ui</artifactId>      <version>1.6.13</version> </dependency>

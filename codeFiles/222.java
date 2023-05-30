@@ -1,0 +1,1 @@
+    @Bean(&quot;standardJsonObjectMapper&quot;) // named, though not necessary    @org.springframework.context.annotation.Primary // mimic default    public com.fasterxml.jackson.databind.ObjectMapper standardJsonObjectMapper() {        return            org.springframework.http.converter.json.Jackson2ObjectMapperBuilder                .json()                .build();    }

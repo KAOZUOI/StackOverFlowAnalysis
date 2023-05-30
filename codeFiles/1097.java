@@ -1,0 +1,1 @@
+DATABASEspring.datasource.url=jdbc:mysql://spring.datasource.username=rootspring.datasource.password=bsspring.datasource.driver-class-name=com.mysql.cj.jdbc.DriverJWTsecurity.jwt.secret=security.jwt.issuer=#La sesion dura una semanasecurity.jwt.ttlMillis=604800000

@@ -1,0 +1,1 @@
+classTwoRepo .save(obj2);

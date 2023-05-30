@@ -1,0 +1,1 @@
+processResources {    dependsOn generateGrammarSource}generateGrammarSource {    outputDirectory = file(&quot;src/main/generated&quot;)}sourceSets {    main {        java {            srcDirs = [&quot;src/main/kotlin&quot;, &quot;src/main/generated&quot;]        }    }}

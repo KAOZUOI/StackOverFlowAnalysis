@@ -1,0 +1,1 @@
+JsonData shape = JsonData.of(WellKnownText.toWKT(new Point(longitude,latitude))); // will create a simple ValueNode, no JSON conversionQuery geoShape = QueryBuilders.geoShape().field(&quot;coordinates&quot;)  .shape(s->s.relation(GeoShapeRelation.Contains).shape(shape)).build()._toQuery();

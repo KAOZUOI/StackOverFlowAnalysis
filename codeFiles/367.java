@@ -1,0 +1,1 @@
+public static String getmiddle(String s, char start, char end) {    if (s.charAt(0)!=start) {        getmiddle(s.substring(1), start, end);      }    str = str.substring(1);    if (str.charAt(0) != end) {        return s.substring(0,1) + getmiddle(s.substring(1), start, end);    } else {        return &quot;&quot;;    }}

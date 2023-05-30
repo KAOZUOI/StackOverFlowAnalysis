@@ -1,0 +1,1 @@
+springdoc.enable-native-support=truespringdoc.swagger-ui.path=/swagger-ui

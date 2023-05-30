@@ -1,0 +1,1 @@
+// this is okGeneralEntity entity1 = generalEntityRepository.getGeneralEntityWithId1();// this is also okGeneralEntity entity2 = generalEntityRepository.getGeneralEntityWithId2();    // this produces an exceptionGeneralEntity entity3 = generalEntityRepository.getGeneralEntityWithId3();System.out.println(&quot;GeneralEntity with id 3 = &quot; + entity3);

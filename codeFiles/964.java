@@ -1,0 +1,1 @@
+node.next = node; // help GC

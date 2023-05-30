@@ -1,0 +1,1 @@
+public static int getOutputBlockSize(bitSize){  return (bitSize + 7) / 8 - 1;}

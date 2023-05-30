@@ -1,0 +1,1 @@
+ <tbody>    <tr th:each=&quot;survey: ${surveys}&quot; th:class=&quot;${surveyStat.odd}? 'odd'&quot;>        <td>          <div th:attr=&quot;hx-reveal=${surveyStat.last ? 'revealed' : null}&quot;></div>          <p th:text=&quot;${survey.isOpen()?'OPEN':'CLOSED'}&quot;/>        </td>    </tr></tbody>

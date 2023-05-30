@@ -1,0 +1,1 @@
+return http        .authorizeHttpRequests()        .requestMatchers(&quot;/h2-console/**&quot;).permitAll()        .anyRequest().authenticated()        .and()        .formLogin()        .and()        .csrf().ignoringRequestMatchers(&quot;/h2-console/**&quot;)        .and()        .headers().frameOptions().sameOrigin()        .and()        .build();

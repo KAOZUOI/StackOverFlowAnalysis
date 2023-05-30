@@ -1,0 +1,1 @@
+plugins {    id(&quot;com.android.application&quot;) version &quot;8.0.0-alpha11&quot; apply false    id(&quot;org.jetbrains.kotlin.android&quot;) version &quot;1.8.0&quot; apply false}

@@ -1,0 +1,1 @@
+@PostMapping(value = &quot;/path&quot;, consumes = MediaType.TEXT_PLAIN_VALUE)

@@ -1,0 +1,1 @@
+int psi = fileLines.get(i).indexOf(&quot;<Price>&quot;);int pei = fileLines.get(i).indexOf(&quot;</Price>&quot;);price = fileLines.get(i).substring(psi + &quot;<Price>&quot;.length(), pei);System.out.println(price);

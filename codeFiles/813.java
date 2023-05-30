@@ -1,0 +1,1 @@
+implementation 'com.google.firebase:firebase-admin:9.1.1'

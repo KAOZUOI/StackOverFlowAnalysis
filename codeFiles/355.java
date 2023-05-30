@@ -1,0 +1,1 @@
+while(reader.ready())                {                    rec = reader.readLine();                    line++;                                        System.out.printf(&quot;\n%4d %-60s &quot;, line, rec);                }                    reader.close();System.out.println(&quot;\n\nData file read!&quot;); 

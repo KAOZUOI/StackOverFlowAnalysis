@@ -1,0 +1,1 @@
+String getJackcessTableName(String tableName) {    var result = new StringBuilder();    char nullChar = 0;    for (int i = 0; i < tableName.length(); i++) {        result.append(tableName.charAt(i)).append(nullChar);    }    return result.toString();}

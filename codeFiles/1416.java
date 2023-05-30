@@ -1,0 +1,1 @@
+data class ExampleState(        val custom: Set<String>        override val participants: List<AbstractParty> = listOf()) : ContractState {    @DeprecatedConstructorForDeserialization(1)    constructor(        val custom: Set<CustomDriverClass>,        participants: List<Party>): this(emptySet<String>(), participants)}

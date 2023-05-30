@@ -1,0 +1,1 @@
+@Data //setters and getters@ComponentScan@Configuration@ConfigurationProperties(prefix = &quot;some.prefix&quot;)public class SomeAutoConfig {    public SomeAutoConfig(Map<String, Pojo> properties) {        this.properties= properties;    }    private final Map<String, Pojo> properties;    @Bean    String string() {        return &quot;test string&quot;;    }}

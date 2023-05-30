@@ -1,0 +1,1 @@
+// Align versions of all Kotlin componentsimplementation(platform(&quot;org.jetbrains.kotlin:kotlin-bom:1.8.0&quot;))implementation &quot;org.jetbrains.kotlin:kotlin-stdlib:1.8.0&quot;

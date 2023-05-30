@@ -1,0 +1,1 @@
+CREATE TABLE to_do(    ID          SERIAL primary key ,    version     bigint,    description char(255),    created     timestamp,    modified    timestamp,    completed   boolean);

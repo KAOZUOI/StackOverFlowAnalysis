@@ -1,0 +1,1 @@
+class demo{       public static void main(String a[]){             String name="smith";             System.out.print(name);      }}

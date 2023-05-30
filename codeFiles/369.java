@@ -1,0 +1,1 @@
+String five = word;String Sremove = five.replace(&quot;s&quot;, &quot;S&quot;);            System.out.println(Sremove);            //Display without pluralsString remove = word;String withoutS = remove.replace(&quot;s&quot;,&quot; &quot;);  System.out.println(withoutS);

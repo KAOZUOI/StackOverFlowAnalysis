@@ -1,0 +1,1 @@
+org.springframework.web.client.ResourceAccessException: I/O error on POST request for &quot;https://stg-secure.shippingapis.com/ShippingAPI.dll&quot;: Remote host terminated the handshake; nested exception is javax.net.ssl.SSLHandshakeException: Remote host terminated the handshake

@@ -1,0 +1,1 @@
+kotlin(&quot;android&quot;).version(&quot;1.8.10&quot;).apply(false)

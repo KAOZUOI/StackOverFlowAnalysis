@@ -1,0 +1,1 @@
+jar:file:/C:/Users/kacpe/.m2/repository/org/hibernate/common/hibernate-commons-annotations/5.1.0.Final/hibernate-commons-annotations-5.1.0.Final.jar!/org/hibernate/annotations/common/reflection/ReflectionManager.class

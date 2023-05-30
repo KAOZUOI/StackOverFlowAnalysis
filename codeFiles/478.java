@@ -1,0 +1,1 @@
+if (&quot;true&quot;.equalsIgnoreCase(System.getenv(&quot;ENABLE_FEATURE_X&quot;))) {  // enable the feature}

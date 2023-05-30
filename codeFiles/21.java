@@ -1,0 +1,1 @@
+management.endpoints.web.exposure.include=health,prometheusmanagement.server.port=9090

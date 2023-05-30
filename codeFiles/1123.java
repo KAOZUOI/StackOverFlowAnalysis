@@ -1,0 +1,1 @@
+type Query{    getValue: StringApiResponse}type StringApiResponse{    statusCode:String!    message:String!    timestamp:String!    payload:String}

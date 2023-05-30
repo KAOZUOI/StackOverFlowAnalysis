@@ -1,0 +1,1 @@
+@Element(name = &quot;Description&quot;)private String description;

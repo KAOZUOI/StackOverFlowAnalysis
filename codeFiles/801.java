@@ -1,0 +1,1 @@
+//usr/bin/env jshell  --show-version --execution local &quot;$0&quot; &quot;$@&quot;; exit $?

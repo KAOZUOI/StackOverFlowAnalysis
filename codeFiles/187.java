@@ -1,0 +1,1 @@
+implementation group: 'org.apache.httpcomponents.client5', name: 'httpclient5', version: '5.2'

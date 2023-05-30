@@ -1,0 +1,1 @@
+{  getValue {    payload {        logo,        name {            en,            ja        },        copyrightText {            en,            ja        },        help,        termsAndCondition    }  }}

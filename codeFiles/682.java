@@ -1,0 +1,1 @@
+spring:  application:    name: service-name  profiles:    active: ${PROFILE:local}

@@ -1,0 +1,1 @@
+  String rowsUpserted = &quot;&quot;;    try    {      rowsUpserted = container              .getScripts()              .getStoredProcedure(&quot;createEvent&quot;)              .execute(Arrays.asList(listObj), options)              .getResponseAsString();    }catch(Exception e){      e.printStackTrace();    }

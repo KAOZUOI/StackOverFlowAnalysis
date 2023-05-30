@@ -1,0 +1,1 @@
+jarfile=&quot;C:\Program Files\Java\jdk-20\bin\javaw.exe&quot; -jar &quot;%1&quot; &quot;%*&quot;

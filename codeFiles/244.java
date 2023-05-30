@@ -1,0 +1,1 @@
+objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SnakeCaseStrategy.class);or,objectMapper.setPropertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE);

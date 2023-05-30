@@ -1,0 +1,1 @@
+// to set as owner/adminadb shell dpm set-device-owner {packageName}/{your admin class}// to remove owner/adminadb shell dpm remove-active-admin {packageName}/{your admin class}

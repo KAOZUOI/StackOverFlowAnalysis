@@ -1,0 +1,1 @@
+SPRING_PROFILES_ACTIVE=local java -ea -jar target/td-api-1.0-SNAPSHOT.jar

@@ -1,0 +1,1 @@
+ new DiscountTicket(5, &quot;Student&quot;), new DiscountTicket(10, &quot;Senior&quot;),

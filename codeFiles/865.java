@@ -1,0 +1,1 @@
+String token = ((ServletRequestAttributes)(RequestContextHolder.getRequestAttributes())).getRequest().getHeader(&quot;Authorization&quot;);

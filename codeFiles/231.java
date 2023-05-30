@@ -1,0 +1,1 @@
+testImplementation &quot;de.flapdoodle.embed:de.flapdoodle.embed.mongo.spring27x:4.6.0&quot;

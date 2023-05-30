@@ -1,0 +1,1 @@
+mvn jasypt:encrypt -Djasypt.encryptor.password=Master_Key -Djasypt.plugin.path=&quot;file:src/main/resources/application.properties&quot;

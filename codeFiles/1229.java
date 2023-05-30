@@ -1,0 +1,1 @@
+<source>MY APP ${ENVIRONMENT}</source>

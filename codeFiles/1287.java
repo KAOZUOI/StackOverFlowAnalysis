@@ -1,0 +1,1 @@
+syntax=&quot;proto3&quot;;message User {  int64 uid = 1;  string name = 2;  map<int64, int32> map = 3;}

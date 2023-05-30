@@ -1,0 +1,1 @@
+path=~/Library/Application Support/JetBrains/IdeaIC2022.3/plugins/bootstrap3.jar

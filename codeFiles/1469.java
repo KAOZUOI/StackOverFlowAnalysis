@@ -1,0 +1,1 @@
+@Transactional(transactionManager = &quot;db2TransactionManager&quot;)public class Db2ServiceImpl implements Db2Service {

@@ -1,0 +1,1 @@
+boolean java.util.Optional.isEmpty()If a value is not present, returns true, otherwise false.Returns:true if a value is not present, otherwise falseSince:11

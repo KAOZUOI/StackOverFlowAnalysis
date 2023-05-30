@@ -1,0 +1,1 @@
+implementation 'org.springframework:spring-messaging:5.3.24'

@@ -1,0 +1,1 @@
+KA ka1 = new KA();KA ka2 = new KA();System.out.println(&quot;Object equal: &quot; + ka1.equals(ka2));

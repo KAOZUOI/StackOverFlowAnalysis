@@ -1,0 +1,1 @@
+public interface ClassTwoRepo extends MongoRepository<ClassTwo, String> {}

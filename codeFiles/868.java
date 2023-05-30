@@ -1,0 +1,1 @@
+ compile 'org.springframework.security:spring-security-oauth2-client:5.2.1.RELEASE'

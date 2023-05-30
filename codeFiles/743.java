@@ -1,0 +1,1 @@
+KioskHandler.initialize(this);KioskHandler.startKiosk(this);// &quot;this&quot; has to be activity

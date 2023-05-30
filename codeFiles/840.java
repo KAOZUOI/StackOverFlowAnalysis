@@ -1,0 +1,1 @@
+> No matching variant of com.android.tools.build:gradle:7.4.1 was found.         The consumer was configured to find a runtime of a library compatible with Java 8,        packaged as a jar, and its dependencies declared externally, as well as        attribute 'org.gradle.plugin.api-version' with value '7.5' but:

@@ -1,0 +1,1 @@
+public class Overview {    public String status;    @JsonProperty    public final Table table1;    @JsonProperty    public final Table table2;}

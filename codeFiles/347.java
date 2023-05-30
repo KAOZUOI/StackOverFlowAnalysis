@@ -1,0 +1,1 @@
+@Data@AllArgsConstructor@NoArgsConstructor@Builder@Tablepublic class Tag {      @Id    @Column(&quot;tag_id&quot;)    private Long id;        @Column    private String body;        @Column(&quot;created_date&quot;)    private LocalDateTime createdDate;        @Column(&quot;post_id&quot;)    private Post post;            @Column(&quot;user_id&quot;)    private User user;}

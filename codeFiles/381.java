@@ -1,0 +1,1 @@
+String str = &quot;hellol,lol/,=o/l.o?ll\no,llol&quot;;str = str.replaceAll(&quot;[,=/\\n\\?\\.]&quot;, &quot;&quot;);System.out.println(str);

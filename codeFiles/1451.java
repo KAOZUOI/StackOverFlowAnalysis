@@ -1,0 +1,1 @@
+@Configurationpublic class MyConfig {    @Bean    public WebMvcConfigurer corsMappingConfigurer() {        return new WebMvcConfigurer() {            @Override            public void addCorsMappings(CorsRegistry registry) {                registry.addMapping(&quot;/**&quot;);            }        };    }

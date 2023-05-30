@@ -1,0 +1,1 @@
+<tr th:each=&quot;order : ${ordersTypeX}&quot;>

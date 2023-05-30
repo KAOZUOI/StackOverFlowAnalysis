@@ -1,0 +1,1 @@
+    <dependency>        <groupId>org.springdoc</groupId>        <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>        <version>2.0.0</version>    </dependency>    <dependency>        <groupId>org.springframework.boot</groupId>        <artifactId>spring-boot-starter-validation</artifactId>    </dependency>

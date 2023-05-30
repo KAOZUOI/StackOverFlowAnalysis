@@ -1,0 +1,1 @@
+@Configurationpublic class TransactionManagerConfig {  @Bean  public TransactionManager firstTransactionManager() {    return new CustomTransactionManager();  }  @Bean  public TransactionManager secondTransactionManager() {    return new CustomTransactionManager();  }}

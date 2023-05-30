@@ -1,0 +1,1 @@
+Caused by: java.lang.ClassCastException: class com.sun.xml.ws.spi.ProviderImpl cannot be cast to class jakarta.xml.ws.spi.Provider (com.sun.xml.ws.spi.ProviderImpl is in unnamed module of loader fish.payara.micro.boot.loader.ExplodedURLClassloader @5f2050f6; jakarta.xml.ws.spi.Provider is in unnamed module of loader org.glassfish.web.loader.WebappClassLoader

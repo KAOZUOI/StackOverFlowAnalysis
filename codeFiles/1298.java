@@ -1,0 +1,1 @@
+Query query = entityManager.createNativeQuery(&quot;SELECT * FROM employees WHERE salary > :salary&quot;, Employee.class);query.setParameter(&quot;salary&quot;, 50000);
