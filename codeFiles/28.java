@@ -1,1 +1,0 @@
-implementation (platform(&quot;org.jetbrains.kotlin:kotlin-bom:1.8.0&quot;))

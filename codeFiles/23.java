@@ -1,1 +1,0 @@
-    android {    ......    composeOptions {            kotlinCompilerExtensionVersion '1.2.0'        }    .......    }

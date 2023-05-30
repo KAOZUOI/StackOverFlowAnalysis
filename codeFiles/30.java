@@ -1,1 +1,0 @@
-kotlinVersion = &quot;1.8.0-Beta&quot;

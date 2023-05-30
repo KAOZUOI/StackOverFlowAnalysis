@@ -1,1 +1,0 @@
-buildscript {    ext {        compose_ui_version = '1.3.3'    }}then change pluggin Fromplugins {....id 'org.jetbrains.kotlin.android' version '1.7.10' apply false}Toplugins {....id 'org.jetbrains.kotlin.android' version '1.8.10' apply false}

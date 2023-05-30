@@ -93,11 +93,6 @@ public class StackOverflowDataService {
           ObjectMapper objectMapper = new ObjectMapper();
           String jsonAsString = objectMapper.writeValueAsString(jsonResponse);
 
-          FileWriter fileWriter = new FileWriter("questions.json");
-          fileWriter.write("");
-          fileWriter.write(jsonAsString);
-          fileWriter.close();
-
           JsonNode jsonNode = new ObjectMapper().readTree(jsonResponse);
           for (JsonNode item : jsonNode.get("items")) {
             JsonNode questionIdNode = item.get("question_id");
@@ -105,16 +100,12 @@ public class StackOverflowDataService {
                 (questionIdNode != null && !questionIdNode.isNull()) ? questionIdNode.asLong() : 0L;
 
             JsonNode tagsNode = item.get("tags");
-            FileWriter fileWriterTags = new FileWriter("tags.txt");
-            fileWriterTags.write("");
             if (tagsNode.isArray()) {
               for (JsonNode tag : tagsNode) {
                 String tagName = tag.asText();
-                fileWriterTags.write(tagName + "\n");
                 tagRepository.save(new Tag(questionId, tagName));
               }
             }
-            fileWriterTags.close();
 
             JsonNode ownerIdNode = item.get("owner").get("user_id");
             long ownerId =
@@ -321,9 +312,6 @@ public class StackOverflowDataService {
     int count = 0;
 
     for (String url : urls) {
-      if(count > 500){
-        break;
-      }
       URL stackOverflowUrl = new URL(url);
       URLConnection connection = stackOverflowUrl.openConnection();
 
@@ -338,60 +326,57 @@ public class StackOverflowDataService {
       reader.close();
 
       String html = content.toString();
-      FileWriter fileWriter = new FileWriter("html.txt");
-      fileWriter.write(html);
-      fileWriter.close();
-      extractCode(html);
+      Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
+      Matcher matcher = pattern.matcher(html);
 
+      String path = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
+      while (matcher.find()) {
+        String code = matcher.group(1);
+        code = code.replace("&lt;", "<")
+            .replace("&gt;", ">")
+            .replace("&amp;", "&");
+        String mypath = path + count + ".java";
+        FileWriter fileWriter = new FileWriter(mypath);
+        fileWriter.write(code);
+        fileWriter.close();
+        count++;
+      }
 
-      count++;
       Thread.sleep(1000);
     }
   }
 
-  private static void extractCode(String html) throws IOException {
-    Pattern pattern = Pattern.compile("<pre><code>([\\s\\S]*?)</code></pre>");
-    Matcher matcher = pattern.matcher(html);
-
-    String path = "D:\\IDEAproject\\SODproject\\codeFiles\\";
-    int count = 0;
-    while (matcher.find()) {
-      String code = matcher.group(1);
-      code = code.replace("&lt;", "<")
-          .replace("&gt;", ">")
-          .replace("&amp;", "&");
-      String mypath = path + count + ".java";
-      FileWriter fileWriter = new FileWriter(mypath);
-        fileWriter.write(code);
-        fileWriter.close();
-        count++;
-    }
-  }
-
-  public List<Map.Entry<String, Integer>> getAPIs() {
+  public List<Map.Entry<String, Integer>> getAPIs() throws IOException {
     int count = 0;
     Map<String, Integer> map = new HashMap<>();
-    String myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+    String myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
     for (File file : new File(myPath).listFiles()) {
-      myPath = "D:\\IDEAproject\\SODproject\\codeFiles\\";
+      if(count > 300){
+        break;
+      }
+      myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
       myPath = myPath + count + ".java";
       if (file.isFile()) {
-        Set<String> codes =  extractAPIs(myPath);
-        for (String code : codes) {
-          if (code.equals("unnamed package") || code.equals("unnamed module")){
-            continue;
+        try{
+          Set<String> codes =  extractAPIs(myPath);
+          for (String code : codes) {
+            if (code.equals("unnamed package") || code.equals("unnamed module")){
+              continue;
+            }
+            if (map.containsKey(code)) {
+              map.put(code, map.get(code) + 1);
+            } else {
+              map.put(code, 1);
+            }
           }
-          if (map.containsKey(code)) {
-            map.put(code, map.get(code) + 1);
-          } else {
-            map.put(code, 1);
-          }
+        } catch (Exception e){
+          continue;
         }
       }
       count++;
     }
     List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
-    list.sort(Map.Entry.comparingByKey());
+    list.sort(Map.Entry.comparingByValue());
     Collections.reverse(list);
     return list;
   }
@@ -480,38 +465,6 @@ public class StackOverflowDataService {
       apis.add(ctPackage.getSimpleName());
     }
     return apis;
-  }
-
-  private static class ApiVisitor extends VoidVisitorAdapter<Void> {
-    private Set<String> apis;
-
-    public ApiVisitor(Set<String> apis) {
-      this.apis = apis;
-    }
-
-    @Override
-    public void visit(MethodDeclaration methodDeclaration, Void arg) {
-      super.visit(methodDeclaration, arg);
-
-      // 将方法的名称添加到API集合中
-      apis.add(methodDeclaration.getNameAsString());
-    }
-
-    @Override
-    public void visit(ClassOrInterfaceDeclaration classOrInterfaceDeclaration, Void arg) {
-      super.visit(classOrInterfaceDeclaration, arg);
-
-      // 将类的名称添加到API集合中
-      apis.add(classOrInterfaceDeclaration.getNameAsString());
-    }
-
-    @Override
-    public void visit(FieldDeclaration fieldDeclaration, Void arg) {
-      super.visit(fieldDeclaration, arg);
-
-      // 将字段的名称添加到API集合中
-      fieldDeclaration.getVariables().forEach(variable -> apis.add(variable.getNameAsString()));
-    }
   }
 
 

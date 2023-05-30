@@ -24,7 +24,7 @@ public class CodeAnalyzeController {
     @Autowired
     private StackOverflowDataService stackOverflowService;
     @GetMapping("/getAPIs")
-    public String codeAnalyze() {
+    public String codeAnalyze() throws IOException {
         List<Map.Entry<String, Integer>> apis = stackOverflowService.getAPIs();
         Line line = new Line()
             .setTitle("Most Active Users")

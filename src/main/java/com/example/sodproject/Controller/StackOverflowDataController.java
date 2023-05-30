@@ -29,7 +29,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import static com.example.sodproject.Component.Line.createSeries;
 
 @RestController
 @RequestMapping("/stackoverflow")
@@ -49,38 +48,5 @@ public class StackOverflowDataController {
     stackOverflowService.fetchAndStoreCodes();
     return "Fetch and store codes successfully!";
   }
-
-  @GetMapping("/getAPIs")
-  public String getAPIs() throws IOException, ParseException, InterruptedException {
-    return stackOverflowService.getAPIs().toString();
-  }
-
-
-  @GetMapping("/option")
-  public String index() {
-    Pie pie = new Pie()
-        .setTitle("Basic Pie")
-        .setTooltip("item")
-        .setLegend()
-        .addSeries(new PieDataItem[] {
-            new PieDataItem().setValue(1048).setName("Search Engine"),
-            new PieDataItem().setValue(735).setName("Direct"),
-            new PieDataItem().setValue(580).setName("Email"),
-            new PieDataItem().setValue(484).setName("Union Ads"),
-            new PieDataItem().setValue(300).setName("Video Ads")
-        });
-
-    Engine engine = new Engine();
-    Handlebars handlebars = new Handlebars();
-    String html = "";
-    try {
-      Template template = handlebars.compile("templates/index2");
-      html = template.apply(engine.renderJsonOption(pie));
-    } catch (IOException e) {
-      System.out.println("template file not found");
-    }
-    return html;
-  }
-
 
 }
