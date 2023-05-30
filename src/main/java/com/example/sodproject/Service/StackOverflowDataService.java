@@ -588,10 +588,9 @@ public class StackOverflowDataService {
       }
     }
     List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
-
     list.sort(Map.Entry.comparingByValue());
-
     Collections.reverse(list);
+    list = list.subList(0, 10);
     return list;
   }
 
@@ -614,6 +613,7 @@ public class StackOverflowDataService {
     List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
     list.sort(Map.Entry.comparingByValue());
     Collections.reverse(list);
+    list = list.subList(0, 10);
     return list;
   }
 
@@ -635,6 +635,7 @@ public class StackOverflowDataService {
     List<Map.Entry<String, Long>> list = new ArrayList<>(tagCount.entrySet());
     list.sort(Map.Entry.comparingByValue());
     Collections.reverse(list);
+    list = list.subList(0, 10);
     return list;
   }
 
@@ -723,6 +724,7 @@ public class StackOverflowDataService {
     List<Map.Entry<Long, Long>> list = new ArrayList<>(userParticipateDistribution.entrySet());
     list.sort(Map.Entry.comparingByValue());
     Collections.reverse(list);
+    list = list.subList(0, 10);
     return list;
   }
 
