@@ -26,105 +26,108 @@ import java.util.Map;
 @RestController
 @RequestMapping("/stackoverflow/answer")
 public class AnswerController {
-    @Autowired
-    private StackOverflowDataService stackOverflowService;
-    @GetMapping("/noAnswerPercentage")
-    public String getQuestions() throws JsonProcessingException {
-        double noAnswerPercentage = stackOverflowService.noAnswerPercentage();
-        Pie pie = new Pie()
-            .setTitle("Question answered")
-            .setTooltip("item")
-            .setLegend()
-            .addSeries(new PieDataItem[] {
-                new PieDataItem().setValue(noAnswerPercentage).setName("No Answer"),
-                new PieDataItem().setValue(100 - noAnswerPercentage).setName("Answered"),
-            });
 
-        Engine engine = new Engine();
-        Handlebars handlebars = new Handlebars();
-        String html = "";
-        try {
-            Template template = handlebars.compile("templates/index2");
-            html = template.apply(engine.renderJsonOption(pie));
-        } catch (IOException e) {
-            System.out.println("template file not found");
-        }
-        return html;
+  @Autowired
+  private StackOverflowDataService stackOverflowService;
+
+  @GetMapping("/noAnswerPercentage")
+  public String getQuestions() throws JsonProcessingException {
+    double noAnswerPercentage = stackOverflowService.noAnswerPercentage();
+    Pie pie = new Pie()
+        .setTitle("Question answered")
+        .setTooltip("item")
+        .setLegend()
+        .addSeries(new PieDataItem[]{
+            new PieDataItem().setValue(noAnswerPercentage).setName("No Answer"),
+            new PieDataItem().setValue(100 - noAnswerPercentage).setName("Answered"),
+        });
+
+    Engine engine = new Engine();
+    Handlebars handlebars = new Handlebars();
+    String html = "";
+    try {
+      Template template = handlebars.compile("templates/index2");
+      html = template.apply(engine.renderJsonOption(pie));
+    } catch (IOException e) {
+      System.out.println("template file not found");
     }
+    return html;
+  }
 
-    @GetMapping("/averageAnswerCount")
-    public String averageAnswerCount() throws JsonProcessingException {
-        double avg = stackOverflowService.averageAnswerCount();
-        double max = stackOverflowService.maxAnswerCount();
-        Bar bar = new Bar()
-            .setLegend()
-            .setTooltip("item")
-            .addXAxis(new String[] { "Average", "Max" })
-            .addYAxis()
-            .addSeries(new Number[] { avg, max });
-        Engine engine = new Engine();
-        Handlebars handlebars = new Handlebars();
-        String html = "";
-        try {
-            Template template = handlebars.compile("templates/index2");
-            html = template.apply(engine.renderJsonOption(bar));
-        } catch (IOException e) {
-            System.out.println("template file not found");
-        }
-        return html;
+  @GetMapping("/averageAnswerCount")
+  public String averageAnswerCount() throws JsonProcessingException {
+    double avg = stackOverflowService.averageAnswerCount();
+    double max = stackOverflowService.maxAnswerCount();
+    Bar bar = new Bar()
+        .setLegend()
+        .setTooltip("item")
+        .addXAxis(new String[]{"Average", "Max"})
+        .addYAxis()
+        .addSeries(new Number[]{avg, max});
+    Engine engine = new Engine();
+    Handlebars handlebars = new Handlebars();
+    String html = "";
+    try {
+      Template template = handlebars.compile("templates/index2");
+      html = template.apply(engine.renderJsonOption(bar));
+    } catch (IOException e) {
+      System.out.println("template file not found");
     }
+    return html;
+  }
 
-    @GetMapping("/maxAnswerCount")
-    public String getMaxAnswerCount() throws JsonProcessingException {
-        double avg = stackOverflowService.averageAnswerCount();
-        double max = stackOverflowService.maxAnswerCount();
-        Bar bar = new Bar()
-            .setLegend()
-            .setTooltip("item")
-            .addXAxis(new String[] { "Average", "Max" })
-            .addYAxis()
-            .addSeries(new Number[] { avg, max });
+  @GetMapping("/maxAnswerCount")
+  public String getMaxAnswerCount() throws JsonProcessingException {
+    double avg = stackOverflowService.averageAnswerCount();
+    double max = stackOverflowService.maxAnswerCount();
+    Bar bar = new Bar()
+        .setLegend()
+        .setTooltip("item")
+        .addXAxis(new String[]{"Average", "Max"})
+        .addYAxis()
+        .addSeries(new Number[]{avg, max});
 
-        Engine engine = new Engine();
-        Handlebars handlebars = new Handlebars();
-        String html = "";
-        try {
-            Template template = handlebars.compile("templates/index2");
-            html = template.apply(engine.renderJsonOption(bar));
-        } catch (IOException e) {
-            System.out.println("template file not found");
-        }
-        return html;
+    Engine engine = new Engine();
+    Handlebars handlebars = new Handlebars();
+    String html = "";
+    try {
+      Template template = handlebars.compile("templates/index2");
+      html = template.apply(engine.renderJsonOption(bar));
+    } catch (IOException e) {
+      System.out.println("template file not found");
     }
+    return html;
+  }
 
-    @GetMapping("/answerCountDistribution")
-    public String getAnswerCountDistribution() throws JsonProcessingException {
-        List<Map.Entry<Long, Long>> answerCounts = stackOverflowService.answerCountDistribution();
+  @GetMapping("/answerCountDistribution")
+  public String getAnswerCountDistribution() throws JsonProcessingException {
+    List<Map.Entry<Long, Long>> answerCounts = stackOverflowService.answerCountDistribution();
 
-        Line line = new Line()
-            .setTitle("Answer Distribution")
-            .setTooltip("axis")
-            .setLegend()
-            .addXAxis(new CategoryAxis().setBoundaryGap(false)
-                .setData(answerCounts.stream().map(entry -> entry.getKey().toString()).toArray(String[]::new)))
-            .addYAxis()
-            .addSeries(new LineSeries()
-                .setName("Question number")
-                .setStack("Total")
-                .setSmooth(true)
-                .setLineStyle(new LineStyle().setWidth(0))
-                .setShowSymbol(false)
-                .setAreaStyle(new LineAreaStyle())
-                .setData(answerCounts.stream().map(Map.Entry::getValue).toArray(Number[]::new)));
-        Engine engine = new Engine();
-        Handlebars handlebars = new Handlebars();
-        String html = "";
-        try {
-            Template template = handlebars.compile("templates/index2");
-            html = template.apply(engine.renderJsonOption(line));
-        } catch (IOException e) {
-            System.out.println("template file not found");
-        }
-        return html;
+    Line line = new Line()
+        .setTitle("Answer Distribution")
+        .setTooltip("axis")
+        .setLegend()
+        .addXAxis(new CategoryAxis().setBoundaryGap(false)
+            .setData(answerCounts.stream().map(entry -> entry.getKey().toString())
+                .toArray(String[]::new)))
+        .addYAxis()
+        .addSeries(new LineSeries()
+            .setName("Question number")
+            .setStack("Total")
+            .setSmooth(true)
+            .setLineStyle(new LineStyle().setWidth(0))
+            .setShowSymbol(false)
+            .setAreaStyle(new LineAreaStyle())
+            .setData(answerCounts.stream().map(Map.Entry::getValue).toArray(Number[]::new)));
+    Engine engine = new Engine();
+    Handlebars handlebars = new Handlebars();
+    String html = "";
+    try {
+      Template template = handlebars.compile("templates/index2");
+      html = template.apply(engine.renderJsonOption(line));
+    } catch (IOException e) {
+      System.out.println("template file not found");
     }
+    return html;
+  }
 }

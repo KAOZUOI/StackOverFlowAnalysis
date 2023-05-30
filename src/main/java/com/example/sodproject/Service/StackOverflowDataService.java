@@ -11,18 +11,32 @@ import com.example.sodproject.Repository.TagRepository;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.*;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLConnection;
 import java.sql.Timestamp;
 
 import com.example.sodproject.Repository.QuestionRepository;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
+import java.util.TreeMap;
 import java.util.concurrent.TimeUnit;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpResponse;
@@ -30,15 +44,6 @@ import org.apache.hc.client5.http.impl.classic.HttpClients;
 import org.apache.hc.core5.http.HttpEntity;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
-
-
-import com.github.javaparser.JavaParser;
-import com.github.javaparser.ParseResult;
-import com.github.javaparser.ast.CompilationUnit;
-import com.github.javaparser.ast.body.ClassOrInterfaceDeclaration;
-import com.github.javaparser.ast.body.FieldDeclaration;
-import com.github.javaparser.ast.body.MethodDeclaration;
-import com.github.javaparser.ast.visitor.VoidVisitorAdapter;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -166,7 +171,7 @@ public class StackOverflowDataService {
       StringBuilder questionIds = new StringBuilder();
       long sum = 0L;
       long count = 0L;
-      Iterator<Map.Entry<Long, Long>> iterator = postIdsAnswerCount.entrySet().iterator();
+      Iterator<Entry<Long, Long>> iterator = postIdsAnswerCount.entrySet().iterator();
       while (iterator.hasNext()) {
         if (sum > 100 || count == 100) {
           break;
@@ -292,8 +297,8 @@ public class StackOverflowDataService {
     }
 
     FileWriter fileWriter = new FileWriter("urls.txt");
-    for (String aUrl : urls) {
-      fileWriter.write(aUrl + "\n");
+    for (String chosenUrl : urls) {
+      fileWriter.write(chosenUrl + "\n");
     }
     fileWriter.close();
 
@@ -352,16 +357,16 @@ public class StackOverflowDataService {
     String myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
     FileWriter fileWriter = new FileWriter("error.txt");
     for (File file : new File(myPath).listFiles()) {
-      if(count > 300){
+      if (count > 300) {
         break;
       }
       myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
       myPath = myPath + count + ".java";
       if (file.isFile()) {
-        try{
-          Set<String> codes =  extractAPIs(myPath);
+        try {
+          Set<String> codes = extractAPIs(myPath);
           for (String code : codes) {
-            if (code.equals("unnamed package") || code.equals("unnamed module")){
+            if (code.equals("unnamed package") || code.equals("unnamed module")) {
               continue;
             }
             if (map.containsKey(code)) {
@@ -370,7 +375,7 @@ public class StackOverflowDataService {
               map.put(code, 1);
             }
           }
-        } catch (Exception e){
+        } catch (Exception e) {
           fileWriter.write(file.getName() + " ");
           continue;
         }
@@ -419,17 +424,17 @@ public class StackOverflowDataService {
         apis.add(apiName);
       }
     }
-    for (CtType<?> ctType : model.getAllTypes()){
+    for (CtType<?> ctType : model.getAllTypes()) {
       String fieldName = ctType.getSimpleName();
       apis.add(fieldName);
     }
 
-    for(CtPackage ctType : model.getAllPackages()){
+    for (CtPackage ctType : model.getAllPackages()) {
       String packageName = ctType.getSimpleName();
       apis.add(packageName);
     }
 
-    for(CtModule ctType : model.getAllModules()){
+    for (CtModule ctType : model.getAllModules()) {
       String typeName = ctType.getSimpleName();
       apis.add(typeName);
     }
@@ -568,7 +573,6 @@ public class StackOverflowDataService {
     return count * 100.0 / questions.size();
   }
 
-//  Which tags frequently appear together with the java tag?
 
   public List<Map.Entry<String, Long>> frequentlyAppearTogetherWithJavaTag() {
     TreeMap<String, Long> tagCount = new TreeMap<>();
@@ -591,14 +595,13 @@ public class StackOverflowDataService {
     return list;
   }
 
-//  Which tags or tag combinations receive the most upvotes?
 
   public List<Map.Entry<String, Long>> mostUpvoteTags() {
     TreeMap<String, Long> tagCount = new TreeMap<>();
     List<Tag> tagList = tagRepository.findAll();
     for (Tag tag : tagList) {
-      if(!tagCount.containsKey(tag.getTag())){
-        if(tag.getTag().equals("java") ){
+      if (!tagCount.containsKey(tag.getTag())) {
+        if (tag.getTag().equals("java")) {
           continue;
         }
         tagCount.put(tag.getTag(), 0L);
@@ -618,8 +621,8 @@ public class StackOverflowDataService {
     TreeMap<String, Long> tagCount = new TreeMap<>();
     List<Tag> tagList = tagRepository.findAll();
     for (Tag tag : tagList) {
-      if(!tagCount.containsKey(tag.getTag())){
-        if(tag.getTag().equals("java") ){
+      if (!tagCount.containsKey(tag.getTag())) {
+        if (tag.getTag().equals("java")) {
           continue;
         }
         tagCount.put(tag.getTag(), 0L);
@@ -653,8 +656,9 @@ public class StackOverflowDataService {
     List<Question> questions = questionRepository.findAll();
     for (Question question : questions) {
       userCommentDistribution.put(question.getQuestionId(), question.getCommentCount());
-      for(Answer answer : answerRepository.findByQuestionId(question.getQuestionId())){
-        userCommentDistribution.put(question.getQuestionId(), userCommentDistribution.get(question.getQuestionId()) + answer.getCommentCount());
+      for (Answer answer : answerRepository.findByQuestionId(question.getQuestionId())) {
+        userCommentDistribution.put(question.getQuestionId(),
+            userCommentDistribution.get(question.getQuestionId()) + answer.getCommentCount());
       }
     }
     List<Map.Entry<Long, Long>> list = new ArrayList<>(userCommentDistribution.entrySet());
@@ -663,13 +667,15 @@ public class StackOverflowDataService {
     return list;
   }
 
-  public List<Map.Entry<Long, Long>> userParticipateDistribution(){
+  public List<Map.Entry<Long, Long>> userParticipateDistribution() {
     TreeMap<Long, Long> userParticipateDistribution = new TreeMap<>();
     List<Question> questions = questionRepository.findAll();
-    for(Question question : questions){
-      userParticipateDistribution.put(question.getQuestionId(), question.getCommentCount() + question.getAnswerCount());
-      for(Answer answer : answerRepository.findByQuestionId(question.getQuestionId())){
-        userParticipateDistribution.put(question.getQuestionId(), userParticipateDistribution.get(question.getQuestionId()) + answer.getCommentCount());
+    for (Question question : questions) {
+      userParticipateDistribution.put(question.getQuestionId(),
+          question.getCommentCount() + question.getAnswerCount());
+      for (Answer answer : answerRepository.findByQuestionId(question.getQuestionId())) {
+        userParticipateDistribution.put(question.getQuestionId(),
+            userParticipateDistribution.get(question.getQuestionId()) + answer.getCommentCount());
       }
     }
     List<Map.Entry<Long, Long>> list = new ArrayList<>(userParticipateDistribution.entrySet());
@@ -677,8 +683,6 @@ public class StackOverflowDataService {
     Collections.reverse(list);
     return list;
   }
-
-
 
 
   public List<Map.Entry<Long, Long>> mostActiveUsers() {
