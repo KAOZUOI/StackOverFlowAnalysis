@@ -350,6 +350,7 @@ public class StackOverflowDataService {
     int count = 0;
     Map<String, Integer> map = new HashMap<>();
     String myPath = "/home/lerrorgk/Desktop/Book/java2/StackOverFlowAnalysis/codeFiles/";
+    FileWriter fileWriter = new FileWriter("error.txt");
     for (File file : new File(myPath).listFiles()) {
       if(count > 300){
         break;
@@ -370,11 +371,13 @@ public class StackOverflowDataService {
             }
           }
         } catch (Exception e){
+          fileWriter.write(file.getName() + " ");
           continue;
         }
       }
       count++;
     }
+    fileWriter.close();
     List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
     list.sort(Map.Entry.comparingByValue());
     Collections.reverse(list);
